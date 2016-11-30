@@ -1,0 +1,2349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Serial_Number>HPanel Bench                                                    </Serial_Number>
+  <File_Description />
+  <GenLink_Version>3.22.0</GenLink_Version>
+  <File_Creation_Date>5/5/2015 11:46:53 AM</File_Creation_Date>
+  <XML_File_Version>1</XML_File_Version>
+  <DCP_Version_Info>H-100 Controller, PM-DCP Release 4.1B4, HW00</DCP_Version_Info>
+  <Brand_Code>1</Brand_Code>
+  <OEM_Display_Code>0</OEM_Display_Code>
+  <Force_Brand_Code>false</Force_Brand_Code>
+  <DCP_UUID_Info>ae1b6f22-b12d-4d5d-a015-e66ffb39624e</DCP_UUID_Info>
+  <Analog_Input_Channels>
+    <Analog_Channels>
+      <ChannelID>0</ChannelID>
+      <DisplayText>OIL TEMP            </DisplayText>
+      <Units>Deg F </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>-834</Coefficients1>
+      <Coefficients2>1192</Coefficients2>
+      <Coefficients3>-728</Coefficients3>
+      <Calibration>379</Calibration>
+      <Scaling>0</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>250</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>270</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>1</ChannelID>
+      <DisplayText>COOLANT TEMP        </DisplayText>
+      <Units>Deg F </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>-834</Coefficients1>
+      <Coefficients2>1192</Coefficients2>
+      <Coefficients3>-728</Coefficients3>
+      <Calibration>379</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>20</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>240</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>250</SetptGT2>
+      <SetptLT2>40</SetptLT2>
+      <Hysteresis>2</Hysteresis>
+      <SetptType>96</SetptType>
+      <Function>0</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>65</OpetionModes>
+      <OpetionETLSCDS>8</OpetionETLSCDS>
+      <Delay_spec>68</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>2</ChannelID>
+      <DisplayText>OIL PRESSURE        </DisplayText>
+      <Units>PSI   </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>150</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>5</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>15</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>10</SetptLT2>
+      <Hysteresis>2</Hysteresis>
+      <SetptType>6</SetptType>
+      <Function>2</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>34</OpetionModes>
+      <OpetionETLSCDS>8</OpetionETLSCDS>
+      <Delay_spec>17</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>3</ChannelID>
+      <DisplayText>COOLANT LEVEL       </DisplayText>
+      <Units>Stps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>1023</Coefficients1>
+      <Coefficients2>-1024</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>100</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>300</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>30</Hysteresis>
+      <SetptType>8</SetptType>
+      <Function>2</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>196</OpetionETLSCDS>
+      <Delay_spec>1</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>4</ChannelID>
+      <DisplayText>USER CFG 05         </DisplayText>
+      <Units>N/A   </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>0</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>5</ChannelID>
+      <DisplayText>IGN FAULT           </DisplayText>
+      <Units>Stps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>10</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>25</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>8</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>35</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+      <Delay_spec>1</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>6</ChannelID>
+      <DisplayText>THROT POS           </DisplayText>
+      <Units>Stps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>5</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>80</SetptLT1>
+      <SetptGT2>900</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>10</Hysteresis>
+      <SetptType>130</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>192</OpetionETLSCDS>
+      <Delay_spec>65</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>7</ChannelID>
+      <DisplayText>USER CFG 08         </DisplayText>
+      <Units>N/A   </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>0</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>8</ChannelID>
+      <DisplayText>BAT CHARGE CUR      </DisplayText>
+      <Units>A     </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>100</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>5</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>2</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>9</ChannelID>
+      <DisplayText>BATTERY VOLTS       </DisplayText>
+      <Units>Volts </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>3002</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>20</DelayTimeGT>
+      <DelayTimeLT>50</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>1200</SetptLT1>
+      <SetptGT2>1700</SetptGT2>
+      <SetptLT2>600</SetptLT2>
+      <Hysteresis>50</Hysteresis>
+      <SetptType>134</SetptType>
+      <Function>2</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>8</OpetionETLSCDS>
+      <Delay_spec>82</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>10</ChannelID>
+      <DisplayText>CURRENT PHS A       </DisplayText>
+      <Units>Amps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>11</ChannelID>
+      <DisplayText>CURRENT PHS B       </DisplayText>
+      <Units>Amps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>12</ChannelID>
+      <DisplayText>CURRENT PHS C       </DisplayText>
+      <Units>Amps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>13</ChannelID>
+      <DisplayText>AVRG CURRENT        </DisplayText>
+      <Units>Amps  </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>600</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>64</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>2</Hysteresis>
+      <SetptType>16</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+      <Delay_spec>4</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>14</ChannelID>
+      <DisplayText>VOLT PHS A-B        </DisplayText>
+      <Units>Volts </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>30</DelayTimeLT>
+      <SetptGT1>582</SetptGT1>
+      <SetptLT1>238</SetptLT1>
+      <SetptGT2>500</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>10</Hysteresis>
+      <SetptType>50</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>34</OpetionModes>
+      <OpetionETLSCDS>12</OpetionETLSCDS>
+      <Delay_spec>134</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>15</ChannelID>
+      <DisplayText>VOLT PHS B-C        </DisplayText>
+      <Units>Volts </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>30</DelayTimeLT>
+      <SetptGT1>582</SetptGT1>
+      <SetptLT1>238</SetptLT1>
+      <SetptGT2>500</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>10</Hysteresis>
+      <SetptType>50</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>34</OpetionModes>
+      <OpetionETLSCDS>12</OpetionETLSCDS>
+      <Delay_spec>134</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>16</ChannelID>
+      <DisplayText>VOLT PHS C-A        </DisplayText>
+      <Units>Volts </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>30</DelayTimeLT>
+      <SetptGT1>582</SetptGT1>
+      <SetptLT1>238</SetptLT1>
+      <SetptGT2>500</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>10</Hysteresis>
+      <SetptType>50</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>34</OpetionModes>
+      <OpetionETLSCDS>12</OpetionETLSCDS>
+      <Delay_spec>134</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>17</ChannelID>
+      <DisplayText>AVRG VOLTAGE        </DisplayText>
+      <Units>Volts </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>30</DelayTimeLT>
+      <SetptGT1>582</SetptGT1>
+      <SetptLT1>238</SetptLT1>
+      <SetptGT2>500</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>10</Hysteresis>
+      <SetptType>50</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>34</OpetionModes>
+      <OpetionETLSCDS>12</OpetionETLSCDS>
+      <Delay_spec>134</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>18</ChannelID>
+      <DisplayText>TOTAL POWER KW      </DisplayText>
+      <Units>KW    </Units>
+      <EventSetpoint>5</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>1</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>19</ChannelID>
+      <DisplayText>TOTAL PF            </DisplayText>
+      <Units>Ratio </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>20</ChannelID>
+      <DisplayText>GEN FREQUENCY       </DisplayText>
+      <Units>Hz    </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>5</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>350</SetptLT1>
+      <SetptGT2>740</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>4</Hysteresis>
+      <SetptType>34</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>98</OpetionModes>
+      <OpetionETLSCDS>72</OpetionETLSCDS>
+      <Delay_spec>66</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>21</ChannelID>
+      <DisplayText>ENGINE RPM          </DisplayText>
+      <Units>RPM   </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>1024</Scaling>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>5</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>1050</SetptLT1>
+      <SetptGT2>2250</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>20</Hysteresis>
+      <SetptType>34</SetptType>
+      <Function>4</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>98</OpetionModes>
+      <OpetionETLSCDS>200</OpetionETLSCDS>
+      <Delay_spec>66</Delay_spec>
+    </Analog_Channels>
+    <Analog_Channels>
+      <ChannelID>22</ChannelID>
+      <DisplayText>USER CFG 23         </DisplayText>
+      <Units>N/A   </Units>
+      <EventSetpoint>0</EventSetpoint>
+      <Coefficients1>0</Coefficients1>
+      <Coefficients2>0</Coefficients2>
+      <Coefficients3>0</Coefficients3>
+      <Calibration>1024</Calibration>
+      <Scaling>0</Scaling>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <SetptGT1>0</SetptGT1>
+      <SetptLT1>0</SetptLT1>
+      <SetptGT2>0</SetptGT2>
+      <SetptLT2>0</SetptLT2>
+      <Hysteresis>0</Hysteresis>
+      <SetptType>0</SetptType>
+      <Function>10</Function>
+      <AnalogAssign>255</AnalogAssign>
+      <OpetionModes>33</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <Delay_spec>0</Delay_spec>
+    </Analog_Channels>
+  </Analog_Input_Channels>
+  <Digital_Input_Channels>
+    <Digital_Inputs>
+      <ChannelID>43</ChannelID>
+      <DisplayText>AUTO SWITCH         </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>130</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>44</ChannelID>
+      <DisplayText>MANUAL SWITCH       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>6</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>45</ChannelID>
+      <DisplayText>EMERGENCY STOP      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>22</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>46</ChannelID>
+      <DisplayText>REMOTE START        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>134</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>47</ChannelID>
+      <DisplayText>BAT CHRGR FAIL      </DisplayText>
+      <DelayTimeGT>2400</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>6</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>48</ChannelID>
+      <DisplayText>DI2/FUEL PRESSURE   </DisplayText>
+      <DelayTimeGT>5</DelayTimeGT>
+      <DelayTimeLT>10</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>6</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>49</ChannelID>
+      <DisplayText>DI3/LINE POWER      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>2</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>50</ChannelID>
+      <DisplayText>DI4/GEN POWER       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>6</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>51</ChannelID>
+      <DisplayText>MODEM DCD           </DisplayText>
+      <DelayTimeGT>5</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>130</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>52</ChannelID>
+      <DisplayText>MODEM ENABLED       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>128</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>53</ChannelID>
+      <DisplayText>GEN OVERSPEED       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>22</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>54</ChannelID>
+      <DisplayText>HUIO 1 CFG 12       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>55</ChannelID>
+      <DisplayText>HUIO 1 CFG 13       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>56</ChannelID>
+      <DisplayText>HUIO 1 CFG 14       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>57</ChannelID>
+      <DisplayText>HUIO 1 CFG 15       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>6</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>58</ChannelID>
+      <DisplayText>HUIO 2 CFG 16       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>59</ChannelID>
+      <DisplayText>HUIO 2 CFG 17       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>60</ChannelID>
+      <DisplayText>HUIO 2 CFG 18       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>61</ChannelID>
+      <DisplayText>HUIO 2 CFG 19       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>62</ChannelID>
+      <DisplayText>HUIO 3 CFG 20       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>63</ChannelID>
+      <DisplayText>HUIO 3 CFG 21       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>64</ChannelID>
+      <DisplayText>HUIO 3 CFG 22       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>65</ChannelID>
+      <DisplayText>HUIO 3 CFG 23       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>66</ChannelID>
+      <DisplayText>HUIO 4 CFG 24       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>67</ChannelID>
+      <DisplayText>HUIO 4 CFG 25       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>68</ChannelID>
+      <DisplayText>HUIO 4 CFG 26       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+    <Digital_Inputs>
+      <ChannelID>69</ChannelID>
+      <DisplayText>HUIO 4 CFG 27       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+    </Digital_Inputs>
+  </Digital_Input_Channels>
+  <Digital_Outputs>
+    <Output_Functions>
+      <ChannelID>75</ChannelID>
+      <DisplayText>COMMON ALARM        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>76</ChannelID>
+      <DisplayText>COMMON WARNING      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>77</ChannelID>
+      <DisplayText>GEN RUNNING         </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>78</ChannelID>
+      <DisplayText>ALARMS ENABLED      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>4</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>79</ChannelID>
+      <DisplayText>READY FOR LOAD      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>80</ChannelID>
+      <DisplayText>GEN READY TO RUN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>81</ChannelID>
+      <DisplayText>GEN STOPPED-ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>82</ChannelID>
+      <DisplayText>GEN STOPPED         </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>83</ChannelID>
+      <DisplayText>GEN IN MANUAL       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>84</ChannelID>
+      <DisplayText>GEN IN AUTO         </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>85</ChannelID>
+      <DisplayText>GEN IN OFF          </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>86</ChannelID>
+      <DisplayText>OVERCRANK ALARM     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>87</ChannelID>
+      <DisplayText>OIL INHIBIT ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>88</ChannelID>
+      <DisplayText>ANNUNC SPR LIGHT    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>89</ChannelID>
+      <DisplayText>OIL TEMP HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>90</ChannelID>
+      <DisplayText>OIL TEMP LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>91</ChannelID>
+      <DisplayText>OIL TEMP HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>92</ChannelID>
+      <DisplayText>OIL TEMP LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>93</ChannelID>
+      <DisplayText>OIL TEMP FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>94</ChannelID>
+      <DisplayText>COOL TMP HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>95</ChannelID>
+      <DisplayText>COOL TMP LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>96</ChannelID>
+      <DisplayText>COOL TMP HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>97</ChannelID>
+      <DisplayText>COOL TMP LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>98</ChannelID>
+      <DisplayText>COOL TMP FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>99</ChannelID>
+      <DisplayText>OIL PRES HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>100</ChannelID>
+      <DisplayText>OIL PRES LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>101</ChannelID>
+      <DisplayText>OIL PRES HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>102</ChannelID>
+      <DisplayText>OIL PRES LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>103</ChannelID>
+      <DisplayText>OIL PRES FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>104</ChannelID>
+      <DisplayText>COOL LVL HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>105</ChannelID>
+      <DisplayText>COOL LVL LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>106</ChannelID>
+      <DisplayText>COOL LVL HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>107</ChannelID>
+      <DisplayText>COOL LVL LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>108</ChannelID>
+      <DisplayText>COOL LVL FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>109</ChannelID>
+      <DisplayText>ANALOG 5 HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>110</ChannelID>
+      <DisplayText>ANALOG 5 LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>111</ChannelID>
+      <DisplayText>ANALOG 5 HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>112</ChannelID>
+      <DisplayText>ANALOG 5 LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>113</ChannelID>
+      <DisplayText>ANALOG 5 FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>114</ChannelID>
+      <DisplayText>IGN FLT HI ALRM     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>115</ChannelID>
+      <DisplayText>IGN FLT LO ALRM     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>116</ChannelID>
+      <DisplayText>IGN FLT HI WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>117</ChannelID>
+      <DisplayText>IGN FLT LO WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>118</ChannelID>
+      <DisplayText>IGN FLT FAULT       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>119</ChannelID>
+      <DisplayText>GOV POS HI ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>120</ChannelID>
+      <DisplayText>GOV POS LO ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>121</ChannelID>
+      <DisplayText>GOV POS HI WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>122</ChannelID>
+      <DisplayText>GOV POS LO WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>123</ChannelID>
+      <DisplayText>GOV POS FAULT       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>124</ChannelID>
+      <DisplayText>ANALOG 8 HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>125</ChannelID>
+      <DisplayText>ANALOG 8 LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>126</ChannelID>
+      <DisplayText>ANALOG 8 HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>127</ChannelID>
+      <DisplayText>ANALOG 8 LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>128</ChannelID>
+      <DisplayText>ANALOG 8 FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>129</ChannelID>
+      <DisplayText>CHG CURR HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>130</ChannelID>
+      <DisplayText>CHG CURR LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>131</ChannelID>
+      <DisplayText>CHG CURR HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>132</ChannelID>
+      <DisplayText>CHG CURR LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>133</ChannelID>
+      <DisplayText>CHG CURR FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>134</ChannelID>
+      <DisplayText>BAT VOLT HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>135</ChannelID>
+      <DisplayText>BAT VOLT LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>136</ChannelID>
+      <DisplayText>BAT VOLT HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>137</ChannelID>
+      <DisplayText>BAT VOLT LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>138</ChannelID>
+      <DisplayText>AVG CURR HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>139</ChannelID>
+      <DisplayText>AVG CURR LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>140</ChannelID>
+      <DisplayText>AVG CURR HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>141</ChannelID>
+      <DisplayText>AVG CURR LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>142</ChannelID>
+      <DisplayText>AVG VOLT HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>143</ChannelID>
+      <DisplayText>AVG VOLT LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>144</ChannelID>
+      <DisplayText>AVG VOLT HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>145</ChannelID>
+      <DisplayText>AVG VOLT LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>146</ChannelID>
+      <DisplayText>TOT PWR HI ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>147</ChannelID>
+      <DisplayText>TOT PWR LO ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>148</ChannelID>
+      <DisplayText>TOT PWR HI WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>149</ChannelID>
+      <DisplayText>TOT PWR LO WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>150</ChannelID>
+      <DisplayText>GEN FREQ HI ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>151</ChannelID>
+      <DisplayText>GEN FREQ LO ALRM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>152</ChannelID>
+      <DisplayText>GEN FREQ HI WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>153</ChannelID>
+      <DisplayText>GEN FREQ LO WARN    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>154</ChannelID>
+      <DisplayText>GEN FREQ FAULT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>155</ChannelID>
+      <DisplayText>ENG RPM HI ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>156</ChannelID>
+      <DisplayText>ENG RPM LO ALARM    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>157</ChannelID>
+      <DisplayText>ENG RPM HI WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>158</ChannelID>
+      <DisplayText>ENG RPM LO WARN     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>159</ChannelID>
+      <DisplayText>ENG RPM FAULT       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>160</ChannelID>
+      <DisplayText>SWITCH IN AUTO      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>161</ChannelID>
+      <DisplayText>SWITCH IN MANUAL    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>162</ChannelID>
+      <DisplayText>E-STOP ACTIVE       </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>163</ChannelID>
+      <DisplayText>REMOTE START ACTIVE </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>164</ChannelID>
+      <DisplayText>BATT CHARGE FAIL    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>165</ChannelID>
+      <DisplayText>LOW FUEL PRS ACTIVE </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>166</ChannelID>
+      <DisplayText>DI3/LINE PWR ACTIVE </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>167</ChannelID>
+      <DisplayText>DI4/GEN PWR ACT     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>168</ChannelID>
+      <DisplayText>LINE POWER          </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>169</ChannelID>
+      <DisplayText>GEN POWER           </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>170</ChannelID>
+      <DisplayText>ILC ALR/WRN #1      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>171</ChannelID>
+      <DisplayText>ILC ALR/WRN #2      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>172</ChannelID>
+      <DisplayText>IN WARM UP          </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>173</ChannelID>
+      <DisplayText>IN COOL DOWN        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>174</ChannelID>
+      <DisplayText>CRANKING            </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>175</ChannelID>
+      <DisplayText>NEED SERVICE        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>176</ChannelID>
+      <DisplayText>SHUTDOWN GENSET     </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>177</ChannelID>
+      <DisplayText>CHCK V PHS ROT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>178</ChannelID>
+      <DisplayText>CHCK C PHS ROT      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>179</ChannelID>
+      <DisplayText>FAULT RLY ACTIVE    </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>180</ChannelID>
+      <DisplayText>USR CONFIG 106      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>181</ChannelID>
+      <DisplayText>INT EXERCISE ACTIVE </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>182</ChannelID>
+      <DisplayText>CHECK FOR ILC       </DisplayText>
+      <DelayTimeGT>2</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>2</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>183</ChannelID>
+      <DisplayText>USR CONFIG 109      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>184</ChannelID>
+      <DisplayText>USR CONFIG 110      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>185</ChannelID>
+      <DisplayText>USR CONFIG 111      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>186</ChannelID>
+      <DisplayText>USR CONFIG 112      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>187</ChannelID>
+      <DisplayText>USR CONFIG 113      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>188</ChannelID>
+      <DisplayText>USR CONFIG 114      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>189</ChannelID>
+      <DisplayText>USR CONFIG 115      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>190</ChannelID>
+      <DisplayText>USR CONFIG 116      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>191</ChannelID>
+      <DisplayText>USR CONFIG 117      </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>192</ChannelID>
+      <DisplayText>GFI DETECTED        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>129</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>193</ChannelID>
+      <DisplayText>RPM MISSING         </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>13</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+    <Output_Functions>
+      <ChannelID>194</ChannelID>
+      <DisplayText>RESET ALARMS        </DisplayText>
+      <DelayTimeGT>0</DelayTimeGT>
+      <DelayTimeLT>0</DelayTimeLT>
+      <OpetionModes>1</OpetionModes>
+      <OpetionETLSCDS>0</OpetionETLSCDS>
+      <OutputAssign>255</OutputAssign>
+    </Output_Functions>
+  </Digital_Outputs>
+  <Engine>
+    <Transfer_x0020_enable>0</Transfer_x0020_enable>
+    <Transfer_enable>0</Transfer_enable>
+    <Preheat_x0020_enable>0</Preheat_x0020_enable>
+    <Preheat_enable>0</Preheat_enable>
+    <Preheat_x0020_time>0</Preheat_x0020_time>
+    <Preheat_time>0</Preheat_time>
+    <RPM_Started>800</RPM_Started>
+    <Start_Time>15</Start_Time>
+    <Hold_Off_Time>15</Hold_Off_Time>
+    <Warm_Time>0</Warm_Time>
+    <Cool_Time>60</Cool_Time>
+    <Pause_Time>5</Pause_Time>
+    <Start_Attempts>3</Start_Attempts>
+    <Load_Accept_Frequency>47</Load_Accept_Frequency>
+    <Load_Accept_Voltage>342</Load_Accept_Voltage>
+  </Engine>
+  <Generator>
+    <RPM1_Num_Flywheel_Teeth>166</RPM1_Num_Flywheel_Teeth>
+    <RPM2_Num_Flywheel_Teeth>164</RPM2_Num_Flywheel_Teeth>
+    <RPM3_Num_Flywheel_Teeth>164</RPM3_Num_Flywheel_Teeth>
+    <UTIL_CT_Ratio>100</UTIL_CT_Ratio>
+    <GEN_CT_Ratio>100</GEN_CT_Ratio>
+    <UTIL_Phase_to_Neutral>0</UTIL_Phase_to_Neutral>
+    <GEN_Phase_to_Neutral>0</GEN_Phase_to_Neutral>
+    <Phase>3</Phase>
+    <Target_RPM>1800</Target_RPM>
+    <Lowspeed_RPM>1500</Lowspeed_RPM>
+  </Generator>
+  <Governor>
+    <Standby_KP>45</Standby_KP>
+    <Standby_KI>150</Standby_KI>
+    <Standby_KD>61</Standby_KD>
+    <Synchronizing_KP>45</Synchronizing_KP>
+    <Synchronizing_KI>150</Synchronizing_KI>
+    <Synchronizing_KD>60</Synchronizing_KD>
+    <Diesel>0</Diesel>
+    <Target_Hz>50</Target_Hz>
+    <Dump_Enable>0</Dump_Enable>
+    <Actuator_Type>1</Actuator_Type>
+    <Actuator_start_Position>150</Actuator_start_Position>
+    <Offset>-460</Offset>
+    <Fullscale>990</Fullscale>
+    <Soft_Start>0</Soft_Start>
+    <Engine_Linearization>6</Engine_Linearization>
+    <Internal_Limit_or_Antiwindup>1</Internal_Limit_or_Antiwindup>
+    <Windup_Parameter>92800</Windup_Parameter>
+    <Pwm_Counts_per_ampx10>1</Pwm_Counts_per_ampx10>
+    <Power_KP>15</Power_KP>
+    <Synchronizing_gain>150</Synchronizing_gain>
+    <Desync_Hz>0.6</Desync_Hz>
+    <LowSpeedExercise_KP>20</LowSpeedExercise_KP>
+    <LowSpeedExercise_KI>75</LowSpeedExercise_KI>
+    <LowSpeedExercise_KD>90</LowSpeedExercise_KD>
+    <LowSpeedExercise_StartPosition>150</LowSpeedExercise_StartPosition>
+    <SensorSource>0</SensorSource>
+    <Pre_Synch_Enable>0</Pre_Synch_Enable>
+    <Power_ECU_Converge_Rate>0</Power_ECU_Converge_Rate>
+  </Governor>
+  <Voltage_regulator>
+    <Voltage_KP>50</Voltage_KP>
+    <Voltage_KI>60</Voltage_KI>
+    <Voltage_KD>30</Voltage_KD>
+    <Target_Volts>400</Target_Volts>
+    <Pmg>0</Pmg>
+    <VF_Corner1>48</VF_Corner1>
+    <VF_Corner2>0</VF_Corner2>
+    <VF_Slope>6</VF_Slope>
+    <AVR_Dump_Improve>1</AVR_Dump_Improve>
+    <hvlim>500</hvlim>
+    <lvlim>304</lvlim>
+    <KW_Demand>0</KW_Demand>
+    <Power_factor>100</Power_factor>
+    <Unit_Rated_Power>32</Unit_Rated_Power>
+    <Panel_Type>9</Panel_Type>
+    <neg_power_limit>4</neg_power_limit>
+    <Cksync_Board>0</Cksync_Board>
+    <MPS_flag>0</MPS_flag>
+    <Softload_XferPercent>70</Softload_XferPercent>
+    <Softload_XferRampTime>0</Softload_XferRampTime>
+    <MultiVoltage>0</MultiVoltage>
+    <LoadCapacityManagement>0</LoadCapacityManagement>
+    <VF_Percent_Volt_Limit>0</VF_Percent_Volt_Limit>
+  </Voltage_regulator>
+  <Comm_Port_Settings>
+    <Comm_Ports>
+      <port_type>3</port_type>
+      <baudrate>3</baudrate>
+      <parity>0</parity>
+      <modbusID>100</modbusID>
+    </Comm_Ports>
+    <Comm_Ports>
+      <port_type>4</port_type>
+      <baudrate>3</baudrate>
+      <parity>0</parity>
+      <modbusID>100</modbusID>
+    </Comm_Ports>
+    <Comm_Ports>
+      <port_type>7</port_type>
+      <baudrate>220</baudrate>
+      <parity>0</parity>
+      <modbusID>100</modbusID>
+    </Comm_Ports>
+    <Comm_Ports>
+      <port_type>0</port_type>
+      <baudrate>3</baudrate>
+      <parity>0</parity>
+      <modbusID>100</modbusID>
+    </Comm_Ports>
+  </Comm_Port_Settings>
+  <Modem_Baudrate_Plus_1>8</Modem_Baudrate_Plus_1>
+  <Dialout_Numbers>
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+    <Dialout_Number xsi:nil="true" />
+  </Dialout_Numbers>
+  <Maintenance>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Oil Life</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>10000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Oil Filter Life</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>20000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Spark Plug Life</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>30000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Air Filter Life</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>40000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Battery Life</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>50000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>General Service  Maintenance</Maintenance_Display_Text>
+      <Cycle_type_1>1</Cycle_type_1>
+      <Install_at_1>4320</Install_at_1>
+      <End_of_Life_1>5000</End_of_Life_1>
+      <Cycle_type_2>3</Cycle_type_2>
+      <Install_at_2>1430092800</Install_at_2>
+      <End_of_Life_2>2592000</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Utility Transfer Switch  Maintenance</Maintenance_Display_Text>
+      <Cycle_type_1>0</Cycle_type_1>
+      <Install_at_1>0</Install_at_1>
+      <End_of_Life_1>0</End_of_Life_1>
+      <Cycle_type_2>0</Cycle_type_2>
+      <Install_at_2>0</Install_at_2>
+      <End_of_Life_2>0</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Generator Transfer Switch  Maintenance</Maintenance_Display_Text>
+      <Cycle_type_1>0</Cycle_type_1>
+      <Install_at_1>0</Install_at_1>
+      <End_of_Life_1>0</End_of_Life_1>
+      <Cycle_type_2>0</Cycle_type_2>
+      <Install_at_2>0</Install_at_2>
+      <End_of_Life_2>0</End_of_Life_2>
+    </Maintenance_settings>
+    <Maintenance_settings>
+      <Maintenance_Display_Text>Bi_Fuel Maintenance</Maintenance_Display_Text>
+      <Cycle_type_1>0</Cycle_type_1>
+      <Install_at_1>0</Install_at_1>
+      <End_of_Life_1>0</End_of_Life_1>
+      <Cycle_type_2>0</Cycle_type_2>
+      <Install_at_2>0</Install_at_2>
+      <End_of_Life_2>0</End_of_Life_2>
+    </Maintenance_settings>
+  </Maintenance>
+  <governor_soft_start_timer>0</governor_soft_start_timer>
+  <Air_Fuel_Settings>
+    <enable>true</enable>
+    <PulseWidth>123</PulseWidth>
+    <KpUp>1</KpUp>
+    <KpDown>1546</KpDown>
+    <step>4</step>
+    <Algorithm>2</Algorithm>
+    <OBDCompliance>2</OBDCompliance>
+    <FuelType>7</FuelType>
+    <Parameters>
+      <unsignedShort>7</unsignedShort>
+      <unsignedShort>4</unsignedShort>
+      <unsignedShort>3</unsignedShort>
+      <unsignedShort>2</unsignedShort>
+      <unsignedShort>1</unsignedShort>
+    </Parameters>
+    <Parameters2>
+      <unsignedShort>0</unsignedShort>
+      <unsignedShort>0</unsignedShort>
+      <unsignedShort>0</unsignedShort>
+      <unsignedShort>0</unsignedShort>
+      <unsignedShort>0</unsignedShort>
+    </Parameters2>
+    <Emissions_PWM_Change_Rate>2570</Emissions_PWM_Change_Rate>
+    <Emissions_Trans_Comp>1286</Emissions_Trans_Comp>
+  </Air_Fuel_Settings>
+  <Thermal_Protection>
+    <enable>true</enable>
+    <limitCurrent300Percent>true</limitCurrent300Percent>
+    <Max_Stator_Temp>100</Max_Stator_Temp>
+    <Max_Rotor_Temp>100</Max_Rotor_Temp>
+    <Is_520>0</Is_520>
+  </Thermal_Protection>
+  <GFI_Config>
+    <Enabled>false</Enabled>
+    <CurrentThresholdAmps>0</CurrentThresholdAmps>
+    <CurrentHysteresisAmps>0</CurrentHysteresisAmps>
+    <FaultDelaySeconds>1</FaultDelaySeconds>
+    <AnalogInputChannelID>65535</AnalogInputChannelID>
+    <DigitalOutputFunctionChannelID>65535</DigitalOutputFunctionChannelID>
+  </GFI_Config>
+  <Transfer_Switch>
+    <exercise>
+      <exercise_yes>false</exercise_yes>
+      <lowspeed_yes>false</lowspeed_yes>
+      <exercise_day>0</exercise_day>
+      <exercise_hour>0</exercise_hour>
+      <exercise_minute>0</exercise_minute>
+      <exercise_duration>20</exercise_duration>
+      <exercise_with_transfer>0</exercise_with_transfer>
+    </exercise>
+    <external_transfer_switch>
+      <ext_switch>
+        <switch_number>1</switch_number>
+        <deviation>40</deviation>
+        <deviation_neg>40</deviation_neg>
+        <hysteresis>10</hysteresis>
+        <line_interrupt_delay>2</line_interrupt_delay>
+        <min_run_time>5</min_run_time>
+        <return_to_util_time>1</return_to_util_time>
+        <signal_b4_xfer_delay>2</signal_b4_xfer_delay>
+        <tdn_delay>20</tdn_delay>
+        <utility_calibration>1024</utility_calibration>
+        <gen_calibration>1024</gen_calibration>
+        <CT_ratio>100</CT_ratio>
+        <transfer_switch_type>12</transfer_switch_type>
+        <switch_target_volts>400</switch_target_volts>
+        <not_remote_start_override>false</not_remote_start_override>
+        <associated_permissive>1</associated_permissive>
+      </ext_switch>
+      <ext_switch>
+        <switch_number>2</switch_number>
+        <deviation>40</deviation>
+        <deviation_neg>40</deviation_neg>
+        <hysteresis>10</hysteresis>
+        <line_interrupt_delay>2</line_interrupt_delay>
+        <min_run_time>5</min_run_time>
+        <return_to_util_time>1</return_to_util_time>
+        <signal_b4_xfer_delay>2</signal_b4_xfer_delay>
+        <tdn_delay>20</tdn_delay>
+        <utility_calibration>1024</utility_calibration>
+        <gen_calibration>1024</gen_calibration>
+        <CT_ratio>100</CT_ratio>
+        <transfer_switch_type>12</transfer_switch_type>
+        <switch_target_volts>400</switch_target_volts>
+        <not_remote_start_override>false</not_remote_start_override>
+        <associated_permissive>2</associated_permissive>
+      </ext_switch>
+      <ext_switch>
+        <switch_number>3</switch_number>
+        <deviation>40</deviation>
+        <deviation_neg>40</deviation_neg>
+        <hysteresis>10</hysteresis>
+        <line_interrupt_delay>2</line_interrupt_delay>
+        <min_run_time>5</min_run_time>
+        <return_to_util_time>1</return_to_util_time>
+        <signal_b4_xfer_delay>2</signal_b4_xfer_delay>
+        <tdn_delay>20</tdn_delay>
+        <utility_calibration>1024</utility_calibration>
+        <gen_calibration>1024</gen_calibration>
+        <CT_ratio>100</CT_ratio>
+        <transfer_switch_type>12</transfer_switch_type>
+        <switch_target_volts>400</switch_target_volts>
+        <not_remote_start_override>false</not_remote_start_override>
+        <associated_permissive>3</associated_permissive>
+      </ext_switch>
+      <ext_switch>
+        <switch_number>4</switch_number>
+        <deviation>40</deviation>
+        <deviation_neg>40</deviation_neg>
+        <hysteresis>10</hysteresis>
+        <line_interrupt_delay>2</line_interrupt_delay>
+        <min_run_time>5</min_run_time>
+        <return_to_util_time>1</return_to_util_time>
+        <signal_b4_xfer_delay>2</signal_b4_xfer_delay>
+        <tdn_delay>20</tdn_delay>
+        <utility_calibration>1024</utility_calibration>
+        <gen_calibration>1024</gen_calibration>
+        <CT_ratio>100</CT_ratio>
+        <transfer_switch_type>12</transfer_switch_type>
+        <switch_target_volts>400</switch_target_volts>
+        <not_remote_start_override>false</not_remote_start_override>
+        <associated_permissive>1</associated_permissive>
+      </ext_switch>
+    </external_transfer_switch>
+  </Transfer_Switch>
+  <AlarmLog_par_ChID>1</AlarmLog_par_ChID>
+  <AlarmLog_par_ChID>2</AlarmLog_par_ChID>
+  <AlarmLog_par_ChID>21</AlarmLog_par_ChID>
+  <AlarmLog_par_ChID>17</AlarmLog_par_ChID>
+  <AlarmLog_par_ChID>18</AlarmLog_par_ChID>
+  <AlarmLog_par_ChID>9</AlarmLog_par_ChID>
+  <EventLog_par_ChID>1</EventLog_par_ChID>
+  <EventLog_par_ChID>2</EventLog_par_ChID>
+  <EventLog_par_ChID>21</EventLog_par_ChID>
+  <EventLog_par_ChID>17</EventLog_par_ChID>
+  <EventLog_par_ChID>18</EventLog_par_ChID>
+  <EventLog_par_ChID>9</EventLog_par_ChID>
+  <CANbusConfig>
+    <Parameters>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+      <AnalogInputSource>255</AnalogInputSource>
+    </Parameters>
+    <ProtocolBitFlags>0</ProtocolBitFlags>
+  </CANbusConfig>
+  <HUIOConfig>
+    <Enable>0</Enable>
+  </HUIOConfig>
+  <Digital_Output_Channels>
+    <DO_CH_Text>
+      <string>STARTER RELAY</string>
+      <string>FUEL RELAY</string>
+      <string>FAULT RELAY</string>
+      <string>SPARE OUT #4</string>
+      <string>NG FUEL SOLENOID</string>
+      <string>LP FUEL SOLENOID</string>
+      <string>AUX 3 OUTPUT</string>
+      <string>AUX 4 OUTPUT</string>
+      <string>SPARE OUT #9</string>
+      <string>WATCHDOG TOGGLE</string>
+      <string>THROTTLE PWM</string>
+      <string>RESERVED</string>
+      <string>RESERVED</string>
+      <string>AVR GATE A</string>
+      <string>FAULT LED</string>
+      <string>NOT IN AUTO LED</string>
+      <string>HUIO #1 - OUT 1</string>
+      <string>HUIO #1 - OUT 2</string>
+      <string>HUIO #1 - OUT 3</string>
+      <string>HUIO #1 - OUT 4</string>
+      <string>HUIO #2 - OUT 1</string>
+      <string>HUIO #2 - OUT 2</string>
+      <string>HUIO #2 - OUT 3</string>
+      <string>HUIO #2 - OUT 4</string>
+      <string>HUIO #3 - OUT 1</string>
+      <string>HUIO #3 - OUT 2</string>
+      <string>HUIO #3 - OUT 3</string>
+      <string>HUIO #3 - OUT 4</string>
+      <string>HUIO #4 - OUT 1</string>
+      <string>HUIO #4 - OUT 2</string>
+      <string>HUIO #4 - OUT 3</string>
+      <string>HUIO #4 - OUT 4</string>
+    </DO_CH_Text>
+  </Digital_Output_Channels>
+  <FMIs>
+      <FMI>
+        <Code>0</Code>
+        <Description>GT severe alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>1</Code>
+        <Description>GT alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>2</Code>
+        <Description>LT severe alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>3</Code>
+        <Description>LT alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>4</Code>
+        <Description>Sensor hi alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>5</Code>
+        <Description>Sensor lo alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>6</Code>
+        <Description>GT severe warn</Description>
+      </FMI>
+      <FMI>
+        <Code>7</Code>
+        <Description>GT warn</Description>
+      </FMI>
+      <FMI>
+        <Code>8</Code>
+        <Description>LT severe warn</Description>
+      </FMI>
+      <FMI>
+        <Code>9</Code>
+        <Description>LT warn</Description>
+      </FMI>
+      <FMI>
+        <Code>10</Code>
+        <Description>Internal fault alarm</Description>
+      </FMI>
+      <FMI>
+        <Code>11</Code>
+        <Description>Internal fault warn</Description>
+      </FMI>
+  </FMIs>
+</Configurations>
