@@ -1,0 +1,253 @@
+clsAll_config.cs
+clsBackup.cs
+clsBrand.cs
+clsConfigurator.cs
+clsConfig_file.cs
+clsConnectionsFile.cs
+clsCurrent_Firmware.cs
+clsDialoutRW.cs
+clsDongle.cs
+clsGlobal.cs
+clsMaintRW.cs
+clsOldProtocol.cs
+clsPM_CFG_ALL.cs
+clsPort_cfg.cs
+clsReadAICFG.cs
+clsReadDOCFG.cs
+clsReadIn.cs
+clsReadTrending.cs
+clsResUpdate.cs
+clsTechID.cs
+clsTools.cs
+clsTrendingSetting.cs
+clsWriteAI.cs
+clsWriteDI.cs
+clsWriteDO.cs
+frmAbout.cs
+frmActiveAlarm.cs
+frmAICFG.cs
+	(msg_str "Out of range"  );
+	("'Event Setpoint' Out of range" "Out of range"  );
+	("The range of 'Coefficients 1' is +/-32767" "Out of range"  );
+	("The range of 'Coefficients 2' is +/-32767" "Out of range"  );
+	("The range of 'Coefficients 3' is +/-32767" "Out of range"  );
+	("The range of 'Calibration' is +/-31.99" "Out of range"  );
+	("The range of 'Scaling' is +/-31.99" "Out of range"  );
+	("The range of 'Alarm 1 Setpoint' is +/-32767" "Out of range"  );
+	("The range of 'Alarm 2 Setpoint' is +/-32767" "Out of range"  );
+	("The range of 'Alarm 3 Setpoint' is +/-32767" "Out of range"  );
+	("The range of 'Alarm 4 Setpoint' is +/-32767" "Out of range"  );
+	("The range of 'Hysteresis' is +/-32767" "Out of range"  );
+	("The range of 'Delay A' is 0 - 65535" "Out of range"  );
+	("The range of 'Delay B' is 0 - 65535" "Out of range"  );
+frmAIRes.cs
+frmAirFuel.cs
+	("The range of 'Open Loop' is 1 - 100 (%) or '0' to use firmware default"  "Out of range"    );
+	("The range of 'Crank PWM' is 6 - 100 (%) or '0' to use firmware default"  "Out of range"    );
+	("The range of 'A/F PWM Inc Rate' is 10 - 100 or '0' to use firmware default"  "Out of range"    );
+	("The range of 'A/F PWM Dec Rate' is 10 - 100 or '0' to use firmware default"  "Out of range"    );
+	("The range of 'Start PWM' is 6 - 100 (%) or '0' to use firmware default"  "Out of range"    );
+	("The range of 'Start Delay' is 1 - 30 (s) or '0' to use firmware default"  "Out of range"    );
+	("The range of 'Target O2 Reading' is 0 - 1023"  "Out of range"    );
+	("The range of 'Target O2 Reading' is 0 - 1023"  "Out of range"    );
+	("The range of 'Target O2 Reading' is 0 - 1023"  "Out of range"    );
+	("The range of 'Target O2 Reading' is 0 - 1023"  "Out of range"    );
+	("The range of 'Target O2 Reading' is 0 - 1023"  "Out of range"    );
+	("The range of 'Block Load Compensation' is 0 - 255"  "Out of range"    );
+	("The range of 'Load Dump Compensation' is 0 - 255"  "Out of range"    );
+frmAlarmLog_Display.cs
+frmBiFuel.cs
+frmBifuelSetting.cs
+	("The range of 'Gas Controller P Gain' is 0 - 1000 " "Out of range"  );
+	("The range of 'Gas Controller I Gain' is 0 - 1000 " "Out of range"  );
+	("The range of 'Gas Controller D Gain' is 0 - 1000 " "Out of range"  );
+	("The range of 'Gas Set Point' is 0.0 to 99.9 CFM " "Out of range"  );
+	("'Engine Type' is Out of range" "Out of range"  );
+	("The range of 'Max Gas Flow' is 0.0 to 99.9 CFM "  "Out of range"    );
+frmBrand.cs
+frmBrand.Designer.cs
+frmBusAdvanced.cs
+frmBusAdvanced.Designer.cs
+frmCalibration.cs
+	("Voltage Out of range  (+/-10%)"  "Out of range"    );
+	("Voltage Out of range (+/-10%)"  "Out of range"    );
+	("Voltage Out of range (+/-10%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+	("Voltage Out of range (+/-10%)"  "Out of range"    );
+	("Voltage Out of range (+/-10%)"  "Out of range"    );
+	("Voltage Out of range (+/-10%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+	("Current Out of range (+/-20%)"  "Out of range"    );
+frmCalibration.Designer.cs
+frmConfigurator.cs
+frmConnections.cs
+frmConnections.Designer.cs
+frmDateTime.cs
+frmDialout_setting.cs
+frmDICFGForm.cs
+	(msg_str "Out of range"  );
+	("The range of 'Delay Time GT' is 0 -- 65535 (s)" "Out of range"  );
+	("The range of 'Delay Time LT' is 0 -- 65535 (s)" "Out of range"  );
+	("Out of range" "Out of range"  );
+frmDIRes.cs
+frmDOCFGForm.cs
+	("The range of 'Delay Time TRUE' is 0 -- 65535 (s)" "Out of range"  );
+	("The range of 'Delay Time FALSE' is 0 -- 65535 (s)" "Out of range"  );
+	("Out of range" "Out of range"  );
+	(msg_str  "Out of range"    );
+frmDongle.cs
+frmDongle.Designer.cs
+frmDongleCode.cs
+frmDongleCode.Designer.cs
+frmDORaw.cs
+frmDORes1.cs
+frmDownloadConfirm.cs
+frmDO_CH.cs
+frmEdit.cs
+frmEEPromDump.cs
+frmEngine.cs
+	("The range of 'Preheat time' is 0 - 30 (s)" "Out of range"  );
+	("The range of 'Start detection RPM' is 0 - 2000 (rpm)" "Out of range"  );
+	("The range of 'Crank time' is 0 - 40 (s)" "Out of range"  );
+	("The range of 'Alarm hold off time' is 0 - 60 (s)" "Out of range"  );
+	("The range of 'Engine Warmup time' is 0 - 1200 (s)" "Out of range"  );
+	("The range of 'Engine Cooldown time' is 0 - 1200 (s)" "Out of range"  );
+	("The range of 'Pause between cranks time' is 0 - 15 (s)" "Out of range"  );
+	("The range of 'Number of start attempts' is 0 - 20" "Out of range"  );
+	("The range of 'Target Volts' is 100 - 1000(Vrms)" "Out of range"  );
+	("The range of 'Target Hz' is 48 - 63(Hz)" "Out of range"  );
+	("The range of 'Load accept frequency' is " +load_acpt_low.ToString() +" - "+  load_acpt_hi.ToString()+"(Hz)" "Out of range"  );
+	("The range of 'Load accept voltage' is" +load_acpt_low.ToString() +" - "+  load_acpt_hi.ToString()+ "(Vrms)" "Out of range"  );
+	("The range of 'High Voltage Limit' is 50 - 1200(Vrms)"  "Out of range"    );
+	("The range of 'Low Voltage Limit' is 50 - 1000(Vrms)"  "Out of range"    );
+frmEventLog_Display.cs
+frmExercise.cs
+frmFileTransfer.cs
+frmFPanelForm.cs
+frmGeneratorCFG.cs
+	("The range of 'Engine 1  flywheel teeth' is 1 - 1000 " "Out of range"  );
+	("The range of 'Engine 2  flywheel teeth' is 1 - 1000 " "Out of range"  );
+	("The range of 'Engine 3  flywheel teeth' is 1 - 1000 " "Out of range"  );
+	("The range of 'UTIL CT Ratio' is 0 - 1000 " "Out of range"  );
+	("The range of 'GEN CT Ratio' is 0 - 1000 " "Out of range"  );
+	("'60 Hertz RPM' is invalid" "Out of range"  );
+	("'Quiet-Test RPM' is invalid" "Out of range"  );
+frmGFI.cs
+frmGFI.Designer.cs
+frmGovernor.cs
+	("The range of 'Standby KP' is 0 - 1000" "Out of range"  );
+	("The range of 'Standby KI' is 0 - 1000" "Out of range"  );
+	("The range of 'Standby KD' is 0 - 1000" "Out of range"  );
+	("The range of '" + lblGovSyncKp.Text.ToString() + "' is 0 - 1000"  "Out of range"    );
+	("The range of '" + lblGovSyncKi.Text.ToString() + "' is 0 - 1000"  "Out of range"    );
+	("The range of '" + lblGovSyncKd.Text.ToString() + "' is 0 - 1000"  "Out of range"    );
+	("The range of 'Actuator Start Position' is -1000 - 4000" "Out of range"  );
+	("The range of 'Offset' is +/-32767" "Out of range"  );
+	("The range of 'Full scale' is 0 - 65535 " "Out of range"  );
+	("The range of 'Soft Start' is 0 - 50 (Hz)" "Out of range"  );
+	("The range of 'Engine Linearization' is 0 - 255" "Out of range"  );
+	("The range of 'Pwm Counts per ampx10' is 0 - 30000.  Set to default of 90."  "Out of range"    );
+	("The range of 'Power KP' is 0 - 1000"  "Out of range"    );
+	("The range of 'Lowspeed Start Position' is -1000 - 4000" "Out of range"  );
+	("The range of 'Synchronizing Gain' is 1 - 1000"  ("The range of 'Synchronizing Gain' is 1 - 1000"  "Out of range"   
+	("'Soft Start Timer' Out of range" "Out of range"  );
+	("'Limit / windup param' Out of range" "Out of range"  );
+	("The range of 'Quiet-Test KP' is 0 - 1000"  "Out of range"    );
+	("The range of 'Quiet-Test KI' is 0 - 1000"  "Out of range"    );
+	("The range of 'Quiet-Test KD' is 0 - 1000"  "Out of range"    );
+	("The range of 'ECU Convergence Rate' is 0 - 16"  "Out of range"    );
+frmHUIO_setup.cs
+frmI2T_CFG.cs
+frmILC.cs
+frmJ1939.cs
+frmLogsetting.cs
+frmMaint.cs
+frmModem.cs
+frmModem.Designer.cs
+frmMPS.cs
+frmMPS_CFG.cs
+	("The range of 'Gen' is 1 - 15"  "Out of range"    );
+frmMPS_IC.cs
+frmNameplate.cs
+frmoffline_get_type.cs
+frmPanelLoader.cs
+frmPanelLoader.Designer.cs
+frmPassword.cs
+frmPortCFG.cs
+frmPortTest.cs
+frmRegulator.cs
+	("Set Excitiation Type to DPE"  "Excitation Type out of range"    );
+	("Set Panel Type to E Panel" "Panel Type out of range"  );
+	("The range of 'Voltage KP' is 0 - 1000" "Out of range"  );
+	("The range of 'Voltage KI' is 0 - 1000" "Out of range"  );
+	("The range of 'Voltage KD' is 0 - 1000" "Out of range"  );
+	("The range of 'VF Corner' is 0.0 - 62.9 (Hz)" "Out of range"  );
+	("The range of 'Volts per Hertz' is 0 - 30 (V/Hz)" "Out of range"  );
+	("The range of 'KW Demand' is 0 - 3000 (KW)"  "Out of range"    );
+	("The range of 'Power Factor ' is 0.8 - 1.0"  "Out of range"    );
+	("The range of 'Unit Rated Power' is "+ low_limit.ToString()+" - 4000 (KW)" "Out of range"  );
+	("The range of 'Reverse Power Limit' is " + low_limit.ToString() + " - 500 (KW)"  "Out of range"    );
+	("The range of 'VF % Threshold' is 0 or 15 - 100"  "Out of range"    );
+frmRemote_Trending_View.cs
+frmReports.cs
+frmRTC_edit.cs
+frmSerPortSet.cs
+frmsetstring_adv.cs
+frmStartup_loading.cs
+frmTestSlaveAddr.cs
+frmTransferSwitch.cs
+frmTransferSwitch_CFG.cs
+	("The range of 'Nominal Voltage' is 100 - 1000(Vrms)" "Out of range"  );
+	("'Line interruption delay 0 -- 60' Out of range" "Out of range"  );
+	("'Minimum Run Time 5 -- 30' Out of range" "Out of range"  );
+	("'Return to Utility Delay 1 -- 30' Out of range" "Out of range"  );
+	("'Signal before transfer Time 0 -- 30' Out of range" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'TDN Delay 0 -- 10' Out of range" "Out of range"  );
+	("'Transfer at this percentage of load 0 -- 95%' Out of range" "Out of range"  );
+	("'Ramp time for transfer 0 -- 240' Out of range" "Out of range"  );
+	("'Deviation' Out of range" ("'Deviation' Out of range" + min.ToString()+ " -- " + max.ToString()
+	("'hysteresis' Out of range " ("'hysteresis' Out of range " + min.ToString()+ " -- " + max.ToString()
+	("The range of 'Nominal Voltage' is 100 - 1000(Vrms)" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+frmTransferSwitch_multiV.cs
+	("The range of 'Engine Warmup time' is 0 - 1200 (s)" "Out of range"  );
+	("The range of 'Nominal Voltage' is 100 - 1000(Vrms)" "Out of range"  );
+	("'Line interruption delay 0 -- 60' Out of range" "Out of range"  );
+	("'Minimum Run Time 5 -- 30' Out of range" "Out of range"  );
+	("'Return to Utility Delay 1 -- 30' Out of range" "Out of range"  );
+	("'Signal before transfer Time 0 -- 30' Out of range" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'TDN Delay 0 -- 10' Out of range" "Out of range"  );
+	("'Transfer at this percentage of load 0 -- 95%' Out of range" "Out of range"  );
+	("'Ramp time for transfer 0 -- 240' Out of range" "Out of range"  );
+	("'Deviation' Out of range" ("'Deviation' Out of range" + min.ToString()+ " -- " + max.ToString()
+	("'hysteresis' Out of range " ("'hysteresis' Out of range " + min.ToString()+ " -- " + max.ToString()
+	("The range of 'Nominal Voltage' is 100 - 1000(Vrms)" "Out of range"  );
+	("The range of 'Engine Warmup time' is 0 - 1200 (s)" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Utility Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("'Generator Calibrate 0.8301 -- 1.1230' Out of range" "Out of range"  );
+	("The range of 'Engine Cooldown Time' is 0 - 1200 (s)" "Out of range"  );
+frmTransferSwitch_STS.cs
+frmTrending_CFG.cs
+	("'Interval' Out of range" "Out of range"  );
+frmTrending_local.cs
+frmVersion.cs
+frmWaitForCall.cs
+frmWaitForCall.Designer.cs
+GenLink.csproj
+GenLink.csproj.user
+HourGlass.cs
+MainForm.cs
+userGen.cs
+VersionHandler.cs

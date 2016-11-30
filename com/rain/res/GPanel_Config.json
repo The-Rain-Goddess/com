@@ -1,0 +1,439 @@
+{ 
+"IPanel-Version": "1.0.0.1",  
+"Controller": "G-Panel",
+ "Addresses": [
+
+{ "name": "_Remote_Annunciator", "RegisterAddress":{ "StartReg": 0, "numRegisters": 20 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "RA_Coolant_Temp_High_Alarm", "RegisterAddress":{ "StartReg": 0, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_Coolant_Temp_Low_Alarm", "RegisterAddress":{ "StartReg": 1, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Fuel_Level_Low_Alarm", "RegisterAddress":{ "StartReg": 1, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_Gen_Running", "RegisterAddress":{ "StartReg": 2, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Batt_Charge_Fail", "RegisterAddress":{ "StartReg": 2, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_Battery_Volts_Low_Alarm", "RegisterAddress":{ "StartReg": 3, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Battery_Volts_High_Alarm", "RegisterAddress":{ "StartReg": 3, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_Oil_Pressure_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 4, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Coolant_Temp_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 4, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_EMStop_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 5, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Not_In_Auto", "RegisterAddress":{ "StartReg": 5, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_RPM_Sens_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 6, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Fail_Start_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 6, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_RPM_Shutdown_Alarm", "RegisterAddress":{ "StartReg": 7, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Gen_Power", "RegisterAddress":{ "StartReg": 7, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_Line_Power", "RegisterAddress":{ "StartReg": 8, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Spare_20", "RegisterAddress":{ "StartReg": 8, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RA_System_Ready", "RegisterAddress":{ "StartReg": 9, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RA_Dummy2", "RegisterAddress":{ "StartReg": 9, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "Product_Version", "RegisterAddress":{ "StartReg": 32, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_Prod_Ver_Date", "RegisterAddress":{ "StartReg": 32, "numRegisters": 64 x 3 = 192 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Version_Date", "RegisterAddress":{ "StartReg": 64, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "GenLink_Min_Version", "RegisterAddress":{ "StartReg": 96, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "DI_Results", "RegisterAddress":{ "StartReg": 128, "numRegisters": 4 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "DO_Results", "RegisterAddress":{ "StartReg": 130, "numRegisters": 16 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "AI_Result", "RegisterAddress":{ "StartReg": 138, "numRegisters": 4 x 43 = 172 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_User_Conf", "RegisterAddress":{ "StartReg": 138, "numRegisters": 4 x 17 = 68 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Battery_Voltage", "RegisterAddress":{ "StartReg": 172, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_A_Curr_RMS", "RegisterAddress":{ "StartReg": 174, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_B_Curr_RMS", "RegisterAddress":{ "StartReg": 176, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_C_Curr_RMS", "RegisterAddress":{ "StartReg": 178, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_AVG_Curr_RMS", "RegisterAddress":{ "StartReg": 180, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_A_Curr_RMS", "RegisterAddress":{ "StartReg": 182, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_B_Curr_RMS", "RegisterAddress":{ "StartReg": 184, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_C_Curr_RMS", "RegisterAddress":{ "StartReg": 186, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_AVG_Curr_RMS", "RegisterAddress":{ "StartReg": 188, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_A_Volt_RMS", "RegisterAddress":{ "StartReg": 190, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_B_Volt_RMS", "RegisterAddress":{ "StartReg": 192, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_C_Volt_RMS", "RegisterAddress":{ "StartReg": 194, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_AVG_Volt_RMS", "RegisterAddress":{ "StartReg": 196, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_A_Volt_RMS", "RegisterAddress":{ "StartReg": 198, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_B_Volt_RMS", "RegisterAddress":{ "StartReg": 200, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_C_Volt_RMS", "RegisterAddress":{ "StartReg": 202, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_AVG_Volt_RMS", "RegisterAddress":{ "StartReg": 204, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_Total_KW", "RegisterAddress":{ "StartReg": 206, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_Total_KW", "RegisterAddress":{ "StartReg": 208, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_Total_PF", "RegisterAddress":{ "StartReg": 210, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_Total_PF", "RegisterAddress":{ "StartReg": 212, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Gen_Freq", "RegisterAddress":{ "StartReg": 214, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_Bus_Freq", "RegisterAddress":{ "StartReg": 216, "numRegisters": 4 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "AI_RPM", "RegisterAddress":{ "StartReg": 218, "numRegisters": 4 x 3 = 12 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "RTC_Hours", "RegisterAddress":{ "StartReg": 224, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "_RTC_Data", "RegisterAddress":{ "StartReg": 224, "numRegisters": 8 }, "type": STRING8, "byte-Type": master-Byte}
+{ "name": "RTC_Minutes", "RegisterAddress":{ "StartReg": 224, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RTC_Seconds", "RegisterAddress":{ "StartReg": 225, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RTC_DayOfWeek", "RegisterAddress":{ "StartReg": 225, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RTC_Month", "RegisterAddress":{ "StartReg": 226, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "RTC_DayOfMonth", "RegisterAddress":{ "StartReg": 226, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "RTC_Year", "RegisterAddress":{ "StartReg": 227, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "_RTC_Device", "RegisterAddress":{ "StartReg": 228, "numRegisters": 8 x 8 = 64 }, "type": STRING8, "byte-Type": master-Byte}
+{ "name": "EN_Hours_Run_NVRAM", "RegisterAddress":{ "StartReg": 238, "numRegisters": 4 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "EN_Watt_2ms_NVRAM", "RegisterAddress":{ "StartReg": 240, "numRegisters": 8 }, "type": UINT64, "byte-Type": master-Byte}
+{ "name": "RTC_Last_Pwr_Fail", "RegisterAddress":{ "StartReg": 260, "numRegisters": 8 }, "type": STRING8, "byte-Type": master-Byte}
+{ "name": "_RTC_Power_Cycle", "RegisterAddress":{ "StartReg": 260, "numRegisters": 8 x 2 = 16 }, "type": STRING8, "byte-Type": master-Byte}
+{ "name": "RTC_Power_Up_Time", "RegisterAddress":{ "StartReg": 264, "numRegisters": 8 }, "type": STRING8, "byte-Type": master-Byte}
+{ "name": "_Vreg_Access_Hack", "RegisterAddress":{ "StartReg": 268, "numRegisters": 68 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Alarm_ACK", "RegisterAddress":{ "StartReg": 302, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Alarm_Access", "RegisterAddress":{ "StartReg": 302, "numRegisters": 4 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "Alarms_Active", "RegisterAddress":{ "StartReg": 303, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Engine_Hours_Now", "RegisterAddress":{ "StartReg": 304, "numRegisters": 4 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "Engine_Status_Word", "RegisterAddress":{ "StartReg": 306, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Engine_Status_String", "RegisterAddress":{ "StartReg": 307, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Genset_Status_String", "RegisterAddress":{ "StartReg": 339, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Screen_Date_Time_String", "RegisterAddress":{ "StartReg": 371, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Maint_Life_Remaining_Percent", "RegisterAddress":{ "StartReg": 403, "numRegisters": 2 x 9 = 18 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_Maint_Life_Remaining", "RegisterAddress":{ "StartReg": 403, "numRegisters": 18 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Engine_Access", "RegisterAddress":{ "StartReg": 412, "numRegisters": 8 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_mbstart_bits", "RegisterAddress":{ "StartReg": 412, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Engine_Parallel_Enable", "RegisterAddress":{ "StartReg": 413, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Engine_Standby_Enable", "RegisterAddress":{ "StartReg": 414, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Engine_Front_Panel_LEDs", "RegisterAddress":{ "StartReg": 415, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "DI_As_Bytes", "RegisterAddress":{ "StartReg": 416, "numRegisters": 1 x 32 = 32 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "DO_Raw_Bits", "RegisterAddress":{ "StartReg": 432, "numRegisters": 4 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "Sync_Angle", "RegisterAddress":{ "StartReg": 434, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_kW", "RegisterAddress":{ "StartReg": 435, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Power_Manager_rwfn", "RegisterAddress":{ "StartReg": 435, "numRegisters": 88 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "PM_Bus_PF", "RegisterAddress":{ "StartReg": 436, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_Volts", "RegisterAddress":{ "StartReg": 437, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_Amps", "RegisterAddress":{ "StartReg": 438, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_PF_Leading", "RegisterAddress":{ "StartReg": 439, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_Relay_States", "RegisterAddress":{ "StartReg": 439, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "PM_Gen_kW", "RegisterAddress":{ "StartReg": 440, "numRegisters": 2 x 10 = 20 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Gen_PF", "RegisterAddress":{ "StartReg": 450, "numRegisters": 2 x 10 = 20 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Gen_Status", "RegisterAddress":{ "StartReg": 460, "numRegisters": 1 x 10 = 10 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_Gen_Engine", "RegisterAddress":{ "StartReg": 465, "numRegisters": 1 x 10 = 10 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_GenSwitches", "RegisterAddress":{ "StartReg": 470, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Shutdown_Flags", "RegisterAddress":{ "StartReg": 471, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_Gen_Sw_Closed", "RegisterAddress":{ "StartReg": 472, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_Util_Sw_Closed", "RegisterAddress":{ "StartReg": 472, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "PM_Bus_Total_kW", "RegisterAddress":{ "StartReg": 473, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_Percent_kW", "RegisterAddress":{ "StartReg": 474, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_Total_Amps", "RegisterAddress":{ "StartReg": 475, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_Bus_Percent_Amps", "RegisterAddress":{ "StartReg": 476, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_MPS_IC_State_Index", "RegisterAddress":{ "StartReg": 477, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_MPS_IC_State_Delay", "RegisterAddress":{ "StartReg": 478, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_Modem_Inhibit", "RegisterAddress":{ "StartReg": 479, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Alarm_String_Index", "RegisterAddress":{ "StartReg": 480, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Alarm_Strings_by_Index", "RegisterAddress":{ "StartReg": 480, "numRegisters": 34 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Alarm_String_of_Index", "RegisterAddress":{ "StartReg": 481, "numRegisters": 32 }, "type": STRING32, "byte-Type": master-Byte}
+{ "name": "BiFuel_RAM_Parameters", "RegisterAddress":{ "StartReg": 497, "numRegisters": 16 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Knock_Cal_Requested", "RegisterAddress":{ "StartReg": 497, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Knock_Cal_Status", "RegisterAddress":{ "StartReg": 498, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Knock_Cal_Warmup_Timer", "RegisterAddress":{ "StartReg": 499, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Desired_Gas_Flow", "RegisterAddress":{ "StartReg": 500, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "BiFuel_Status_Flags", "RegisterAddress":{ "StartReg": 501, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "GEN_Curr_Phase_Rotation", "RegisterAddress":{ "StartReg": 505, "numRegisters": 1 x 4 = 4 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PortIO_Parameters", "RegisterAddress":{ "StartReg": 505, "numRegisters": 16 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "GEN_Volt_Phase_Rotation", "RegisterAddress":{ "StartReg": 507, "numRegisters": 1 x 4 = 4 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "Bus_Volt_Phase_Rotation", "RegisterAddress":{ "StartReg": 509, "numRegisters": 1 x 4 = 4 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "Phase_Rotation_Not_Match", "RegisterAddress":{ "StartReg": 511, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "Curr_Phase_Rotation_Not_Match", "RegisterAddress":{ "StartReg": 511, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "_Engine_Hours_Set", "RegisterAddress":{ "StartReg": 513, "numRegisters": 4 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "User_Output_Function", "RegisterAddress":{ "StartReg": 515, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Thermal_Protection_RAM", "RegisterAddress":{ "StartReg": 516, "numRegisters": 12 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Man_Parallel_Req", "RegisterAddress":{ "StartReg": 522, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Man_Parallel_fn", "RegisterAddress":{ "StartReg": 522, "numRegisters": 66 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Man_Parallel_Status", "RegisterAddress":{ "StartReg": 523, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Quiet_Test_Request", "RegisterAddress":{ "StartReg": 555, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Engine_kW_Hours_Now", "RegisterAddress":{ "StartReg": 576, "numRegisters": 4 x 2 = 8 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_kW", "RegisterAddress":{ "StartReg": 580, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Power_Manager_15_rwfn", "RegisterAddress":{ "StartReg": 580, "numRegisters": 118 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_PF", "RegisterAddress":{ "StartReg": 581, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_Volts", "RegisterAddress":{ "StartReg": 582, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_Amps", "RegisterAddress":{ "StartReg": 583, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_PF_Leading", "RegisterAddress":{ "StartReg": 584, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_15_Relay_States", "RegisterAddress":{ "StartReg": 584, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "PM_15_Gen_kW", "RegisterAddress":{ "StartReg": 585, "numRegisters": 2 x 15 = 30 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Gen_PF", "RegisterAddress":{ "StartReg": 600, "numRegisters": 2 x 15 = 30 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Gen_Status", "RegisterAddress":{ "StartReg": 615, "numRegisters": 1 x 15 = 15 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_15_Gen_Engine", "RegisterAddress":{ "StartReg": 622, "numRegisters": 1 x 15 = 15 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "PM_15_GenSwitches", "RegisterAddress":{ "StartReg": 630, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Shutdown_Flags", "RegisterAddress":{ "StartReg": 631, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Gen_Sw_Closed", "RegisterAddress":{ "StartReg": 632, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "PM_15_Util_Sw_Closed", "RegisterAddress":{ "StartReg": 632, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "PM_15_Bus_Total_kW", "RegisterAddress":{ "StartReg": 633, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_Percent_kW", "RegisterAddress":{ "StartReg": 634, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_Total_Amps", "RegisterAddress":{ "StartReg": 635, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "PM_15_Bus_Percent_Amps", "RegisterAddress":{ "StartReg": 636, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_MPS_15_IC_State_Index", "RegisterAddress":{ "StartReg": 637, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_MPS_15_IC_State_Delay", "RegisterAddress":{ "StartReg": 638, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_LCM_Algorithm", "RegisterAddress":{ "StartReg": 639, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Ctrl_1_rw", "RegisterAddress":{ "StartReg": 639, "numRegisters": 52 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Select", "RegisterAddress":{ "StartReg": 640, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_in_AUTO", "RegisterAddress":{ "StartReg": 641, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Shutdown", "RegisterAddress":{ "StartReg": 642, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_SW_Closed", "RegisterAddress":{ "StartReg": 643, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_SW_Tripped", "RegisterAddress":{ "StartReg": 644, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Load_Ready", "RegisterAddress":{ "StartReg": 645, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Comms_OK", "RegisterAddress":{ "StartReg": 646, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Out_of_Service", "RegisterAddress":{ "StartReg": 647, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_In_List", "RegisterAddress":{ "StartReg": 648, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Remote_Start", "RegisterAddress":{ "StartReg": 649, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Load", "RegisterAddress":{ "StartReg": 650, "numRegisters": 2 x 15 = 30 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_DTC_P0134_Count", "RegisterAddress":{ "StartReg": 665, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Emissions_rw", "RegisterAddress":{ "StartReg": 665, "numRegisters": 32 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_OBD_Enable", "RegisterAddress":{ "StartReg": 666, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_AoF_Duty_Cycle", "RegisterAddress":{ "StartReg": 667, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_O2_Sensor", "RegisterAddress":{ "StartReg": 668, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Filt_O2_Sensor", "RegisterAddress":{ "StartReg": 669, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Gov_Position", "RegisterAddress":{ "StartReg": 670, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Filt_Gov_Position", "RegisterAddress":{ "StartReg": 671, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_OBD_Eng_Torq", "RegisterAddress":{ "StartReg": 672, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_OBD_Eng_Spd", "RegisterAddress":{ "StartReg": 673, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_OBD_Cool_Temp", "RegisterAddress":{ "StartReg": 674, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_O2_Sensor_Toggle_Count", "RegisterAddress":{ "StartReg": 675, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Ctrl_2_rw", "RegisterAddress":{ "StartReg": 681, "numRegisters": 40 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Perm_Override", "RegisterAddress":{ "StartReg": 682, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_LS_Override", "RegisterAddress":{ "StartReg": 684, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_Overload", "RegisterAddress":{ "StartReg": 685, "numRegisters": 2 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_LCM_Gen_kW_Capacity", "RegisterAddress":{ "StartReg": 686, "numRegisters": 2 x 15 = 30 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_GFI_Data", "RegisterAddress":{ "StartReg": 701, "numRegisters": 20 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Display_Config", "RegisterAddress":{ "StartReg": 711, "numRegisters": 20 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_MPS_rwfn", "RegisterAddress":{ "StartReg": 3040, "numRegisters": 28 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_SM_Bool", "RegisterAddress":{ "StartReg": 3072, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "_ScreenMap", "RegisterAddress":{ "StartReg": 3072, "numRegisters": 666 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_SM_Button", "RegisterAddress":{ "StartReg": 3072, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "_SM_Byte", "RegisterAddress":{ "StartReg": 3073, "numRegisters": 1 x 8 = 8 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "_SM_Dint", "RegisterAddress":{ "StartReg": 3077, "numRegisters": 4 x 8 = 32 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "_SM_Dword", "RegisterAddress":{ "StartReg": 3093, "numRegisters": 4 x 3 = 12 }, "type": UINT32, "byte-Type": master-Byte}
+{ "name": "_SM_Int", "RegisterAddress":{ "StartReg": 3099, "numRegisters": 2 x 8 = 16 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_SM_Map", "RegisterAddress":{ "StartReg": 3107, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_SM_Page", "RegisterAddress":{ "StartReg": 3108, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_SM_Real", "RegisterAddress":{ "StartReg": 3109, "numRegisters": 4 x 2 = 8 }, "type": INT32, "byte-Type": master-Byte}
+{ "name": "_SM_Status", "RegisterAddress":{ "StartReg": 3113, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_SM_String", "RegisterAddress":{ "StartReg": 3145, "numRegisters": 64 x 8 = 512 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_SM_Template", "RegisterAddress":{ "StartReg": 3401, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "_SM_Word", "RegisterAddress":{ "StartReg": 3402, "numRegisters": 2 x 3 = 6 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_HID_Map", "RegisterAddress":{ "StartReg": 3405, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_HID_Template", "RegisterAddress":{ "StartReg": 3406, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_HID_Page", "RegisterAddress":{ "StartReg": 3407, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_HID_Button", "RegisterAddress":{ "StartReg": 3408, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Page_Raw_A2D", "RegisterAddress":{ "StartReg": 3409, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Page_Volts", "RegisterAddress":{ "StartReg": 3410, "numRegisters": 2 x 6 = 12 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_Page_Alarms", "RegisterAddress":{ "StartReg": 3416, "numRegisters": 64 x 5 = 320 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_Page_Alarm_Paging", "RegisterAddress":{ "StartReg": 3576, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "Page_Gen_GenSwitch", "RegisterAddress":{ "StartReg": 3577, "numRegisters": 1 }, "type": UINT8, "byte-Type": high-byte}
+{ "name": "_Page_Generator", "RegisterAddress":{ "StartReg": 3577, "numRegisters": 138 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "Page_Gen_ShutdownAlarm", "RegisterAddress":{ "StartReg": 3577, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "Page_Gen_OutOfService", "RegisterAddress":{ "StartReg": 3578, "numRegisters": 1 }, "type": UINT8, "byte-Type": low-byte}
+{ "name": "Page_Gen_kW", "RegisterAddress":{ "StartReg": 3579, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "Page_Gen_Percent_kW", "RegisterAddress":{ "StartReg": 3580, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "Page_Gen_PF", "RegisterAddress":{ "StartReg": 3581, "numRegisters": 2 }, "type": INT16, "byte-Type": master-Byte}
+{ "name": "Page_Gen_Name", "RegisterAddress":{ "StartReg": 3582, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "Page_Gen_Status", "RegisterAddress":{ "StartReg": 3614, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_Switch_Not_Present", "RegisterAddress":{ "StartReg": 3648, "numRegisters": 64 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "_Sorry", "RegisterAddress":{ "StartReg": 3680, "numRegisters": 64 x 2 = 128 }, "type": STRING64, "byte-Type": master-Byte}
+{ "name": "External_Switch_Access", "RegisterAddress":{ "StartReg": 3744, "numRegisters": 66 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "_Test_Calibration_Window", "RegisterAddress":{ "StartReg": 3808, "numRegisters": 64 }, "type": CUSTOM, "byte-Type": master-Byte}
+{ "name": "MaintenanceOperations", "RegisterAddress":{ "StartReg": 4048, "numRegisters": 2 x 40 = 80 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "DisplayAlarmAccess", "RegisterAddress":{ "StartReg": 4053, "numRegisters": 2 x 40 = 80 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "SecurityAccessLevel", "RegisterAddress":{ "StartReg": 4093, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "SecurityPassCode", "RegisterAddress":{ "StartReg": 4094, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "SecurityChallengeCode", "RegisterAddress":{ "StartReg": 4095, "numRegisters": 2 }, "type": UINT16, "byte-Type": master-Byte}
+{ "name": "_EEPROM_Format_Version", "FileAddress":{ "file": 1, "record": 0, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_SEEPROM", "FileAddress":{ "file": 1, "record": 0, "size": 0}, "type": CUSTOM, "readSize":  196672}
+{ "name": "_XML_Format_Version", "FileAddress":{ "file": 1, "record": 0, "size": 2}, "type": INT16, "readSize":  2}
+{ "name": "AI_Cfg_Event_Setpoint", "FileAddress":{ "file": 1, "record": 1, "size": 0}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Chan_Crit", "FileAddress":{ "file": 1, "record": 1, "size": 0}, "type": AI_CHAN_CRIT, "readSize":  32 x 43 = 1376}
+{ "name": "AI_Cfg_Coeff_1", "FileAddress":{ "file": 1, "record": 1, "size": 2}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Coeff_2", "FileAddress":{ "file": 1, "record": 1, "size": 4}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Coeff_3", "FileAddress":{ "file": 1, "record": 1, "size": 6}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Calibration", "FileAddress":{ "file": 1, "record": 1, "size": 8}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Scaling", "FileAddress":{ "file": 1, "record": 1, "size": 10}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Delay_Time_1", "FileAddress":{ "file": 1, "record": 1, "size": 12}, "type": UINT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Delay_Time_2", "FileAddress":{ "file": 1, "record": 1, "size": 14}, "type": UINT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Setpoint_1", "FileAddress":{ "file": 1, "record": 1, "size": 16}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Setpoint_2", "FileAddress":{ "file": 1, "record": 1, "size": 18}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Setpoint_3", "FileAddress":{ "file": 1, "record": 1, "size": 20}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Setpoint_4", "FileAddress":{ "file": 1, "record": 1, "size": 22}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Hysteresis", "FileAddress":{ "file": 1, "record": 1, "size": 24}, "type": INT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Cfg_Setpoint_Types", "FileAddress":{ "file": 1, "record": 1, "size": 26}, "type": UINT8, "readSize": 1 bytes, 43 items}
+{ "name": "AI_Cfg_Function", "FileAddress":{ "file": 1, "record": 1, "size": 27}, "type": UINT8, "readSize": 1 bytes, 43 items}
+{ "name": "AI_Cfg_Analog_Assign", "FileAddress":{ "file": 1, "record": 1, "size": 28}, "type": UINT8, "readSize": 1 bytes, 43 items}
+{ "name": "AI_Cfg_Options_Mode_Ecmp", "FileAddress":{ "file": 1, "record": 1, "size": 29}, "type": UINT8, "readSize": 1 bytes, 43 items}
+{ "name": "AI_Cfg_Options_ETLSCDS", "FileAddress":{ "file": 1, "record": 1, "size": 30}, "type": UINT8, "readSize": 1 bytes, 43 items}
+{ "name": "DI_Cfg_Delay_Time_1", "FileAddress":{ "file": 1, "record": 23, "size": 0}, "type": UINT16, "readSize": 2 bytes, 32 items}
+{ "name": "DI_Chan_Crit", "FileAddress":{ "file": 1, "record": 23, "size": 0}, "type": DI_CHAN_CRIT, "readSize":  8 x 32 = 256}
+{ "name": "DI_Cfg_Delay_Time_2", "FileAddress":{ "file": 1, "record": 23, "size": 2}, "type": UINT16, "readSize": 2 bytes, 32 items}
+{ "name": "DI_Cfg_Opt_Modes_Cmp_Ev", "FileAddress":{ "file": 1, "record": 23, "size": 4}, "type": UINT8, "readSize": 1 bytes, 32 items}
+{ "name": "DI_Cfg_Opt_AWLSCD", "FileAddress":{ "file": 1, "record": 23, "size": 5}, "type": UINT8, "readSize": 1 bytes, 32 items}
+{ "name": "DO_Cfg_Delay_Time_1", "FileAddress":{ "file": 1, "record": 27, "size": 0}, "type": UINT16, "readSize": 2 bytes, 120 items}
+{ "name": "DO_Chan_Crit", "FileAddress":{ "file": 1, "record": 27, "size": 0}, "type": DO_CHAN_CRIT, "readSize":  8 x 120 = 960}
+{ "name": "DO_Cfg_Delay_Time_2", "FileAddress":{ "file": 1, "record": 27, "size": 2}, "type": UINT16, "readSize": 2 bytes, 120 items}
+{ "name": "DO_Cfg_Opt_Modes_Cmp_Ev", "FileAddress":{ "file": 1, "record": 27, "size": 4}, "type": UINT8, "readSize": 1 bytes, 120 items}
+{ "name": "DO_Cfg_Opt_AWLSCD", "FileAddress":{ "file": 1, "record": 27, "size": 5}, "type": UINT8, "readSize": 1 bytes, 120 items}
+{ "name": "DO_Cfg_Assign_Output", "FileAddress":{ "file": 1, "record": 27, "size": 6}, "type": UINT8, "readSize": 1 bytes, 120 items}
+{ "name": "RPM_Num_Flywheel_Teeth", "FileAddress":{ "file": 1, "record": 42, "size": 0}, "type": UINT16, "readSize":  2 x 3 = 6}
+{ "name": "CT_Ratio", "FileAddress":{ "file": 1, "record": 42, "size": 6}, "type": UINT16, "readSize":  2 x 2 = 4}
+{ "name": "GEN_Single_Phase", "FileAddress":{ "file": 1, "record": 42, "size": 12}, "type": UINT8, "readSize":  1}
+{ "name": "Target_Gen_RPM", "FileAddress":{ "file": 1, "record": 42, "size": 13}, "type": UINT16, "readSize":  2 x 2 = 4}
+{ "name": "_Power_Manager_Crit", "FileAddress":{ "file": 1, "record": 43, "size": 0}, "type": CUSTOM, "readSize":  128}
+{ "name": "Trending_Interval", "FileAddress":{ "file": 1, "record": 46, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "Trending_Active_When", "FileAddress":{ "file": 1, "record": 46, "size": 2}, "type": UINT8, "readSize":  1}
+{ "name": "Trending_Trigger_Bits", "FileAddress":{ "file": 1, "record": 46, "size": 3}, "type": UINT8, "readSize":  1}
+{ "name": "Trending_Trigger_Channel_ID", "FileAddress":{ "file": 1, "record": 46, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "_Maint_Type", "FileAddress":{ "file": 1, "record": 47, "size": 0}, "type": UINT8, "readSize":  1 x 18 = 18}
+{ "name": "_Emissions_Config_Struct", "FileAddress":{ "file": 1, "record": 48, "size": 0}, "type": CUSTOM, "readSize":  36}
+{ "name": "_Emissions_Enable", "FileAddress":{ "file": 1, "record": 48, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Pulse_Width", "FileAddress":{ "file": 1, "record": 48, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Kp_Up", "FileAddress":{ "file": 1, "record": 48, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Kp_Down", "FileAddress":{ "file": 1, "record": 48, "size": 6}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Step", "FileAddress":{ "file": 1, "record": 48, "size": 8}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Algorithm", "FileAddress":{ "file": 1, "record": 48, "size": 10}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_OBD_Compliance", "FileAddress":{ "file": 1, "record": 48, "size": 12}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Fuel_Type", "FileAddress":{ "file": 1, "record": 48, "size": 14}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Parameters_A", "FileAddress":{ "file": 1, "record": 48, "size": 16}, "type": UINT16, "readSize":  2 x 5 = 10}
+{ "name": "_Emissions_Parameters_B", "FileAddress":{ "file": 1, "record": 48, "size": 26}, "type": UINT16, "readSize":  2 x 5 = 10}
+{ "name": "_Emissions_AF_PWM_DC_Change_Rate", "FileAddress":{ "file": 1, "record": 48, "size": 58}, "type": UINT16, "readSize":  2}
+{ "name": "_Emissions_Trans_Comp", "FileAddress":{ "file": 1, "record": 48, "size": 60}, "type": UINT16, "readSize":  2}
+{ "name": "_DTC_P0134_Counter", "FileAddress":{ "file": 1, "record": 48, "size": 62}, "type": UINT16, "readSize":  2}
+{ "name": "_Regulator_Multivoltage_Cache", "FileAddress":{ "file": 1, "record": 51, "size": 0}, "type": CUSTOM, "readSize":  64}
+{ "name": "_CAN_Bus_Config_Struct", "FileAddress":{ "file": 1, "record": 52, "size": 0}, "type": CUSTOM, "readSize":  64}
+{ "name": "_CAN_Protocol_BitFlags", "FileAddress":{ "file": 1, "record": 52, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_CAN_Param_For_AI", "FileAddress":{ "file": 1, "record": 52, "size": 2}, "type": UINT8, "readSize":  1 x 43 = 43}
+{ "name": "_Power_Manager_15_Crit", "FileAddress":{ "file": 1, "record": 53, "size": 0}, "type": CUSTOM, "readSize":  192}
+{ "name": "_Brand_Info", "FileAddress":{ "file": 1, "record": 62, "size": 0}, "type": CUSTOM, "readSize":  4}
+{ "name": "_Brand_Display_Info", "FileAddress":{ "file": 1, "record": 62, "size": 4}, "type": CUSTOM, "readSize":  2}
+{ "name": "_UUID_Info", "FileAddress":{ "file": 1, "record": 63, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "Genset_Serial_Number", "FileAddress":{ "file": 1, "record": 64, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "Nameplate_Data", "FileAddress":{ "file": 1, "record": 64, "size": 0}, "type": CUSTOM, "readSize":  1024}
+{ "name": "EN_Transfer_Enable", "FileAddress":{ "file": 1, "record": 80, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Preheat_Enable", "FileAddress":{ "file": 1, "record": 80, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Preheat_Time", "FileAddress":{ "file": 1, "record": 80, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "EN_RPM_Started", "FileAddress":{ "file": 1, "record": 80, "size": 6}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Start_Time", "FileAddress":{ "file": 1, "record": 80, "size": 8}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Hold_Off_Time", "FileAddress":{ "file": 1, "record": 80, "size": 10}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Warm_Time", "FileAddress":{ "file": 1, "record": 80, "size": 12}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Cool_Time", "FileAddress":{ "file": 1, "record": 80, "size": 14}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Pause_Time", "FileAddress":{ "file": 1, "record": 80, "size": 16}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Start_Attempts", "FileAddress":{ "file": 1, "record": 80, "size": 18}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Load_Accept_Frequency", "FileAddress":{ "file": 1, "record": 80, "size": 20}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Load_Accept_Voltage", "FileAddress":{ "file": 1, "record": 80, "size": 22}, "type": UINT16, "readSize":  2}
+{ "name": "EN_Hours_Run_EEPROM", "FileAddress":{ "file": 1, "record": 80, "size": 24}, "type": UINT32, "readSize":  4}
+{ "name": "EN_Watt_2ms_EEPROM", "FileAddress":{ "file": 1, "record": 80, "size": 28}, "type": UINT64, "readSize":  8}
+{ "name": "_Alarmlog_Next_Index", "FileAddress":{ "file": 1, "record": 82, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_Alarmlog_Binary", "FileAddress":{ "file": 1, "record": 82, "size": 2}, "type": CUSTOM, "readSize":  420}
+{ "name": "AI_Cfg_Channel_ID", "FileAddress":{ "file": 1, "record": 89, "size": 0}, "type": UINT16, "readSize": 2 bytes, 43 items}
+{ "name": "AI_Chan_Prom", "FileAddress":{ "file": 1, "record": 89, "size": 0}, "type": AI_CHAN_PROM, "readSize":  32 x 43 = 1376}
+{ "name": "AI_Cfg_Display_Text", "FileAddress":{ "file": 1, "record": 89, "size": 2}, "type": STRING20, "readSize": 20 bytes, 43 items}
+{ "name": "AI_Cfg_Units_Text", "FileAddress":{ "file": 1, "record": 89, "size": 22}, "type": STRING6, "readSize": 6 bytes, 43 items}
+{ "name": "DI_Cfg_Channel_ID", "FileAddress":{ "file": 1, "record": 111, "size": 0}, "type": UINT16, "readSize": 2 bytes, 32 items}
+{ "name": "DI_Chan_Prom", "FileAddress":{ "file": 1, "record": 111, "size": 0}, "type": DI_CHAN_PROM, "readSize":  32 x 32 = 1024}
+{ "name": "DI_Cfg_Display_Text", "FileAddress":{ "file": 1, "record": 111, "size": 2}, "type": STRING20, "readSize": 20 bytes, 32 items}
+{ "name": "DO_Cfg_Channel_ID", "FileAddress":{ "file": 1, "record": 127, "size": 0}, "type": UINT16, "readSize": 2 bytes, 120 items}
+{ "name": "DO_Chan_Prom", "FileAddress":{ "file": 1, "record": 127, "size": 0}, "type": DO_CHAN_PROM, "readSize":  32 x 120 = 3840}
+{ "name": "DO_Cfg_Display_Text", "FileAddress":{ "file": 1, "record": 127, "size": 2}, "type": STRING20, "readSize": 20 bytes, 120 items}
+{ "name": "AlarmLog_Parameters", "FileAddress":{ "file": 1, "record": 187, "size": 0}, "type": UINT16, "readSize":  2 x 6 = 12}
+{ "name": "EventLog_Parameters", "FileAddress":{ "file": 1, "record": 187, "size": 12}, "type": UINT16, "readSize":  2 x 6 = 12}
+{ "name": "ILC_Data", "FileAddress":{ "file": 1, "record": 188, "size": 0}, "type": CUSTOM, "readSize":  768}
+{ "name": "PLC_Data", "FileAddress":{ "file": 1, "record": 188, "size": 0}, "type": CUSTOM, "readSize":  768}
+{ "name": "Modem_Dial_Numbers", "FileAddress":{ "file": 1, "record": 202, "size": 0}, "type": STRING32, "readSize":  32 x 10 = 320}
+{ "name": "Port_Cfg", "FileAddress":{ "file": 1, "record": 210, "size": 0}, "type": CUSTOM, "readSize":  64}
+{ "name": "Gov_Standby_KP", "FileAddress":{ "file": 1, "record": 211, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Standby_KI", "FileAddress":{ "file": 1, "record": 211, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Standby_KD", "FileAddress":{ "file": 1, "record": 211, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Synchronizing_KP", "FileAddress":{ "file": 1, "record": 211, "size": 6}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Synchronizing_KI", "FileAddress":{ "file": 1, "record": 211, "size": 8}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Synchronizing_KD", "FileAddress":{ "file": 1, "record": 211, "size": 10}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Diesel", "FileAddress":{ "file": 1, "record": 211, "size": 12}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Target_Hz", "FileAddress":{ "file": 1, "record": 211, "size": 14}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Dump_Enable", "FileAddress":{ "file": 1, "record": 211, "size": 16}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Actuator_Type", "FileAddress":{ "file": 1, "record": 211, "size": 18}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Actuator_Start_Position", "FileAddress":{ "file": 1, "record": 211, "size": 20}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Offset", "FileAddress":{ "file": 1, "record": 211, "size": 22}, "type": INT16, "readSize":  2}
+{ "name": "Gov_Fullscale", "FileAddress":{ "file": 1, "record": 211, "size": 24}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Soft_Start", "FileAddress":{ "file": 1, "record": 211, "size": 26}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Engine_Linearization", "FileAddress":{ "file": 1, "record": 211, "size": 28}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Int_Limit_Antiwindup", "FileAddress":{ "file": 1, "record": 211, "size": 30}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Windup_Parameter", "FileAddress":{ "file": 1, "record": 211, "size": 32}, "type": UINT32, "readSize":  4}
+{ "name": "Gov_Pwm_Counts_per_ampx10", "FileAddress":{ "file": 1, "record": 211, "size": 36}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Power_KP", "FileAddress":{ "file": 1, "record": 211, "size": 38}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Synchronizer_Gain", "FileAddress":{ "file": 1, "record": 211, "size": 40}, "type": INT16, "readSize":  2}
+{ "name": "Gov_SoftStart_Timer", "FileAddress":{ "file": 1, "record": 211, "size": 42}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_LowSpeedExercise_KP", "FileAddress":{ "file": 1, "record": 211, "size": 44}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_LowSpeedExercise_KI", "FileAddress":{ "file": 1, "record": 211, "size": 46}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_LowSpeedExercise_KD", "FileAddress":{ "file": 1, "record": 211, "size": 48}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_LowSpeedExercise_StartPosition", "FileAddress":{ "file": 1, "record": 211, "size": 50}, "type": UINT16, "readSize":  2}
+{ "name": "Gov_Sensor_Source", "FileAddress":{ "file": 1, "record": 211, "size": 52}, "type": INT16, "readSize":  2}
+{ "name": "Gov_Synch_Control", "FileAddress":{ "file": 1, "record": 211, "size": 54}, "type": INT16, "readSize":  2}
+{ "name": "Gov_ECU_Converge_Rate", "FileAddress":{ "file": 1, "record": 211, "size": 56}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Voltage_KP", "FileAddress":{ "file": 1, "record": 213, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Voltage_KI", "FileAddress":{ "file": 1, "record": 213, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Voltage_KD", "FileAddress":{ "file": 1, "record": 213, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Target_Volts", "FileAddress":{ "file": 1, "record": 213, "size": 6}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Pmg", "FileAddress":{ "file": 1, "record": 213, "size": 8}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_VF_Corner1", "FileAddress":{ "file": 1, "record": 213, "size": 10}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_VF_Corner2", "FileAddress":{ "file": 1, "record": 213, "size": 12}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_VF_Slope", "FileAddress":{ "file": 1, "record": 213, "size": 14}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_AVR_Dump_Improve", "FileAddress":{ "file": 1, "record": 213, "size": 16}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_hvlim", "FileAddress":{ "file": 1, "record": 213, "size": 18}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_lvlim", "FileAddress":{ "file": 1, "record": 213, "size": 20}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_KW_Demand", "FileAddress":{ "file": 1, "record": 213, "size": 22}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Power_Factor", "FileAddress":{ "file": 1, "record": 213, "size": 24}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Unit_Rated_Power", "FileAddress":{ "file": 1, "record": 213, "size": 26}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Panel_Type", "FileAddress":{ "file": 1, "record": 213, "size": 28}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Neg_Power_Limit", "FileAddress":{ "file": 1, "record": 213, "size": 30}, "type": UINT16, "readSize":  2}
+{ "name": "Use_Cksync_Board", "FileAddress":{ "file": 1, "record": 213, "size": 32}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Paralleling_Options", "FileAddress":{ "file": 1, "record": 213, "size": 34}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_Softload_Xfer_Percent", "FileAddress":{ "file": 1, "record": 213, "size": 36}, "type": UINT8, "readSize":  1}
+{ "name": "Reg_Softload_Xfer_RampTime", "FileAddress":{ "file": 1, "record": 213, "size": 37}, "type": UINT8, "readSize":  1}
+{ "name": "_LoadCapacityManagement", "FileAddress":{ "file": 1, "record": 213, "size": 40}, "type": UINT16, "readSize":  2}
+{ "name": "Reg_VF_pVolt_Limit", "FileAddress":{ "file": 1, "record": 213, "size": 42}, "type": UINT16, "readSize":  2}
+{ "name": "_Power_Manager_Prom", "FileAddress":{ "file": 1, "record": 218, "size": 0}, "type": CUSTOM, "readSize":  576}
+{ "name": "_BiFuel_Gas_Flow_P_Gain", "FileAddress":{ "file": 1, "record": 228, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_BiFuel_Prom", "FileAddress":{ "file": 1, "record": 228, "size": 0}, "type": CUSTOM, "readSize":  64}
+{ "name": "_BiFuel_Gas_Flow_I_Gain", "FileAddress":{ "file": 1, "record": 228, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "_BiFuel_Gas_Flow_D_Gain", "FileAddress":{ "file": 1, "record": 228, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "_BiFuel_Gas_Flow_Test_Set_Point", "FileAddress":{ "file": 1, "record": 228, "size": 6}, "type": UINT16, "readSize":  2}
+{ "name": "_BiFuel_Engine_Type", "FileAddress":{ "file": 1, "record": 228, "size": 8}, "type": UINT8, "readSize":  1}
+{ "name": "_BiFuel_Auto_Gas_Flow_Control", "FileAddress":{ "file": 1, "record": 228, "size": 9}, "type": UINT8, "readSize":  1}
+{ "name": "_BiFuel_Gas_Flow_Max_Limit", "FileAddress":{ "file": 1, "record": 228, "size": 10}, "type": UINT16, "readSize":  2}
+{ "name": "_Maint_Lifetime", "FileAddress":{ "file": 1, "record": 230, "size": 0}, "type": UINT32, "readSize":  4 x 18 = 72}
+{ "name": "_Maint_Life_Used", "FileAddress":{ "file": 1, "record": 231, "size": 8}, "type": UINT32, "readSize":  4 x 18 = 72}
+{ "name": "_Thermal_Protection_Config_Struct", "FileAddress":{ "file": 1, "record": 233, "size": 0}, "type": CUSTOM, "readSize":  34}
+{ "name": "_Exercise_Control_Struct", "FileAddress":{ "file": 1, "record": 235, "size": 0}, "type": CUSTOM, "readSize":  6}
+{ "name": "_External_Switch_Config_Struct", "FileAddress":{ "file": 1, "record": 235, "size": 6}, "type": CUSTOM, "readSize":  160}
+{ "name": "_External_Switch_Target_Volts", "FileAddress":{ "file": 1, "record": 237, "size": 38}, "type": UINT16, "readSize":  2 x 8 = 16}
+{ "name": "_External_Switch_Remote_Start_Flags", "FileAddress":{ "file": 1, "record": 237, "size": 54}, "type": UINT16, "readSize":  2}
+{ "name": "_External_Switch_Assigned_Permissive", "FileAddress":{ "file": 1, "record": 237, "size": 56}, "type": UINT8, "readSize":  1 x 8 = 8}
+{ "name": "DO_ChannelNames", "FileAddress":{ "file": 1, "record": 238, "size": 0}, "type": STRING20, "readSize": 20 bytes, 32 items}
+{ "name": "_Power_Manager_15_Prom", "FileAddress":{ "file": 1, "record": 254, "size": 0}, "type": CUSTOM, "readSize":  640}
+{ "name": "Alarmlog_Text", "FileAddress":{ "file": 1, "record": 3073, "size": 0}, "type": STRING64, "readSize":  64 x 20 = 1280}
+{ "name": "Eventlog_Text", "FileAddress":{ "file": 1, "record": 3093, "size": 0}, "type": STRING64, "readSize":  64 x 20 = 1280}
+{ "name": "_Comm_Diag_Function", "FileAddress":{ "file": 1, "record": 3113, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Comm_Diag_Info", "FileAddress":{ "file": 1, "record": 3113, "size": 0}, "type": CUSTOM, "readSize":  196}
+{ "name": "_Comm_Diag_Baudbit", "FileAddress":{ "file": 1, "record": 3114, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Comm_Diag_Status", "FileAddress":{ "file": 1, "record": 3115, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Comm_Diag_Tx", "FileAddress":{ "file": 1, "record": 3116, "size": 0}, "type": UINT8, "readSize":  1}
+{ "name": "_Comm_Diag_Rx", "FileAddress":{ "file": 1, "record": 3116, "size": 1}, "type": UINT8, "readSize":  1}
+{ "name": "_Comm_Diag_Err", "FileAddress":{ "file": 1, "record": 3116, "size": 2}, "type": UINT8, "readSize":  1}
+{ "name": "_Comm_Diag_Is_Testing", "FileAddress":{ "file": 1, "record": 3116, "size": 3}, "type": UINT8, "readSize":  1}
+{ "name": "_Modem_Diag_Hardware", "FileAddress":{ "file": 1, "record": 3117, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Modem_Diag_Info", "FileAddress":{ "file": 1, "record": 3117, "size": 0}, "type": CUSTOM, "readSize":  192}
+{ "name": "_Modem_Diag_Call", "FileAddress":{ "file": 1, "record": 3118, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Modem_Diag_Dial", "FileAddress":{ "file": 1, "record": 3119, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "Pwr_Mgr_Status", "FileAddress":{ "file": 1, "record": 3120, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_Pwr_Mgr_Strings", "FileAddress":{ "file": 1, "record": 3120, "size": 0}, "type": CUSTOM, "readSize":  256}
+{ "name": "Pwr_Mgr_Mode", "FileAddress":{ "file": 1, "record": 3121, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "Pwr_Mgr_Genset", "FileAddress":{ "file": 1, "record": 3122, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "Pwr_Mgr_Relay", "FileAddress":{ "file": 1, "record": 3123, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "EventLog_Next", "FileAddress":{ "file": 1, "record": 3124, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_EventLog_Binary", "FileAddress":{ "file": 1, "record": 3124, "size": 0}, "type": CUSTOM, "readSize":  8402}
+{ "name": "EventLog_Data", "FileAddress":{ "file": 1, "record": 3124, "size": 2}, "type": CUSTOM, "readSize":  8400}
+{ "name": "_Raw_A2D_Data", "FileAddress":{ "file": 1, "record": 3288, "size": 0}, "type": UINT16, "readSize":  2 x 43 = 86}
+{ "name": "DI_Raw_Bits", "FileAddress":{ "file": 1, "record": 3290, "size": 0}, "type": UINT32, "readSize":  4}
+{ "name": "TrendLog_Channels_Per_Frame", "FileAddress":{ "file": 1, "record": 3291, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "_TrendLog_Binary", "FileAddress":{ "file": 1, "record": 3291, "size": 0}, "type": CUSTOM, "readSize":  2076}
+{ "name": "TrendLog_Valid_Frames", "FileAddress":{ "file": 1, "record": 3291, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "TrendLog_Valid_Counter", "FileAddress":{ "file": 1, "record": 3291, "size": 4}, "type": UINT32, "readSize":  4}
+{ "name": "TrendLog_Next", "FileAddress":{ "file": 1, "record": 3291, "size": 8}, "type": UINT16, "readSize":  2}
+{ "name": "J1939_ActiveDTC_String", "FileAddress":{ "file": 1, "record": 3324, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "_J1939_Screen_Data", "FileAddress":{ "file": 1, "record": 3324, "size": 0}, "type": CUSTOM, "readSize":  198}
+{ "name": "J1939_StoredDTC_String", "FileAddress":{ "file": 1, "record": 3325, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "J1939_Parameter_String", "FileAddress":{ "file": 1, "record": 3326, "size": 0}, "type": STRING64, "readSize":  64}
+{ "name": "J1939_ActiveDTC_Index", "FileAddress":{ "file": 1, "record": 3327, "size": 0}, "type": UINT16, "readSize":  2}
+{ "name": "J1939_StoredDTC_Index", "FileAddress":{ "file": 1, "record": 3327, "size": 2}, "type": UINT16, "readSize":  2}
+{ "name": "J1939_Parameter_Index", "FileAddress":{ "file": 1, "record": 3327, "size": 4}, "type": UINT16, "readSize":  2}
+{ "name": "_J1939_Stored_DTCs", "FileAddress":{ "file": 1, "record": 3328, "size": 0}, "type": CUSTOM, "readSize":  128}
+{ "name": "_J1939_Active_DTCs", "FileAddress":{ "file": 1, "record": 3330, "size": 0}, "type": CUSTOM, "readSize":  128}
+{ "name": "_J1939_SPN_Data", "FileAddress":{ "file": 1, "record": 3332, "size": 0}, "type": CUSTOM, "readSize":  256}
+{ "name": "_ModbusFwd", "RegisterAddress":{ "StartReg": 0, "numRegisters": 4026531839 }, "type": CUSTOM, "byte-Type": master-Byte}
+	 	]
+	}
