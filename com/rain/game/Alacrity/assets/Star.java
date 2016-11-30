@@ -18,6 +18,7 @@ public class Star extends Asset implements Drawable {
 	//private List<Direction> positionComponents;
 	//private Color starColor;
 	//private Direction size;
+	protected long mass, diameter;
 	
 //public constructors	
 	public Star() {
@@ -54,6 +55,22 @@ public class Star extends Asset implements Drawable {
 	public Path2D getPath() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public long getMass() {
+		return mass;
+	}
+
+	public void setMass(long mass) {
+		this.mass = mass;
+	}
+
+	public long getDiameter() {
+		return diameter;
+	}
+
+	public void setDiameter(long diameter) {
+		this.diameter = diameter;
 	}
 
 }
