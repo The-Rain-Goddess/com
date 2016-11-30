@@ -28,4 +28,5 @@ public class Car {
 		System.out.println("Braking...");
 		System.out.println("Now the speed is " + speed);
 	}
+
 }
