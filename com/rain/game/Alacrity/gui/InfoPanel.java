@@ -90,6 +90,9 @@ public class InfoPanel extends JPanel {
 		
 		//show Military
 		showMilitary();
+		
+		//planet specs
+		showPlanetStats();
 	}
 	
 	private void panelFleetSetup(){
@@ -104,6 +107,17 @@ public class InfoPanel extends JPanel {
 		
 		//xtra space grabber
 		hideSpace();
+	}
+	
+	private void showPlanetStats(){
+		c = new GridBagConstraints();
+		JLabel multi = new JLabel("<html>Mass: "
+								+ "<br>Diameter: "
+								+ "<br>Atmosphere: "
+								+ "<br>P Composition: </html>");
+		c.gridx = 1;
+		c.gridy = 2;
+		this.add(multi, c);
 	}
 	
 	private void showMilitary(){
