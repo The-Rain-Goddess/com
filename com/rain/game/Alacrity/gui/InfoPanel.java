@@ -60,6 +60,7 @@ public class InfoPanel extends JPanel {
 	
 //non-private mutators
 	public void update(){
+		sweep(". ");
 		showPop();
 		
 		showPlanetaryIncome();
@@ -106,30 +107,49 @@ public class InfoPanel extends JPanel {
 	}
 	
 	private void showMilitary(){
-		c = new GridBagConstraints();
-		JLabel mil = new JLabel("Military: ");
-		mil.setFont(new Font("Serif", Font.BOLD, 20));
-		c.gridx = 0; c.gridy = 7;
-		c.anchor = GridBagConstraints.LINE_START;
-		//this.sweep();
-		this.add(mil, c);
+		String str = "Military: "; //tmp string
+		
+		if(this.stop(str)){
+			c = new GridBagConstraints();
+			JLabel mil = new JLabel("Military: ");
+			mil.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0; c.gridy = 7;
+			c.anchor = GridBagConstraints.LINE_START;
+			//this.sweep();
+			this.add(mil, c);
+		}	
 		
 		c = new GridBagConstraints();
 		if(this.asset.getOccupied()){
 			//fleet name
+			str = "Fleet: ";
+			if(this.stop(str)){
+				JLabel fleetName = new JLabel(str);
+				c.gridx = 0; c.gridy = 8;
+				c.anchor = GridBagConstraints.LINE_START;
+				this.add(fleetName, c);
+			}
 			Fleet f1 = this.asset.getOccupyingFleet();
-			JLabel fleetName = new JLabel("Fleet: " + f1.getName());
-			c.gridx = 0; c.gridy = 8;
+			JLabel label1 = new JLabel(f1.getName()+". ");
+			c.gridx = 1; c.gridy = 8;
 			c.anchor = GridBagConstraints.LINE_START;
-			this.sweep("Fleet: ");
-			this.add(fleetName, c);
+			this.add(label1, c);
 			
 			//fleet num
 			c = new GridBagConstraints();
-			JLabel fleetSize = new JLabel("Number of Ships: " + f1.getShipList().size());
-			c.gridx = 0; c.gridy = 9;
-			this.sweep("Number of Ships: ");
-			this.add(fleetSize, c);
+			str = "Number of Ships: ";
+			if(this.stop(str)){
+				JLabel fleetSize = new JLabel(str);
+				c.gridx = 0; c.gridy = 9;
+				//this.sweep("Number of Ships: ");
+				c.anchor = GridBagConstraints.LINE_START;
+				this.add(fleetSize, c);
+			}
+				
+			JLabel lbl2 = new JLabel(f1.getShipList().size()+". ");
+			c.gridx = 1; c.gridy = 9;
+			c.anchor = GridBagConstraints.LINE_START;
+			this.add(lbl2, c);
 			
 			//fleet comp
 			showFleetComp(f1);
@@ -143,7 +163,7 @@ public class InfoPanel extends JPanel {
 		c = new GridBagConstraints();
 		for(int i = 0; i<f.getShipList().size(); i++){
 			if( f.getShip(i) instanceof Frigate){
-				frigate++; System.out.println("yes"+i); }
+				frigate++; }
 			else if(f.getShip(i) instanceof Destroyer)
 				destroyer++;
 			else if(f.getShip(i) instanceof Cruiser)
@@ -153,145 +173,198 @@ public class InfoPanel extends JPanel {
 			else if(f.getShip(i) instanceof Battleship)
 				battleship++;
 		}
+		String tmp = "";
 		
 		//frigates
-		JLabel f1 = new JLabel("Frigates: ");
-		c.gridx = 0;
-		c.gridy = 11;
-		c.anchor = GridBagConstraints.LINE_END;
-		this.add(f1, c);
+		tmp = "Frigates: ";
+		if(this.stop(tmp)){
+			JLabel f1 = new JLabel(tmp);
+			c.gridx = 0;
+			c.gridy = 12;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.add(f1, c);
+		}
 		
 		c = new GridBagConstraints();
 		
 		JLabel f2 = new JLabel(frigate+". ");
-		this.sweep(". ");
+		//this.sweep(". ");
 		c.gridx = 1;
-		c.gridy = 11;
+		c.gridy = 12;
 		c.anchor = GridBagConstraints.LINE_START;
 		this.add(f2, c);
 		
 		//destroyer
-		c = new GridBagConstraints();
-		JLabel d1 = new JLabel("Destroyers: ");
-		c.gridx = 0;
-		c.gridy = 12;
-		c.anchor = GridBagConstraints.LINE_END;
-		this.add(d1, c);
+		tmp = "Destroyers: ";
+		if(this.stop(tmp)){
+			c = new GridBagConstraints();
+			JLabel d1 = new JLabel(tmp);
+			c.gridx = 0;
+			c.gridy = 13;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.add(d1, c);
+		}
 		
 		c = new GridBagConstraints();
 		JLabel d2 = new JLabel(destroyer + ". ");
 		//this.sweep(". ");
 		c.gridx = 1;
-		c.gridy = 12;
+		c.gridy = 13;
 		c.anchor = GridBagConstraints.LINE_START;
 		this.add(d2, c);
 		
 		//cruiser
-		c = new GridBagConstraints();
-		JLabel c1 = new JLabel("Cruisers: ");
-		c.gridx = 0;
-		c.gridy = 13;
-		c.anchor = GridBagConstraints.LINE_END;
-		this.add(c1, c);
+		tmp = "Cruisers: ";
+		if(this.stop(tmp)){
+			c = new GridBagConstraints();
+			JLabel c1 = new JLabel(tmp);
+			c.gridx = 0;
+			c.gridy = 14;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.add(c1, c);
+		}
 		
 		c = new GridBagConstraints();
 		JLabel c2 = new JLabel(cruiser+ ". ");
 		c.gridx = 1;
-		c.gridy = 13;
+		c.gridy = 14;
 		c.anchor= GridBagConstraints.LINE_START;
 		this.add(c2, c);
 		
 		//battleships
-		c = new GridBagConstraints();
-		JLabel b1 = new JLabel("Battleships: ");
-		c.gridx = 0;
-		c.gridy = 14;
-		c.anchor = GridBagConstraints.LINE_END;
-		this.add(b1, c);
+		tmp = "Battleships: ";
+		if(this.stop(tmp)){
+			c = new GridBagConstraints();
+			JLabel b1 = new JLabel(tmp);
+			c.gridx = 0;
+			c.gridy = 15;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.add(b1, c);
+		}
 		
 		c = new GridBagConstraints();
 		JLabel b2 = new JLabel(battleship+". ");
 		c.gridx = 1;
-		c.gridy = 14;
+		c.gridy = 15;
 		c.anchor = GridBagConstraints.LINE_START;
 		this.add(b2, c);
 		
 		//dreadnaught
-		c = new GridBagConstraints();
-		JLabel n1 = new JLabel("Dreadnaughts: ");
-		c.gridx = 0;
-		c.gridy = 15;
-		c.anchor = GridBagConstraints.LINE_END;
-		this.add(n1, c);
+		tmp = "Dreadnaughts: ";
+		if(this.stop(tmp)){
+			c = new GridBagConstraints();
+			JLabel n1 = new JLabel(tmp);
+			c.gridx = 0;
+			c.gridy = 16;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.add(n1, c);
+		}
 		
 		c = new GridBagConstraints();
 		JLabel n2 = new JLabel(dreadnaught+". ");
 		c.gridx = 1;
-		c.gridy = 15;
+		c.gridy = 16;
 		c.anchor = GridBagConstraints.LINE_START;
 		this.add(n2, c);
 	}
 	
-	private void sweep(String str){
+	private void sweep(String str) {
 		int n = this.getComponentCount();
 		if (n > 0) {
-		    Component[] components = this.getComponents();
-		    for (int i = 0; i < components.length; i++) {
-		         if (components[i] instanceof JLabel) {
-		             JLabel label = (JLabel) components[i];
-		             String tmp = label.getText();
-		             if(tmp!=null && tmp.contains(str))
-		            	 label.setText("");
-		         } 
-		    }
+			Component[] components = this.getComponents();
+			for (int i = 0; i < components.length; i++) {
+				if (components[i] instanceof JLabel) {
+					JLabel label = (JLabel) components[i];
+					String tmp = label.getText();
+					if (tmp != null && tmp.contains(str))
+						label.setText("");
+				}
+			}
 		}
 	}
 	
-	private void showPop(){
+	private boolean stop(String str) {
+		int n = this.getComponentCount();
+		if (n > 0) {
+			Component[] components = this.getComponents();
+			for (int i = 0; i < components.length; i++) {
+				if (components[i] instanceof JLabel) {
+					JLabel label = (JLabel) components[i];
+					String tmp = label.getText();
+					if (tmp != null && tmp.contains(str))
+						return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private void showPop() {
+		String str = "Economics: ";
+		if (this.stop(str)) {
+			c = new GridBagConstraints();
+			JLabel eco = new JLabel(str);
+			eco.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0;
+			c.gridy = 3;
+			c.anchor = GridBagConstraints.LINE_START;
+			this.add(eco, c);
+		}
+
 		c = new GridBagConstraints();
-		JLabel eco = new JLabel("Economics: ");
-		eco.setFont(new Font("Serif", Font.BOLD, 20));
-		c.gridx = 0;
-		c.gridy = 3;
-		c.anchor = GridBagConstraints.LINE_START;
-		//this.sweep();
-		this.add(eco, c);
-		
-		c = new GridBagConstraints();
-		JLabel population = new JLabel("     Population: " + String.format("%,d", asset.getPopulation()));
-		c.gridx = 0; 
+		str = "Population: ";
+		if (this.stop(str)) {
+			JLabel population = new JLabel(str);
+			c.gridx = 0;
+			c.gridy = 4;
+			c.anchor = GridBagConstraints.LINE_END;
+			c.ipadx = 5;
+			this.add(population, c);
+		}
+
+		JLabel num1 = new JLabel(String.format("%,d", asset.getPopulation()) + ". ");
+		c.gridx = 1;
 		c.gridy = 4;
 		c.anchor = GridBagConstraints.LINE_START;
-		c.ipadx = 5;
-		this.sweep("Population: ");
-		this.add(population, c);
+		this.add(num1, c);
 	}
 	
 	private void hideSpace(){
 		c = new GridBagConstraints();
 		c.weighty=1;
-		c.gridy = 18;
+		c.gridy = 20;
 		this.add(new JLabel(" "), c);
 	}
 	
 	private void showPlanetaryIncome(){
-		c = new GridBagConstraints();
-		JLabel moneys = new JLabel("     Planetary Income: $" + String.format("%2.3e", asset.getIncomeOverYear()));
-		c.gridx = 0;
-		c.gridy = 5;
-		c.ipadx = 5;
-		c.anchor = GridBagConstraints.LINE_START;
-		this.sweep("Planetary Income: ");
-		this.add(moneys, c);
+		String str = "Planetary Income: ";
+		if(this.stop(str)){
+			c = new GridBagConstraints();
+			JLabel moneys = new JLabel(str);
+			c.gridx = 0;
+			c.gridy = 5;
+			c.ipadx = 5;
+			c.anchor = GridBagConstraints.LINE_END;
+			this.sweep("Planetary Income: ");
+			this.add(moneys, c);
+		}
 		
 		c = new GridBagConstraints();
-		JLabel units = new JLabel("per Galactic year.");
-		c.gridx = 1;
-		c.gridy = 5;
-		c.anchor = GridBagConstraints.LINE_START;
-		//this.sweep();
-		this.add(units, c);
+		this.sweep("$");
+		JLabel num1 = new JLabel(String.format("$%2.3e ", asset.getIncomeOverYear()));
+		c.gridx = 1; c.gridy = 5;
+		c.anchor = GridBagConstraints.LINE_END;
+		this.add(num1, c);
 		
+		str = "per Galactic year.";
+		if(this.stop(str)){
+			c = new GridBagConstraints();
+			JLabel units = new JLabel(str);
+			c.gridx = 2;
+			c.gridy = 5;
+			c.anchor = GridBagConstraints.LINE_START;
+			this.add(units, c);
+		}
 	}
 	
 	private void showBodyPicture(){
@@ -310,7 +383,7 @@ public class InfoPanel extends JPanel {
 			c.gridx=0;
 			c.gridy=2;
 			c.fill = GridBagConstraints.BOTH;
-			c.ipadx = 30; c.ipady=30;
+			c.ipadx = 10; c.ipady=10;
 			this.add(new JLabel(new ImageIcon(bodyImage)),c);
 		} catch(IOException e){
 			e.printStackTrace();
@@ -330,10 +403,10 @@ public class InfoPanel extends JPanel {
 		exit.setBackground(Color.RED);
 		
 		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 1;
+		c.gridx = 2;
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.FIRST_LINE_END;
-		c.insets = new Insets(0,30,0,0);
+		c.insets = new Insets(0,10,0,0);
 		this.add(exit, c);
 	}
 	
@@ -347,8 +420,8 @@ public class InfoPanel extends JPanel {
 		c.weightx = .5;
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.CENTER;
-		c.gridwidth = 2;
-		c.ipadx = 30; c.ipady=30;
+		//c.gridwidth = 2;
+		c.ipadx = 10; c.ipady=10;
 		this.add(title, c);
 	}
 	
