@@ -97,6 +97,9 @@ public class InfoPanel extends JPanel {
 		
 		//planet specs
 		showPlanetStats();
+		
+		//industry
+		showIndustry();
 	}
 	
 	private void panelFleetSetup(){
@@ -111,6 +114,13 @@ public class InfoPanel extends JPanel {
 		
 		//xtra space grabber
 		hideSpace();
+	}
+	
+	private void showIndustry(){
+		//TODO: buttons for wealth creation
+		//		infrastructure creation
+		//		tooltips
+		
 	}
 	
 	private void showPlanetStats(){
