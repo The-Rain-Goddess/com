@@ -85,7 +85,13 @@ public class Planet extends Asset implements Drawable {
 			return "H2O";
 		else if(super.getColor()==Color.GRAY)
 			return "Silicon";
+		else if(super.getColor()==Color.GREEN)
+			return "Silicon";
 		else 
-			return "Unidentified Substance";
+			return "Unidentified";
+	}
+	
+	public String getAtmosphere(){
+		return "N/A";
 	}
 }

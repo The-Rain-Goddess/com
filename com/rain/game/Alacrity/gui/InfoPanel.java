@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.rain.game.Alacrity.assets.Fleet;
+import com.rain.game.Alacrity.assets.Planet;
 import com.rain.game.Alacrity.main.Asset;
 import com.rain.game.Alacrity.ships.Battleship;
 import com.rain.game.Alacrity.ships.Cruiser;
@@ -66,6 +67,9 @@ public class InfoPanel extends JPanel {
 		showPlanetaryIncome();
 		
 		showMilitary();
+		
+		if(asset instanceof Planet)
+			showPlanetStats();
 	}
 	
 //private modifyers	
@@ -111,13 +115,31 @@ public class InfoPanel extends JPanel {
 	
 	private void showPlanetStats(){
 		c = new GridBagConstraints();
-		JLabel multi = new JLabel("<html>Mass: "
-								+ "<br>Diameter: "
-								+ "<br>Atmosphere: "
-								+ "<br>P Composition: </html>");
-		c.gridx = 1;
-		c.gridy = 2;
-		this.add(multi, c);
+		if(this.stop("Mass:")){
+			JLabel multi = new JLabel("<html>Mass: "
+					+ "<br>Diameter: "
+					+ "<br>Atmosphere: "
+					+ "<br>Composition: </html>");
+			c.gridx = 1;
+			c.gridy = 2;
+			this.add(multi, c);
+		}
+		
+		
+		if(this.asset instanceof Planet){
+			if(this.stop("km.")){
+				Planet planet = (Planet)asset;
+				c = new GridBagConstraints();
+				String html = "<html>" + String.format("%2.3ekg", (double)planet.getMass())+ "."
+							+ "<br>" + String.format("%2.3ekm", (double)planet.getDiameter()) + "."
+							+ "<br>	" + planet.getAtmosphere()+ "."
+							+ "<br>" + planet.getComposition() + ".</html";
+				JLabel multi2 = new JLabel(html);
+				c.gridx = 2;
+				c.gridy = 2;
+				this.add(multi2, c);
+			}
+		}
 	}
 	
 	private void showMilitary(){
