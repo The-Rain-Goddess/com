@@ -247,6 +247,21 @@ public class InfoPanel extends JPanel {
 		}
 	}
 	
+	private boolean stop(String str){
+		int n = this.getComponentCount();
+		if (n > 0) {
+		    Component[] components = this.getComponents();
+		    for (int i = 0; i < components.length; i++) {
+		         if (components[i] instanceof JLabel) {
+		             JLabel label = (JLabel) components[i];
+		             String tmp = label.getText();
+		             if(tmp!=null && tmp.contains(str))
+		            	 return true;
+		         } 
+		    }
+		} return false;
+	}
+	
 	private void showPop(){
 		c = new GridBagConstraints();
 		JLabel eco = new JLabel("Economics: ");
