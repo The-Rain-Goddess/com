@@ -120,6 +120,16 @@ public class InfoPanel extends JPanel {
 		//TODO: buttons for wealth creation
 		//		infrastructure creation
 		//		tooltips
+		c = new GridBagConstraints();
+		String str = "Industry: ";
+		if(this.stop(str)){
+			JLabel industry = new JLabel(str);
+			industry.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0;
+			c.gridy = 17;
+			c.anchor = GridBagConstraints.LINE_START;
+			this.add(industry, c);
+		}
 		
 	}
 	
