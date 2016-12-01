@@ -40,6 +40,12 @@ public class Asset {
 	
 	protected double mag = .05; //magnitude of velocity
 	
+	protected int ownedBy = 0; /*
+								* 0 = noone
+								* 1 = player
+								* 2 = computer
+								*/
+	
 //public constructor	
 	public Asset(){
 		
@@ -204,6 +210,12 @@ public class Asset {
 	public void setType(int t){
 		this.type = t;
 	}
+
+	public void setOwnedBy(int ownedBy) {
+		this.ownedBy = ownedBy;
+	}
+	
+	public int getOwnedBy() { return ownedBy;}
 	
 	public int getType(){ return type; }
 	

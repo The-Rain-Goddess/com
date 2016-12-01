@@ -128,6 +128,7 @@ public class InfoPanel extends JPanel {
 			c.gridx = 0;
 			c.gridy = 17;
 			c.anchor = GridBagConstraints.LINE_START;
+			c.ipady = 10;
 			this.add(industry, c);
 		}
 		
@@ -171,7 +172,7 @@ public class InfoPanel extends JPanel {
 			mil.setFont(new Font("Serif", Font.BOLD, 20));
 			c.gridx = 0; c.gridy = 7;
 			c.anchor = GridBagConstraints.LINE_START;
-			//this.sweep();
+			c.ipady = 10;
 			this.add(mil, c);
 		}	
 		
