@@ -9,6 +9,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.rain.game.Alacrity.assets.Fleet;
+import com.rain.game.Alacrity.assets.Planet;
 import com.rain.game.Alacrity.main.Asset;
 import com.rain.game.Alacrity.ships.Battleship;
 import com.rain.game.Alacrity.ships.Cruiser;
@@ -37,6 +40,7 @@ public class InfoPanel extends JPanel {
 	protected Asset asset;
 	protected GridBagConstraints c = new GridBagConstraints();
 	protected JLabel sweep = new JLabel("");
+	protected int state = 0;
 	
 	public InfoPanel() {
 		this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -60,12 +64,52 @@ public class InfoPanel extends JPanel {
 	
 //non-private mutators
 	public void update(){
-		sweep(". ");
-		showPop();
-		
-		showPlanetaryIncome();
-		
-		showMilitary();
+		if(state==0){ //normal first screen
+			sweep(". ");
+			showPop();
+			
+			showPlanetaryIncome();
+			
+			showMilitary();
+			
+			showIndustry();
+			
+			showGovernment();
+			
+			if(asset instanceof Planet)
+				showPlanetStats();
+		} else if(state==1){ //military state screen
+			showReturn();
+			showMilitary();
+			hideSpace();
+		} else if(state==2){ //economy state screen
+			showReturn();
+			this.showPop();
+			this.showPlanetaryIncome();
+			hideSpace();
+		} else if(state==3){ //industry state screen
+			showReturn();
+			this.showIndustry();
+			hideSpace();
+		} else if(state==4){ //government state screen
+			showReturn();
+			this.showGovernment();
+			hideSpace();
+		}
+	}
+	
+	public void refreshStatics(){
+				//planet picture
+				showBodyPicture();
+				
+				//title
+				showTitle();
+				
+				//exit button
+				showExit();
+				
+				//xtra space grabber
+				hideSpace();
 	}
 	
 //private modifyers	
@@ -93,6 +137,12 @@ public class InfoPanel extends JPanel {
 		
 		//planet specs
 		showPlanetStats();
+		
+		//industry
+		showIndustry();
+		
+		//government
+		showGovernment();
 	}
 	
 	private void panelFleetSetup(){
@@ -109,15 +159,103 @@ public class InfoPanel extends JPanel {
 		hideSpace();
 	}
 	
+	private void showGovernment(){
+		String str = "Government: ";
+		c = new GridBagConstraints();
+		if(this.stop(str)){
+			JLabel gov = new JLabel(str);
+			gov.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0;
+			c.gridy = 18;
+			c.anchor = GridBagConstraints.LINE_START;
+			
+			this.disciplineSwitchButton(gov, 4);
+			this.add(gov,c);
+		}
+	}
+	
+	private void showIndustry(){
+		//TODO: buttons for wealth creation
+		//		infrastructure creation
+		//		tooltips
+		c = new GridBagConstraints();
+		String str = "Industry: ";
+		if(this.stop(str)){
+			JLabel industry = new JLabel(str);
+			industry.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0;
+			c.gridy = 17;
+			c.anchor = GridBagConstraints.LINE_START;
+			c.ipady = 10;
+			
+			//industry button setup
+			this.disciplineSwitchButton(industry, 3);
+			
+			this.add(industry, c);
+		}
+		
+	}
+	
+	private void disciplineSwitchButton(Component b, int switchState){
+		b.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				state = switchState;
+				//System.out.println(state);
+				removeAll();
+				update();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}	
+		});
+	}
+	
 	private void showPlanetStats(){
 		c = new GridBagConstraints();
-		JLabel multi = new JLabel("<html>Mass: "
-								+ "<br>Diameter: "
-								+ "<br>Atmosphere: "
-								+ "<br>P Composition: </html>");
-		c.gridx = 1;
-		c.gridy = 2;
-		this.add(multi, c);
+		if(this.stop("Mass:")){
+			JLabel multi = new JLabel("<html>Mass: "
+					+ "<br>Diameter: "
+					+ "<br>Atmosphere: "
+					+ "<br>Composition: </html>");
+			c.gridx = 1;
+			c.gridy = 2;
+			this.add(multi, c);
+		}
+		
+		
+		if(this.asset instanceof Planet){
+			if(this.stop("km.")){
+				Planet planet = (Planet)asset;
+				c = new GridBagConstraints();
+				String html = "<html>" + String.format("%2.3ekg", (double)planet.getMass())+ "."
+							+ "<br>" + String.format("%2.3ekm", (double)planet.getDiameter()) + "."
+							+ "<br>	" + planet.getAtmosphere()+ "."
+							+ "<br>" + planet.getComposition() + ".</html";
+				JLabel multi2 = new JLabel(html);
+				c.gridx = 2;
+				c.gridy = 2;
+				this.add(multi2, c);
+			}
+		}
 	}
 	
 	private void showMilitary(){
@@ -129,7 +267,8 @@ public class InfoPanel extends JPanel {
 			mil.setFont(new Font("Serif", Font.BOLD, 20));
 			c.gridx = 0; c.gridy = 7;
 			c.anchor = GridBagConstraints.LINE_START;
-			//this.sweep();
+			c.ipady = 10;
+			this.disciplineSwitchButton(mil, 1);
 			this.add(mil, c);
 		}	
 		
@@ -322,6 +461,7 @@ public class InfoPanel extends JPanel {
 			c.gridx = 0;
 			c.gridy = 3;
 			c.anchor = GridBagConstraints.LINE_START;
+			this.disciplineSwitchButton(eco, 2);
 			this.add(eco, c);
 		}
 
@@ -346,7 +486,7 @@ public class InfoPanel extends JPanel {
 	private void hideSpace(){
 		c = new GridBagConstraints();
 		c.weighty=1;
-		c.gridy = 20;
+		c.gridy = 30;
 		this.add(new JLabel(" "), c);
 	}
 	
@@ -421,6 +561,29 @@ public class InfoPanel extends JPanel {
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.FIRST_LINE_END;
 		c.insets = new Insets(0,10,0,0);
+		this.add(exit, c);
+	}
+	
+	private void showReturn(){
+		c = new GridBagConstraints();
+		JButton exit = new JButton(" <- ");
+		exit.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					state = 0;
+					removeAll();
+					refreshStatics();
+					update();
+			}
+		});
+		exit.setBackground(Color.RED);
+		
+		c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.LINE_START;
+		c.anchor = GridBagConstraints.WEST;
+		c.insets = new Insets(0,0,0,0);
 		this.add(exit, c);
 	}
 	

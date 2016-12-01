@@ -181,6 +181,7 @@ public class DrawPanel extends JPanel {
 	private void drawAsset(Graphics2D g2, Asset s1){
 		Stroke dashed = new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
 		double ox = offset.getX(); double oy = offset.getY();
+		
 		//celestial body rendering!
 		if(s1.isCelestialBody()){
 			
@@ -249,6 +250,23 @@ public class DrawPanel extends JPanel {
 													s1.getSize().getY());
 			g2.setColor(s1.getColor());
 			g2.fill(star);
+			
+			//showing ownership of the celestial body
+			if(s1.getOwnedBy()!=0){
+				//SizeF size = new SizeF();
+				int width = g2.getFontMetrics().stringWidth(s1.getName());
+				if(s1.getOwnedBy()==1){
+					g2.setColor(Color.BLUE);
+					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+					g2.setColor(Color.WHITE);
+					g2.drawRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+				} else if(s1.getOwnedBy()==2){
+					g2.setColor(Color.RED);
+					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+					g2.setColor(Color.WHITE);
+					g2.drawRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+				}
+			}
 			
 			g2.setColor(Color.WHITE);
 			g2.drawString(	s1.getName(), 

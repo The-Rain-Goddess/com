@@ -14,6 +14,7 @@ import com.rain.game.Alacrity.main.Asset;
  *
  */
 public class Planet extends Asset implements Drawable {
+	protected long mass, diameter;
 
 	/**
 	 * @param s1
@@ -59,5 +60,38 @@ public class Planet extends Asset implements Drawable {
 	@Override
 	public String toString(){
 		return "Planet: " + super.name + " at: " + super.getPosition();
+	}
+	
+	public long getMass() {
+		return mass;
+	}
+
+	public void setMass(long mass) {
+		this.mass = mass;
+	}
+
+	public long getDiameter() {
+		return diameter;
+	}
+
+	public void setDiameter(long diameter) {
+		this.diameter = diameter;
+	}
+	
+	public String getComposition(){
+		if(super.getColor()==Color.RED)
+			return "Iron";
+		else if(super.getColor()==Color.BLUE)
+			return "H2O";
+		else if(super.getColor()==Color.GRAY)
+			return "Silicon";
+		else if(super.getColor()==Color.GREEN)
+			return "Silicon";
+		else 
+			return "Unidentified";
+	}
+	
+	public String getAtmosphere(){
+		return "N/A";
 	}
 }
