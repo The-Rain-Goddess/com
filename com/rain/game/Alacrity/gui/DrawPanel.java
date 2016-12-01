@@ -258,9 +258,13 @@ public class DrawPanel extends JPanel {
 				if(s1.getOwnedBy()==1){
 					g2.setColor(Color.BLUE);
 					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+					g2.setColor(Color.WHITE);
+					g2.drawRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
 				} else if(s1.getOwnedBy()==2){
 					g2.setColor(Color.RED);
 					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
+					g2.setColor(Color.WHITE);
+					g2.drawRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
 				}
 			}
 			
