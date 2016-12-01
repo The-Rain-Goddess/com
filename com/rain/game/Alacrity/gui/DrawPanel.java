@@ -253,12 +253,14 @@ public class DrawPanel extends JPanel {
 			
 			//showing ownership of the celestial body
 			if(s1.getOwnedBy()!=0){
+				//SizeF size = new SizeF();
+				int width = g2.getFontMetrics().stringWidth(s1.getName());
 				if(s1.getOwnedBy()==1){
 					g2.setColor(Color.BLUE);
-					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2), (int)(oy+s1.getPosition().getY())-10, s1.getName().length()*7, 10);
+					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
 				} else if(s1.getOwnedBy()==2){
 					g2.setColor(Color.RED);
-					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2), (int)(oy+s1.getPosition().getY())-10, s1.getName().length()*7, 10);
+					g2.fillRect((int)(ox+s1.getPosition().getX() - s1.getSize().getX()/2)-1, (int)(oy+s1.getPosition().getY())-9, width+2, 10);
 				}
 			}
 			
