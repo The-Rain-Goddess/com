@@ -9,6 +9,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class InfoPanel extends JPanel {
 	protected Asset asset;
 	protected GridBagConstraints c = new GridBagConstraints();
 	protected JLabel sweep = new JLabel("");
+	protected int state = 0;
 	
 	public InfoPanel() {
 		this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -61,15 +64,26 @@ public class InfoPanel extends JPanel {
 	
 //non-private mutators
 	public void update(){
-		sweep(". ");
-		showPop();
-		
-		showPlanetaryIncome();
-		
-		showMilitary();
-		
-		if(asset instanceof Planet)
-			showPlanetStats();
+		if(state==0){ //normal first screen
+			sweep(". ");
+			showPop();
+			
+			showPlanetaryIncome();
+			
+			showMilitary();
+			
+			if(asset instanceof Planet)
+				showPlanetStats();
+		} else if(state==1){ //military state screen
+			showExit();
+			
+		} else if(state==2){ //economy state screen
+			showExit();
+			
+		} else if(state==3){ //industry state screen
+			showExit();
+			
+		}
 	}
 	
 //private modifyers	
@@ -129,9 +143,46 @@ public class InfoPanel extends JPanel {
 			c.gridy = 17;
 			c.anchor = GridBagConstraints.LINE_START;
 			c.ipady = 10;
+			
+			//industry button setup
+			this.disciplineSwitchButton(industry, 3);
+			
 			this.add(industry, c);
 		}
 		
+	}
+	
+	private void disciplineSwitchButton(Component b, int switchState){
+		b.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				state = switchState;
+				System.out.println(state);
+				removeAll();
+				update();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}	
+		});
 	}
 	
 	private void showPlanetStats(){
@@ -173,6 +224,7 @@ public class InfoPanel extends JPanel {
 			c.gridx = 0; c.gridy = 7;
 			c.anchor = GridBagConstraints.LINE_START;
 			c.ipady = 10;
+			this.disciplineSwitchButton(mil, 1);
 			this.add(mil, c);
 		}	
 		
@@ -365,6 +417,7 @@ public class InfoPanel extends JPanel {
 			c.gridx = 0;
 			c.gridy = 3;
 			c.anchor = GridBagConstraints.LINE_START;
+			this.disciplineSwitchButton(eco, 2);
 			this.add(eco, c);
 		}
 
