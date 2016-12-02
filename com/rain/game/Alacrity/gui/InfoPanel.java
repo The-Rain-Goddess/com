@@ -80,15 +80,21 @@ public class InfoPanel extends JPanel {
 				showPlanetStats();
 		} else if(state==1){ //military state screen
 			showReturn();
-			
+			showMilitary();
+			hideSpace();
 		} else if(state==2){ //economy state screen
 			showReturn();
-			
+			this.showPop();
+			this.showPlanetaryIncome();
+			hideSpace();
 		} else if(state==3){ //industry state screen
 			showReturn();
-			
+			this.showIndustry();
+			hideSpace();
 		} else if(state==4){ //government state screen
 			showReturn();
+			this.showGovernment();
+			hideSpace();
 		}
 	}
 	
@@ -575,7 +581,8 @@ public class InfoPanel extends JPanel {
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
-		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.anchor = GridBagConstraints.LINE_START;
+		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(0,0,0,0);
 		this.add(exit, c);
 	}
