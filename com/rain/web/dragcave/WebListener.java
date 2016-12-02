@@ -90,14 +90,14 @@ public class WebListener implements Runnable {
 					
 					if(link.attr("href").contains("/get/"))
 						ids.add(link.attr("href").replace("/get/", ""));
-				} System.out.println("IDS: " + ids);
+				} //System.out.println("IDS: " + ids);
 				
 				String eggsText = eggs.text();
-				String[] data = eggsText.split("\\.");
+				String[] data = eggsText.replace("It's bright. And pink.", "It's bright And pink\\.").split("\\.");
 				//String id = "";
 				
-				for(int i = 0; i<data.length; i++){
-					System.out.println(data[i]);
+				for(int i = 0; i<ids.size(); i++){
+					//System.out.println(data[i]);
 					if(!contains(ids.get(i)))
 						Main.getEggList().add(new Egg(data[i].trim(), new Date(), location, ids.get(i)));
 				}

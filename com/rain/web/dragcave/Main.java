@@ -14,17 +14,19 @@ public class Main {
 	private static boolean continue1 = true;
 	
 	public static void main(String[] args){
-		Thread t1, t2, t3, t4, t5;
+		Thread t1, t2, t3, t4, t5, t6;
 		t1 = new Thread(new WebListener("http://dragcave.net/locations/1",1));
 		t2 = new Thread(new WebListener("http://dragcave.net/locations/2",2));
 		t3 = new Thread(new WebListener("http://dragcave.net/locations/3",3));
 		t4 = new Thread(new WebListener("http://dragcave.net/locations/4",4));
 		t5 = new Thread(new WebListener("http://dragcave.net/locations/5",5));
+		t6 = new Thread(new WebListener("http://dragcave.net/locations/6",6));
 		t1.start();
 		t2.start();
 		t3.start();
 		t4.start();
 		t5.start();
+		t6.start();
 		
 		Scanner kb = new Scanner(System.in);
 		int a = 0;
@@ -40,11 +42,11 @@ public class Main {
 			
 			if(a==1){
 				System.out.println("");
-				System.out.println(eggs);
+				print(eggs);
 				System.out.println("");
 			} else if(a==2){
 				System.out.println("");
-				System.out.println(eggs);
+				print(eggs);
 				System.out.println("");
 				continue1 = false;
 				System.out.println("Thanks for using this.");
@@ -65,6 +67,12 @@ public class Main {
 			}
 		}
 		kb.close();
+	}
+	
+	public static void print(List<Egg> a){
+		for(int i = 0; i< a.size(); i++){
+			System.out.println(a.get(i));
+		}
 	}
 	
 	public static boolean getContinue(){ return continue1; }

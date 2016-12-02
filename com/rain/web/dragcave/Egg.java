@@ -7,9 +7,11 @@ public class Egg {
 	private String type;		//when
 	private int location;		//where
 	private String id;			//who
+	private String description;
 	
 	public Egg(String des, Date date, int loc, String id) {
 		type = parseDescription(des);
+		description = des;
 		dateAppeared = date;
 		location = loc;
 		this.id = id;
@@ -17,7 +19,7 @@ public class Egg {
 //super
 	@Override
 	public String toString(){
-		return type + " : " + dateAppeared.toString();
+		return location + " " + type + " : " + id + " : " + dateAppeared.toString() + " : " + description;
 	}
 	
 //non-private access/mutators
@@ -121,7 +123,7 @@ public class Egg {
 			return "Falconiform Wyvern";
 		else if("This egg is patterned with an orange flare.".contains(d))
 			return "Fever Wyvern";
-		else if("It's bright. And pink.".contains(d)) //coudl be one of two possible
+		else if(d.contains("It's bright")) //coudl be one of two possible
 			return "Flamingo Wyvern/Pink";
 		else if("Frost is creeping over this cold egg.".contains(d))
 			return "Frostbite";
@@ -157,7 +159,7 @@ public class Egg {
 			return "Hellhorse";
 		else if("The surface of this egg is rough and sharp.".contains(d))
 			return "Hooktalon";
-		else if("The surface of this egg is rough and sharp.".contains(d))
+		else if("This egg has strange markings on it.".contains(d))
 			return "Horse/Frilled/Skywing/Ochredrake";
 		else if("You hear strange noises coming from inside this egg.".contains(d))
 			return "Howler Drake";
@@ -197,7 +199,7 @@ public class Egg {
 			return "Neotropical";
 		else if("This dense, crystalline egg seems dangerously unstable.".contains(d))
 			return "Nexus";
-		else if("This dense, crystalline egg seems dangerously unstable.".contains(d))
+		else if("	This dull purple egg has two bright stripes on it.".contains(d))
 			return "Nhiostrife Wyvern";
 		else if("This tiny egg is heavier than you expected.	".contains(d))
 			return "Nilia Pygmy";
@@ -211,7 +213,7 @@ public class Egg {
 			return "Pillow";
 		else if("This massive egg is covered with thick plates.".contains(d))
 			return "Plated Colossus";
-		else if("Wow, purple isn't a color of egg you expected to see.".contains(d))
+		else if("Wow, purple isn’t a color of egg you expected to see.".contains(d))
 			return "Purple";
 		else if("	This egg is so tiny you almost didn't see it.".contains(d))
 			return "Pygmy";
