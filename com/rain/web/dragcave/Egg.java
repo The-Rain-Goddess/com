@@ -17,7 +17,7 @@ public class Egg {
 //super
 	@Override
 	public String toString(){
-		return type;
+		return type + " : " + dateAppeared.toString();
 	}
 	
 //non-private access/mutators
