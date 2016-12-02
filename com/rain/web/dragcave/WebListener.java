@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.net.SocketTimeoutException;
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
@@ -102,6 +103,9 @@ public class WebListener implements Runnable {
 						Main.getEggList().add(new Egg(data[i].trim(), new Date(), location, ids.get(i)));
 				}
 			}	
+		} catch(SocketTimeoutException e){
+			e.printStackTrace();
+			this.run();
 		} catch(InterruptedException e){
 			e.printStackTrace();
 		} catch(Exception e){
