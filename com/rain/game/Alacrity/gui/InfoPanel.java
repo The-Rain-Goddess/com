@@ -72,18 +72,34 @@ public class InfoPanel extends JPanel {
 			
 			showMilitary();
 			
+			showIndustry();
+			
 			if(asset instanceof Planet)
 				showPlanetStats();
 		} else if(state==1){ //military state screen
-			showExit();
+			showReturn();
 			
 		} else if(state==2){ //economy state screen
-			showExit();
+			showReturn();
 			
 		} else if(state==3){ //industry state screen
-			showExit();
+			showReturn();
 			
 		}
+	}
+	
+	public void refreshStatics(){
+				//planet picture
+				showBodyPicture();
+				
+				//title
+				showTitle();
+				
+				//exit button
+				showExit();
+				
+				//xtra space grabber
+				hideSpace();
 	}
 	
 //private modifyers	
@@ -517,6 +533,28 @@ public class InfoPanel extends JPanel {
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.FIRST_LINE_END;
 		c.insets = new Insets(0,10,0,0);
+		this.add(exit, c);
+	}
+	
+	private void showReturn(){
+		c = new GridBagConstraints();
+		JButton exit = new JButton(" <- ");
+		exit.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					state = 0;
+					removeAll();
+					refreshStatics();
+					update();
+			}
+		});
+		exit.setBackground(Color.RED);
+		
+		c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.insets = new Insets(0,0,0,0);
 		this.add(exit, c);
 	}
 	
