@@ -74,6 +74,8 @@ public class InfoPanel extends JPanel {
 			
 			showIndustry();
 			
+			showGovernment();
+			
 			if(asset instanceof Planet)
 				showPlanetStats();
 		} else if(state==1){ //military state screen
@@ -85,6 +87,8 @@ public class InfoPanel extends JPanel {
 		} else if(state==3){ //industry state screen
 			showReturn();
 			
+		} else if(state==4){ //government state screen
+			showReturn();
 		}
 	}
 	
@@ -130,6 +134,9 @@ public class InfoPanel extends JPanel {
 		
 		//industry
 		showIndustry();
+		
+		//government
+		showGovernment();
 	}
 	
 	private void panelFleetSetup(){
@@ -144,6 +151,21 @@ public class InfoPanel extends JPanel {
 		
 		//xtra space grabber
 		hideSpace();
+	}
+	
+	private void showGovernment(){
+		String str = "Government: ";
+		c = new GridBagConstraints();
+		if(this.stop(str)){
+			JLabel gov = new JLabel(str);
+			gov.setFont(new Font("Serif", Font.BOLD, 20));
+			c.gridx = 0;
+			c.gridy = 18;
+			c.anchor = GridBagConstraints.LINE_START;
+			
+			this.disciplineSwitchButton(gov, 4);
+			this.add(gov,c);
+		}
 	}
 	
 	private void showIndustry(){
@@ -174,7 +196,7 @@ public class InfoPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				state = switchState;
-				System.out.println(state);
+				//System.out.println(state);
 				removeAll();
 				update();
 			}
@@ -458,7 +480,7 @@ public class InfoPanel extends JPanel {
 	private void hideSpace(){
 		c = new GridBagConstraints();
 		c.weighty=1;
-		c.gridy = 20;
+		c.gridy = 30;
 		this.add(new JLabel(" "), c);
 	}
 	
