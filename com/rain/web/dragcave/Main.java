@@ -34,7 +34,7 @@ public class Main {
 			menu();
 			System.out.println("Please enter selection: ");
 			a = kb.nextInt();
-			while(a!=1 && a!=2){
+			while(a!=1 && a!=2 && a!=3){
 				menu();
 				System.out.println("Input not recognized, please try again: ");
 				a = kb.nextInt();
@@ -64,6 +64,23 @@ public class Main {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			} else if(a==3){
+				Collections.sort(eggs, new NameComparator());
+				File file = new File("dragons.txt");
+				try {
+					PrintWriter pw = new PrintWriter(file);
+					for(int i = 0; i<eggs.size(); i++){
+						pw.println(eggs.get(i));
+						pw.flush();
+					}
+					pw.close();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("");
+				print(eggs);
+				System.out.println("");
 			}
 		}
 		kb.close();
@@ -80,7 +97,9 @@ public class Main {
 	private static void menu(){
 		System.out.println("MENU--------------------");
 		System.out.println("1)Print the current List");
+		System.out.println("3)Sort the list and save it");
 		System.out.println("2) Quit the program");
+		
 	}
 	
 	public static List<Egg> getEggList(){ return eggs; }
