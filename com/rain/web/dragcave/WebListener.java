@@ -121,7 +121,7 @@ public class WebListener implements Runnable {
 	@SuppressWarnings("unused")
 	public void take(Egg e){
 		if(e.getType().equals("Gold") || e.getType().equals("Ice") || e.getType().equals("Magma") || e.getType().equals("Thunder") || e.getType().equals("Silver")
-				|| e.getType().contains("Dino")){
+				|| e.getType().contains("Dino") || e.getType().equals("Blusang Lindwurm")){
 			String url = "http://dragcave.net/get/" + e.getId().trim();
 			try {
 				Document d = Jsoup.connect(url).get();
