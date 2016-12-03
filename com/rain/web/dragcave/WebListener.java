@@ -99,8 +99,11 @@ public class WebListener implements Runnable {
 				
 				for(int i = 0; i<ids.size(); i++){
 					//System.out.println(data[i]);
-					if(!contains(ids.get(i)))
-						Main.getEggList().add(new Egg(data[i].trim(), new Date(), location, ids.get(i)));
+					if(!contains(ids.get(i))){
+						Egg egg = new Egg(data[i].trim(), new Date(), location, ids.get(i));
+						Main.getEggList().add(egg);
+						take(egg);
+					}
 				}
 			}	
 		} catch(SocketTimeoutException e){
@@ -113,6 +116,24 @@ public class WebListener implements Runnable {
 			//unhandled exceptions
 			e.printStackTrace();
 		}	
+	}
+	
+	public void take(Egg e){
+		if(e.getType().equals("Gold") || e.getType().equals("Ice") || e.getType().equals("Magma") || e.getType().equals("Thunder") || e.getType().equals("Silver") ){
+			String url = "http://dragcave.net/get/" + e.getId().trim();
+			try {
+				Document d = Jsoup.connect(url).get();
+			} catch(SocketTimeoutException e1){
+				System.out.println("Socket timeout, retrying 'get' ...");
+				take(e);
+			}
+			catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} finally{
+				System.out.println("Successfully took: " + e);
+			}
+		}
 	}
 	
 	public static void main(String[]args){
