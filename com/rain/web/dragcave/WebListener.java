@@ -104,7 +104,8 @@ public class WebListener implements Runnable {
 				}
 			}	
 		} catch(SocketTimeoutException e){
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Socket timed out, retrying...");
 			this.run();
 		} catch(InterruptedException e){
 			e.printStackTrace();
