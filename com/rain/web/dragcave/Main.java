@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,7 +53,7 @@ public class Main {
 				System.out.println("Thanks for using this.");
 				System.out.println("Sorting, then Outputing to file...");
 				Collections.sort(eggs, new NameComparator());
-				File file = new File("dragons.txt");
+				File file = new File("dragons"+ new Date().toString() + ".txt");
 				try {
 					PrintWriter pw = new PrintWriter(file);
 					for(int i = 0; i<eggs.size(); i++){

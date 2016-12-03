@@ -297,7 +297,7 @@ public class Egg {
 			return "Waterhorse";
 		else if("This egg shakes from time to time, as if it is eager to hatch.".contains(d))
 			return "Whiptail";
-		else if("This egg has a very clean look; it's completely devoid of dirt and scratches.       ".contains(d))
+		else if("This egg has a very clean look; it's completely devoid of dirt and scratches.  ".contains(d))
 			return "White";
 		else if("Mana courses throughout this glassy egg.".contains(d))
 			return "Xenowyrm";
