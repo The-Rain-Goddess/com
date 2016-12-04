@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class Main {
 	private static List<Egg> eggs = Collections.synchronizedList(new ArrayList<Egg>());
+	private static List<String> params = Collections.synchronizedList(new ArrayList<String>());
 	private static boolean continue1 = true;
 	
 	public static void main(String[] args){
@@ -35,7 +36,7 @@ public class Main {
 			menu();
 			System.out.println("Please enter selection: ");
 			a = kb.nextInt();
-			while(a!=1 && a!=2 && a!=3){
+			while(a!=1 && a!=2 && a!=3 && a!=4){
 				menu();
 				System.out.println("Input not recognized, please try again: ");
 				a = kb.nextInt();
@@ -63,7 +64,7 @@ public class Main {
 					pw.close();
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			} else if(a==3){
 				Collections.sort(eggs, new NameComparator());
@@ -82,10 +83,26 @@ public class Main {
 				System.out.println("");
 				print(eggs);
 				System.out.println("");
+			} else if(a==4){
+				kb.nextLine();
+				System.out.println("Please input the param: ");
+				String in = kb.nextLine();
+				
+				if(params.contains(in)){
+					System.out.println("Removed " + in);
+					params.remove(in);
+				} else{
+					params.add(in);
+					System.out.println("Added " + in);
+				}
+				System.out.println();
+				
 			}
 		}
 		kb.close();
 	}
+	
+	public static List<String> getParams(){ return params; } 
 	
 	public static void print(List<Egg> a){
 		for(int i = 0; i< a.size(); i++){
@@ -100,7 +117,7 @@ public class Main {
 		System.out.println("1)Print the current List");
 		System.out.println("3)Sort the list and save it");
 		System.out.println("2) Quit the program");
-		
+		System.out.println("4) Add/Remove a parameter:");
 	}
 	
 	public static List<Egg> getEggList(){ return eggs; }

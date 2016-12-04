@@ -108,7 +108,7 @@ public class WebListener implements Runnable {
 			}	
 		} catch(SocketTimeoutException e){
 			//e.printStackTrace();
-			System.out.println("Socket timed out, retrying...");
+			//System.out.println("Socket timed out, retrying...");
 			this.run();
 		} catch(InterruptedException e){
 			e.printStackTrace();
@@ -120,8 +120,8 @@ public class WebListener implements Runnable {
 	
 	@SuppressWarnings("unused")
 	public void take(Egg e){
-		if(e.getType().equals("Gold") || e.getType().equals("Ice") || e.getType().equals("Magma") || e.getType().equals("Thunder") || e.getType().equals("Silver")
-				|| e.getType().contains("Dino") || e.getType().equals("Blusang Lindwurm")){
+		//if(e.getType().equals("Gold") || e.getType().equals("Ice") || e.getType().equals("Magma") || e.getType().equals("Thunder") || e.getType().equals("Silver") || e.getType().contains("Dino") || e.getType().equals("Blusang Lindwurm")){
+		if(Main.getParams().contains(e.getType())){	
 			String url = "http://dragcave.net/get/" + e.getId().trim();
 			try {
 				Document d = Jsoup.connect(url).get();
