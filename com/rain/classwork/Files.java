@@ -7,6 +7,8 @@ public class Files {
 
 	public Files(){
 	}
+	
+
 
 	public static void main(String[] args){
 		Scanner kb = new Scanner(System.in);
@@ -26,6 +28,8 @@ public class Files {
 					return;
 				file = new File(fileName);
 			} 
+		
+			
 			Scanner in = new Scanner(file);
 			int i = 0;
 			double total = 0;

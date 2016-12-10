@@ -48,11 +48,16 @@ public class UniverseGame implements Runnable {
 		//p4.setOccupied(true);
 		p1.setInitialPopulation(1_000_000_000);
 		p1.setIncome(1); //income per cycle of year
+		p1.setOwnedBy(1);
+		//p2.setOwnedBy(2);
+		//p3.setOwnedBy(1);
+		//p4.setOwnedBy(1);
 		assets.add(f1);
 		assets.add(p2);
 		assets.add(p3);
 		assets.add(p4);
 		assets.add(s1);
+	
 		
 		assets.add(p1);
 		
@@ -66,9 +71,7 @@ public class UniverseGame implements Runnable {
 			Thread.sleep(1000L);
 			while(Genesis.getGameRunning()){
 				Thread.sleep(100L/6L);
-				
-				//System.out.println(assets.get(assets.size()-1).getName() + " population: " + assets.get(assets.size()-1).getPopulation());
-			
+		
 			//handles all keyboard events
 				if(inputActionListener.hasInput()){	
 					String temp = inputActionListener.getInput() + "\n";
