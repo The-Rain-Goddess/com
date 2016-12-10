@@ -35,6 +35,8 @@ public class Egg {
 	private String parseDescription(String d){
 		if("It’s almost like time is distorted around this egg.".contains(d))
 			return "Aeon Wyvern";
+		else if(d.contains("it is brightly colored with"))
+			return "Dino";
 		else if("You can see the baby dragon curled up inside this translucent egg.".contains(d))
 			return "Albino";
 		else if("This glossy green egg is rather warm.".contains(d))
@@ -97,7 +99,7 @@ public class Egg {
 			return "Copper";
 		else if("This egg is tiny and brightly colored.".contains(d))
 			return "Crimson Flare Pygmy";
-		else if("This egg is sitting in a patch of grass and small flowers even though there's no sun in the cave.      ".contains(d))
+		else if("This egg is sitting in a patch of grass and small flowers even though there's no sun in the cave.      ".contains(d) || d.contains("This egg is sitting in a patch of grass and small flowers even though there") )
 			return "Dark Green";
 		else if("This egg shines coldly in the moonlight.".contains(d))
 			return "Dark Lumina";
@@ -125,7 +127,7 @@ public class Egg {
 			return "Fever Wyvern";
 		else if(d.contains("It's brigh")) //coudl be one of two possible
 			return "Flamingo Wyvern/Pink";
-		else if("And pink  ".contains(d))
+		else if(d.contains("It's bright And Pink"))
 			return "Flamingo Wyvern/Pink";
 		else if("Frost is creeping over this cold egg.".contains(d))
 			return "Frostbite";
@@ -217,7 +219,7 @@ public class Egg {
 			return "Plated Colossus";
 		else if("Wow, purple isn’t a color of egg you expected to see.".contains(d))
 			return "Purple";
-		else if("This egg is so tiny you almost didn't see it.    ".contains(d))
+		else if("This egg is so tiny you almost didn't see it.    ".contains(d) || d.contains("This egg is so tiny you almost didn"))
 			return "Pygmy";
 		else if("This egg feels like polished stone.".contains(d))
 			return "Pyralspite";
@@ -269,7 +271,7 @@ public class Egg {
 			return "Tarantula Hawk Drake";
 		else if("This egg is a lush green hue.".contains(d))
 			return "Terrae";
-		else if("Whenever you go near this egg your hair stands on end.".contains(d))
+		else if("Whenever you go near this egg, your hair stands on end.".contains(d))
 			return "Thunder";
 		else if("This brown egg is covered in intricate designs.".contains(d))
 			return "Tri-Horn Wyvern";
@@ -297,7 +299,7 @@ public class Egg {
 			return "Waterhorse";
 		else if("This egg shakes from time to time, as if it is eager to hatch.".contains(d))
 			return "Whiptail";
-		else if("This egg has a very clean look; it's completely devoid of dirt and scratches.  ".contains(d))
+		else if("This egg has a very clean look; it's completely devoid of dirt and scratches.  ".contains(d) || d.contains("This egg has a very clean look; it"))
 			return "White";
 		else if("Mana courses throughout this glassy egg.".contains(d))
 			return "Xenowyrm";

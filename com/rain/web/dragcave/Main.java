@@ -36,7 +36,7 @@ public class Main {
 			menu();
 			System.out.println("Please enter selection: ");
 			a = kb.nextInt();
-			while(a!=1 && a!=2 && a!=3 && a!=4){
+			while(a!=1 && a!=2 && a!=3 && a!=4 && a!=5){
 				menu();
 				System.out.println("Input not recognized, please try again: ");
 				a = kb.nextInt();
@@ -97,6 +97,10 @@ public class Main {
 				}
 				System.out.println();
 				
+			} else if(a==5){
+				System.out.println();
+				System.out.println(params);
+				System.out.println();
 			}
 		}
 		kb.close();
@@ -113,11 +117,13 @@ public class Main {
 	public static boolean getContinue(){ return continue1; }
 	
 	private static void menu(){
-		System.out.println("MENU--------------------");
-		System.out.println("1)Print the current List");
-		System.out.println("3)Sort the list and save it");
-		System.out.println("2) Quit the program");
-		System.out.println("4) Add/Remove a parameter:");
+		System.out.println("MENU------------------------|");
+		System.out.println("1) Print the current list.  |");
+		System.out.println("2) Quit the program.        |");
+		System.out.println("3) Sort the list and save it|");
+		System.out.println("4) Add/Remove a parameter:  |");
+		System.out.println("5) Print parameter list.    |");
+		System.out.println("----------------------------");
 	}
 	
 	public static List<Egg> getEggList(){ return eggs; }

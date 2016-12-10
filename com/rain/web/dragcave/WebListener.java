@@ -94,7 +94,10 @@ public class WebListener implements Runnable {
 				} //System.out.println("IDS: " + ids);
 				
 				String eggsText = eggs.text();
-				String[] data = eggsText.replace("It's bright. And pink.", "It's bright And pink\\.").split("\\.");
+				eggsText.replace("It's bright\\. And pink", "It's bright And pink");
+				eggsText.replace("Oh my\\. There is a leetle tree among the eggs", "Oh my There is a leetle tree among the eggs");
+				eggsText.replace("This egg looks like it doesn't belong; it is brightly colored with white spots\\.", "This egg looks like it doesn't belong; it is brightly colored with white spots");
+				String[] data = eggsText.split("\\.");
 				//String id = "";
 				
 				for(int i = 0; i<ids.size(); i++){
