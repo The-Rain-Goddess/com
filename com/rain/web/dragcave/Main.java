@@ -123,7 +123,7 @@ public class Main {
 		System.out.println("3) Sort the list and save it|");
 		System.out.println("4) Add/Remove a parameter:  |");
 		System.out.println("5) Print parameter list.    |");
-		System.out.println("----------------------------");
+		System.out.println("----------------------------|");
 	}
 	
 	public static List<Egg> getEggList(){ return eggs; }
