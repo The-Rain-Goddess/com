@@ -313,6 +313,8 @@ public class Egg {
 			return "Azure Glacewing";
 		else if("This mottled egg looks positively ancient.".contains(d))
 			return "Fell";
+		else if(d.contains("leetle tree"))
+			return "Leetle";
 			
 				
 		
