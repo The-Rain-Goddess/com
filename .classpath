@@ -6,13 +6,18 @@
 			<accessrule kind="accessible" pattern="javafx/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="R:/java/java8/poi-3.14/poi-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="R:/java/java8/poi-3.14/poi-examples-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="R:/java/java8/poi-3.14/poi-excelant-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="R:/java/java8/poi-3.14/poi-ooxml-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="R:/java/java8/poi-3.14/lib/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="R:/Software Bundles/JSON-java-master/json-20160810.jar"/>
-	<classpathentry kind="lib" path="R:/WorkSpace/gson-2.3.1.jar"/>
-	<classpathentry kind="lib" path="R:/WorkSpace/riot-api-java2.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/json-20160810.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/jsoup-1.10.1.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-examples-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-excelant-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-ooxml-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-ooxml-schemas-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-scratchpad-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="Q:/Workspace/git32/riot-api-java2.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
