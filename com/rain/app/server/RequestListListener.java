@@ -7,10 +7,6 @@ import java.util.Random;
 public class RequestListListener implements Runnable{
 	
 //public constructor	
-	public RequestListListener(){
-		
-	}
-	
 	@SuppressWarnings("unused")
 	private void println(String p){
 		System.out.println("RequestListener: " + Thread.currentThread().getName() + " " + p);
@@ -21,7 +17,7 @@ public class RequestListListener implements Runnable{
 	public void run(){
 		int request_num = 0;
 		try{
-			System.out.println("RequestListListener: " +Thread.currentThread().getName() + " is started as RequestListListener.");
+			System.out.println("RequestListListener: " + Thread.currentThread().getName() + " is started as RequestListListener.");
 			
 			synchronized(Server.requestList){
 				request_num = Server.requestList.size();
