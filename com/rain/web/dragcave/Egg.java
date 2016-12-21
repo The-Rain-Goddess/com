@@ -3,17 +3,17 @@ package com.rain.web.dragcave;
 import java.util.Date;
 
 public class Egg {
-	private Date dateAppeared;	//what
-	private String type;		//when
+	private Date dateAppeared;	//when
+	private String type;		//what
 	private int location;		//where
 	private String id;			//who
 	private String description;
 	
 	public Egg(String des, Date date, int loc, String id) {
-		type = parseDescription(des);
-		description = des;
-		dateAppeared = date;
-		location = loc;
+		this.type = this.parseDescription(des);
+		this.description = des;
+		this.dateAppeared = date;
+		this.location = loc;
 		this.id = id;
 	}
 //super
@@ -23,6 +23,7 @@ public class Egg {
 	}
 	
 //non-private access/mutators
+	//access
 	public Date getDateAppeared(){ return dateAppeared; }
 	
 	public int getLocation(){ return location; }
@@ -191,7 +192,7 @@ public class Egg {
 			return "Misfit Pygmy";
 		else if("This egg is buried in leaf litter.".contains(d))
 			return "Monarch";
-		else if("This egg resembles a glowing stone.".contains(d))//coul
+		else if("This egg resembles a glowing stone.".contains(d))
 			return "Moonstone/Sunstone";
 		else if("A few bright markings decorate this egg’s shell.".contains(d))
 			return "Morphodrake";
@@ -313,7 +314,7 @@ public class Egg {
 			return "Azure Glacewing";
 		else if("This mottled egg looks positively ancient.".contains(d))
 			return "Fell";
-		else if(d.contains("leetle tree"))
+		else if(d.contains("Oh my"))
 			return "Leetle";
 			
 				

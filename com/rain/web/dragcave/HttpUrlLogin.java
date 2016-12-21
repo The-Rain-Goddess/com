@@ -21,7 +21,7 @@ import org.jsoup.select.Elements;
 
 public class HttpUrlLogin {
 	private List<String> cookies = new ArrayList<>();
-	private HttpsURLConnection conn;
+	private HttpsURLConnection httpsConnection;
 	private final String USER_AGENT = "Mozilla/5.0";
 	
 	public HttpUrlLogin() {
@@ -30,40 +30,41 @@ public class HttpUrlLogin {
 	
 	public void sendPost(String url, String postParams) throws IOException {
 
-		URL obj = new URL(url);
-		conn = (HttpsURLConnection) obj.openConnection();
+		URL targetURL = new URL(url);
+		httpsConnection = (HttpsURLConnection) targetURL.openConnection();
 
 		// Acts like a browser
-		conn.setUseCaches(false);
-		conn.setRequestMethod("POST");
-		conn.setRequestProperty("Host", "accounts.google.com");
-		conn.setRequestProperty("User-Agent", USER_AGENT);
-		conn.setRequestProperty("Accept",
-			"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-		conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		httpsConnection.setUseCaches(false);
+		httpsConnection.setRequestMethod("POST");
+		httpsConnection.setRequestProperty("Host", "accounts.google.com");
+		httpsConnection.setRequestProperty("User-Agent", USER_AGENT);
+		httpsConnection.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+		httpsConnection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		
 		for (String cookie : this.cookies) {
-			conn.addRequestProperty("Cookie", cookie.split(";", 1)[0]);
+			httpsConnection.addRequestProperty("Cookie", cookie.split(";", 1)[0]);
 		}
-		conn.setRequestProperty("Connection", "keep-alive");
-		conn.setRequestProperty("Referer", "https://dragcave.net/");
-		conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-		conn.setRequestProperty("Content-Length", Integer.toString(postParams.length()));
+		
+		httpsConnection.setRequestProperty("Connection", "keep-alive");
+		httpsConnection.setRequestProperty("Referer", "https://dragcave.net/");
+		httpsConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		httpsConnection.setRequestProperty("Content-Length", Integer.toString(postParams.length()));
 
-		conn.setDoOutput(true);
-		conn.setDoInput(true);
+		httpsConnection.setDoOutput(true);
+		httpsConnection.setDoInput(true);
 
 		// Send post request
-		DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
-		wr.writeBytes(postParams);
-		wr.flush();
-		wr.close();
+		DataOutputStream writeToHttpsConnection = new DataOutputStream(httpsConnection.getOutputStream());
+		writeToHttpsConnection.writeBytes(postParams);
+		writeToHttpsConnection.flush();
+		writeToHttpsConnection.close();
 
-		int responseCode = conn.getResponseCode();
+		int responseCode = httpsConnection.getResponseCode();
 		System.out.println("\nSending 'POST' request to URL : " + url);
 		System.out.println("Post parameters : " + postParams);
 		System.out.println("Response Code : " + responseCode);
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(httpsConnection.getInputStream()));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
 
@@ -75,29 +76,29 @@ public class HttpUrlLogin {
 	}
 		
 	public String GetPageContent(String url) throws IOException {
-		URL obj = new URL(url);
-		URLConnection con =  obj.openConnection(); //(HttpsURLConnection)
+		URL targetURL = new URL(url);
+		URLConnection httpConnection =  targetURL.openConnection(); //(HttpsURLConnection)
 
 		// default is GET
-		((HttpURLConnection) con).setRequestMethod("GET");
+		((HttpURLConnection) httpConnection).setRequestMethod("GET");
 
-		con.setUseCaches(false);
+		httpConnection.setUseCaches(false);
 
 		// act like a browser
-		con.setRequestProperty("User-Agent", USER_AGENT);
-		con.setRequestProperty("Accept",
+		httpConnection.setRequestProperty("User-Agent", USER_AGENT);
+		httpConnection.setRequestProperty("Accept",
 			"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		httpConnection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 		if (cookies != null) {
 			for (String cookie : this.cookies) {
-				con.addRequestProperty("Cookie", cookie.split(";", 1)[0]);
+				httpConnection.addRequestProperty("Cookie", cookie.split(";", 1)[0]);
 			}
 		}
 		//int responseCode = conn.getResponseCode();
 		System.out.println("\nSending 'GET' request to URL : " + url);
 		//System.out.println("Response Code : " + responseCode);
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(obj.openStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(targetURL.openStream()));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
 
@@ -107,7 +108,7 @@ public class HttpUrlLogin {
 		in.close();
 
 		// Get the response cookies
-		setCookies(conn.getHeaderFields().get("Set-Cookie"));
+		setCookies(httpsConnection.getHeaderFields().get("Set-Cookie"));
 
 		return response.toString();
 	}
@@ -115,10 +116,10 @@ public class HttpUrlLogin {
 	public String getFormParams(String html, String username, String password)throws UnsupportedEncodingException {
 		System.out.println("Extracting form's data...");
 
-		Document doc = Jsoup.parse(html);
+		Document htmlDocument = Jsoup.parse(html);
 
 		// Google form id
-		Element loginform = doc.getElementById("middle");
+		Element loginform = htmlDocument.getElementById("middle");
 		//System.out.println(loginform.text());
 		Elements inputElements = loginform.getElementsByTag("input");
 		List<String> paramList = new ArrayList<String>();
