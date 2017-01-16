@@ -67,6 +67,7 @@ public class Rapi {
 				return lastMatchId;
 		} catch (RiotApiException e) {
 			System.err.println("Rapi: Riot Api Error");
+			getMostRecentMatchId();
 			e.printStackTrace();
 		} catch(InterruptedException e){
 			e.printStackTrace();
@@ -357,7 +358,7 @@ public class Rapi {
 										"totalTeamDmg:" + teamDmg + "/" + 
 										"totalEnemyDmg:" + enemyTeamDmg + "/";
 						System.out.println("Rapi:" + tempString);	
-						passString = passString + "|MATCH:" + i + "|" + tempString;
+						passString = passString + tempString;
 					}
 				}
 			}
@@ -365,8 +366,15 @@ public class Rapi {
 			e.printStackTrace();
 			System.err.println("Rapi: Exception: " + e.getMessage() + ", Error Type: " + e.getRateLimitType() + ", Rapi: Retrying in: " + e.getRetryAfter());
 			try {
-				Thread.sleep((e.getRetryAfter() * 1000L) + 11000L);
-				getHistory(i, stop);
+				if(e.getRetryAfter()==0){
+					Thread.sleep(500L);
+					getHistory(i, stop);
+				} else{
+					Thread.sleep((e.getRetryAfter() * 1000L) + 11000L);
+					getHistory(i, stop);
+				}
+				
+				
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
