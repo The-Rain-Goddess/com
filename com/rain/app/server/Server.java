@@ -31,10 +31,9 @@ public class Server {
 		try{ 
 			System.out.println("Server: " + Thread.currentThread().getName() + " is started.");
 			ss = new ServerSocket(port);
-			new Thread(new KeyHandler()).start();			//stops main peacefully
-			new Thread(new RequestListHandler()).start();	
-			new Thread(new RequestListListener()).start(); 	//does the work
-			
+			new Thread(new KeyHandler()).start();			
+			//new Thread(new RequestListHandler()).start();	
+			//new Thread(new RequestListListener()).start(); 	
 			
 			while(!keyboard.equals("x")){
 				Socket serviceSocket = ss.accept();

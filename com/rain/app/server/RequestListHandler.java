@@ -32,9 +32,11 @@ public class RequestListHandler implements Runnable{
 				//println("Requests: " + request_num);
 				if(control_num == 0 && request_num == 0){
 					synchronized(Server.summoner_storage){
-						for(Map.Entry<String, com.rain.app.server.Summoner> entry : Server.summoner_storage.entrySet()){
-							synchronized(Server.requestList){
-								Server.requestList.add(entry.getKey());
+						if(Server.summoner_storage.size()!=0){
+							for(Map.Entry<String, com.rain.app.server.Summoner> entry : Server.summoner_storage.entrySet()){
+								synchronized(Server.requestList){
+									Server.requestList.add(entry.getKey());
+								}
 							}
 						}
 					}

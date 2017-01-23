@@ -68,10 +68,11 @@ public class Summoner {
 	}
 	
 //logic and math methods below
-	String passString;
-	String tempString;
+	
 	public String getMatchesFromMemory(int start, int stop){
 		int i=0;
+		String passString = "";
+		String tempString;
 		try{
 			tempString = ""; // string for match detail aggregation
 			//passString = ""; // string to return
@@ -98,7 +99,7 @@ public class Summoner {
 						} tempString = tempString +  
 							"totalTeamDmg:" + teamDmg + "/" + 
 							"totalEnemyDmg:" + enemyTeamDmg + "/";
-						passString = passString + "|MATCH:" + i + "|" + tempString;
+						passString = passString + tempString;
 					}
 				}
 			} return passString;
