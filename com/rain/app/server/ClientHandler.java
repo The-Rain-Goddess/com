@@ -86,6 +86,7 @@ public class ClientHandler extends Thread {
 						out.writeUTF(match_retrieve_num + "");
 						out.flush();
 						for(int i = match_data_start; i < match_data_stop; i++){
+							com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1);
 							out.writeUTF(com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1));
 							out.flush();
 						}

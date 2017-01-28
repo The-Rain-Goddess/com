@@ -305,7 +305,7 @@ public class Rapi {
 		//TODO: find the reason why finding older matches cause rapi to start count from 0 to end
 		int i = start;
 		try{
-			Thread.sleep(1200L);
+			Thread.sleep(500L);
 			passString = ""; 
 			tempString = "";
 			ml = api.getMatchList(id); 					//+1call
@@ -315,12 +315,12 @@ public class Rapi {
 			System.err.println("Rapi: Starting main loop");
 			for(i = start; i < stop; i++){
 				long matchId = match_references.get(i).getMatchId();
-				Thread.sleep(1200L); //slows down the request rate
+				Thread.sleep(1000L); //slows down the request rate
 				MatchDetail temp3;
 				if(i%2==1){
-					temp3 = api_backup.getMatch(matchId);    //TODO: change this to alternate
+					temp3 = api_backup.getMatch(matchId);    
 				} else{
-					temp3 = api.getMatch(matchId);    //TODO: change this to alternate
+					temp3 = api.getMatch(matchId);   
 				}
 				
 				
@@ -329,7 +329,7 @@ public class Rapi {
 				
 				List<Participant> part = temp3.getParticipants();
 				List<ParticipantIdentity> part2 = temp3.getParticipantIdentities();
-				//System.err.println("Secondary Loop:");
+				
 				int teamDmg = 0;
 				int enemyTeamDmg = 0;
 				for(int j = 0; j<10; j++){ //finds the input player in each match
