@@ -70,7 +70,7 @@ public class ClientHandler extends Thread {
 													//		0			1			2		3		4
 			String msg = in.readUTF(); //msg syntax is: "<summName>::<command>::<number>::<start>::<stop>"
 			msg_split = msg.split("::"); //splits msg into input and command
-			broadcast(msg);
+			//broadcast(msg);
 			match_data_start = Integer.parseInt(msg_split[3]);
 			match_data_stop = Integer.parseInt(msg_split[4]);
 			match_retrieve_num = Integer.parseInt(msg_split[2]);
@@ -129,8 +129,17 @@ public class ClientHandler extends Thread {
 						
 						out.flush();					 //to the client
 					}
-				} else if(msg_split[1].equals("")){
-					
+				} else if(msg_split[1].equals("get_profile")){
+					if(checkIfSummonerCurrent(msg_split[0])){ 
+						//TODO: implement profile requests
+						String outString = rapi.getProfileSummary();
+						System.out.println(outString);
+						out.writeUTF("1");
+						out.writeUTF(outString);
+						out.flush();
+					} else{
+						
+					}
 				}
 		} catch(RateLimitException ex){					//client exceeds riot limit rate
 			try{

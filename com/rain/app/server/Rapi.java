@@ -7,6 +7,8 @@ import net.rithms.riot.api.RateLimitException;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.constant.Region;
+import net.rithms.riot.dto.League.League;
+import net.rithms.riot.dto.League.LeagueEntry;
 import net.rithms.riot.dto.Match.MatchDetail;
 import net.rithms.riot.dto.Match.Participant;
 import net.rithms.riot.dto.Match.ParticipantIdentity;
@@ -156,8 +158,32 @@ public class Rapi {
 	List<String> getChampionNames(){ return champion_names; }
 	
 	List<MatchDetail> getRankedMatchListDetails(){ return ranked_match_details; }
+
+//for profile
+	String getProfileSummary(){
+		String reString = "";
+		try {
+			List<League> leagueList = api.getLeagueBySummoner(id);
+			for(int i = 0; i<leagueList.size(); i++){
+				League temp_league = leagueList.get(i);
+				System.out.println("Rapi: i" + i + " : " + temp_league.getQueue() + " : " + temp_league.getTier());
+				reString = reString + ":" + temp_league.getQueue() + ":" + temp_league.getTier();
+				
+				List<LeagueEntry> leagueEntryList = temp_league.getEntries();
+				for(int j = 0; j<leagueEntryList.size(); j++){
+					LeagueEntry temp_entry = leagueEntryList.get(j);
+					if(temp_entry.getPlayerOrTeamId().equals(""+id)){
+						reString = reString + ":" + temp_entry.getDivision() + ":" + temp_entry.getLeaguePoints() + "LP";
+					}
+				}
+			}
+		} catch (RiotApiException e) {
+			e.printStackTrace();
+			System.err.println("Rapi: " + e.getMessage());
+		} return reString.substring(1);
+	}
 	
-	//for the analysis
+//for the analysis
 	String getRankedStats(){
 		String returnString = "";
 		int bog = 0;
@@ -169,12 +195,13 @@ public class Rapi {
 			for(int i = 0; i < temp_champ_stats.size(); i++){
 				temp_agg = temp_champ_stats.get(i).getStats();
 				bog = temp_champ_stats.get(i).getId();
-				if(bog==0)
+				if(bog==0) //why the total stats looks like its used with annie
 					bog = 1;
 				returnString = returnString + "/cmp:" 
 											+ "/champ:" + api_backup.getDataChampion(bog).getName() + "/" +
 											aggregateFromStats(temp_agg);
-			} //System.out.println("CHAMP STATS:" + returnString);
+				//System.out.println("Rapi: " + returnString + "/cmp:" + "/champ:" + api_backup.getDataChampion(bog).getName() + "/" + aggregateFromStats(temp_agg));
+			} //System.out.println(returnString);
 			return returnString;
 		} catch(RateLimitException e){
 			e.printStackTrace();
@@ -183,7 +210,8 @@ public class Rapi {
 			e.printStackTrace();
 		} catch(InterruptedException e){
 			e.printStackTrace();
-		} return returnString;	
+		} //System.out.println("Rapi: " + returnString); 
+		return returnString;	
 	}
 	
 	String aggregateFromStats(AggregatedStats a){
@@ -315,7 +343,7 @@ public class Rapi {
 			System.err.println("Rapi: Starting main loop");
 			for(i = start; i < stop; i++){
 				long matchId = match_references.get(i).getMatchId();
-				Thread.sleep(1000L); //slows down the request rate
+				Thread.sleep(500L); //slows down the request rate
 				MatchDetail temp3;
 				if(i%2==1){
 					temp3 = api_backup.getMatch(matchId);    
@@ -367,10 +395,10 @@ public class Rapi {
 			System.err.println("Rapi: Exception: " + e.getMessage() + ", Error Type: " + e.getRateLimitType() + ", Rapi: Retrying in: " + e.getRetryAfter());
 			try {
 				if(e.getRetryAfter()==0){
-					Thread.sleep(500L);
+					Thread.sleep(100L);
 					getHistory(i, stop);
 				} else{
-					Thread.sleep((e.getRetryAfter() * 1000L) + 11000L);
+					Thread.sleep((e.getRetryAfter() * 1000L) + 100L);
 					getHistory(i, stop);
 				}
 				
