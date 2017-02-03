@@ -116,7 +116,7 @@ public class ClientHandler extends Thread {
 						}
 						
 						mSummoner = new com.rain.app.server.Summoner(msg_split[0], rapi.getId(), rapi.getMatchReferences(), rapi.getMatchDetails(), rapi.getChampionNames() );
-						synchronized(Server.summoner_storage){ // synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
+						synchronized(Server.summoner_storage){ 		// synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
 							com.rain.app.server.Server.summoner_storage.put(msg_split[0], mSummoner);
 						}
 					}
@@ -130,7 +130,7 @@ public class ClientHandler extends Thread {
 						out.flush();					 //to the client
 					}
 				} else if(msg_split[1].equals("get_profile")){
-					if(checkIfSummonerCurrent(msg_split[0])){ 
+					if(com.rain.app.server.Server.summoner_storage.containsKey(msg_split[0])){ 
 						//TODO: implement profile requests
 						String outString = rapi.getProfileSummary();
 						System.out.println(outString);

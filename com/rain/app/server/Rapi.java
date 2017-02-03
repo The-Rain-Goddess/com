@@ -166,8 +166,8 @@ public class Rapi {
 			List<League> leagueList = api.getLeagueBySummoner(id);
 			for(int i = 0; i<leagueList.size(); i++){
 				League temp_league = leagueList.get(i);
-				System.out.println("Rapi: i" + i + " : " + temp_league.getQueue() + " : " + temp_league.getTier());
-				reString = reString + ":" + temp_league.getQueue() + ":" + temp_league.getTier();
+				//System.out.println("Rapi: i" + i + " : " + temp_league.getQueue() + " : " + temp_league.getTier());
+				reString = reString + "" + temp_league.getQueue() + ":" + temp_league.getTier();
 				
 				List<LeagueEntry> leagueEntryList = temp_league.getEntries();
 				for(int j = 0; j<leagueEntryList.size(); j++){
@@ -175,12 +175,12 @@ public class Rapi {
 					if(temp_entry.getPlayerOrTeamId().equals(""+id)){
 						reString = reString + ":" + temp_entry.getDivision() + ":" + temp_entry.getLeaguePoints() + "LP";
 					}
-				}
+				} reString = reString + "/";
 			}
 		} catch (RiotApiException e) {
 			e.printStackTrace();
 			System.err.println("Rapi: " + e.getMessage());
-		} return reString.substring(1);
+		} return reString.substring(0, reString.length()-1);
 	}
 	
 //for the analysis
@@ -237,6 +237,7 @@ public class Rapi {
 							"rankedSolo:" + a.getRankedSoloGamesPlayed() + "/" +
 							"totalAssists:" +a.getTotalAssists() + "/" +
 							"totalKills:" +a.getTotalChampionKills() + "/" +
+							"totalDeaths:" + a.getTotalDeathsPerSession() + "/" + 
 							"totalDmgDealt:" + a.getTotalDamageDealt() + "/" +
 							"totalDmgTaken:" + a.getTotalDamageTaken() + "/" +
 							"doubleKills:"  +a.getTotalDoubleKills() + "/" +
@@ -254,6 +255,7 @@ public class Rapi {
 							"totalSessionsWon:" +a.getTotalSessionsWon() + "/" +
 							"totalTripleKills:" +a.getTotalTripleKills() + "/" +
 							"totalTurretKills:" +a.getTotalTurretsKilled();	
+		System.out.println("Rapi: " + tmpString);
 		return tmpString;		
 	}
 	
