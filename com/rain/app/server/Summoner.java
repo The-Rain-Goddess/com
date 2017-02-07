@@ -22,8 +22,11 @@ public class Summoner {
 	private List<MatchDetail> match_details;
 	private List<String> Champion;
 	
+	private List<String> mastery_profile_data;
+	private String ranked_profile_data;
+	
 	private int summoner_id;
-	private String summoner_name;	
+	private String summoner_name;
 	public Summoner(){}
 	
 	public Summoner(String name, int id
@@ -162,6 +165,14 @@ public class Summoner {
 		} return passString;	
 	}
 	
+	public void setRankedProfileData(String updatedData){
+		ranked_profile_data = updatedData;
+	}
+	
+	public void setMasteryProfileData(List<String> list){
+		mastery_profile_data = list;
+	}
+	
 	public String aggregateDataFromMatchDetail(ParticipantStats ps){
 		String stringToReturn = 
 			"assists:" + ps.getAssists() + "/" + 
@@ -227,6 +238,10 @@ public class Summoner {
 	}
 
 //get methods below	
+	public List<String> getMasteryProfileData(){ return mastery_profile_data; }
+	
+	public String getRankedProfileData(){ return ranked_profile_data; }
+	
 	public String getSummonerName(){ return summoner_name; }
 	
 	public int getSummonerId(){ return summoner_id; }

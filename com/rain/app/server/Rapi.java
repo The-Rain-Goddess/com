@@ -6,7 +6,9 @@ import java.util.List;
 import net.rithms.riot.api.RateLimitException;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
+import net.rithms.riot.constant.PlatformId;
 import net.rithms.riot.constant.Region;
+import net.rithms.riot.dto.ChampionMastery.ChampionMastery;
 import net.rithms.riot.dto.League.League;
 import net.rithms.riot.dto.League.LeagueEntry;
 import net.rithms.riot.dto.Match.MatchDetail;
@@ -183,12 +185,33 @@ public class Rapi {
 		} return reString.substring(0, reString.length()-1);
 	}
 	
+	List<String> getMasterySummary(){
+		String out = null;
+		List<String> toClient = new ArrayList<>();
+		try{
+			
+			List<ChampionMastery> champMasteries = api.getTopChampionMasteries(PlatformId.NA, id, 5);
+			for(ChampionMastery cm : champMasteries){
+				out = api_backup.getDataChampion((int)cm.getChampionId()).getName() + ":" +
+					  Long.toString(cm.getChampionLevel()) + ":" +
+					  Long.toString(cm.getChampionPoints());
+				toClient.add(out);
+			}
+		} catch(RateLimitException e){
+			e.printStackTrace();
+		} catch(RiotApiException e){
+			e.printStackTrace();
+		}
+		return toClient;
+	}
+	
 //for the analysis
 	String getRankedStats(){
 		String returnString = "";
 		int bog = 0;
 		try{
 			Thread.sleep(1200L);
+			
 			RankedStats rankedStats = api.getRankedStats(id); //+1call
 			List<ChampionStats> temp_champ_stats = rankedStats.getChampions();
 			AggregatedStats temp_agg;
@@ -255,7 +278,7 @@ public class Rapi {
 							"totalSessionsWon:" +a.getTotalSessionsWon() + "/" +
 							"totalTripleKills:" +a.getTotalTripleKills() + "/" +
 							"totalTurretKills:" +a.getTotalTurretsKilled();	
-		System.out.println("Rapi: " + tmpString);
+		//System.out.println("Rapi: " + tmpString);
 		return tmpString;		
 	}
 	

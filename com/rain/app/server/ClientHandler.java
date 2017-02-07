@@ -121,24 +121,62 @@ public class ClientHandler extends Thread {
 						}
 					}
 				} else if(msg_split[1].equals("get_analysis")){
+					System.err.println("ClientHandler: Analysis Segment");
 					if(checkIfSummonerCurrent(msg_split[0])){ //checks to see if the client data is already in memory
 						out.writeUTF(rapi.getRankedStats());
 						out.writeUTF("EOF");
 						out.flush();
-					} else{
+					} else{ //should never happen due to client call order
 						
 						out.flush();					 //to the client
 					}
 				} else if(msg_split[1].equals("get_profile")){
-					if(com.rain.app.server.Server.summoner_storage.containsKey(msg_split[0])){ 
-						//TODO: implement profile requests
-						String outString = rapi.getProfileSummary();
-						System.out.println(outString);
-						out.writeUTF("1");
-						out.writeUTF(outString);
-						out.flush();
-					} else{
+					String outString;
+					List<String> masteryData = null;
+					System.err.println("ClientHandler: Profile Segment");
+					if(com.rain.app.server.Server.summoner_storage.containsKey(msg_split[0])){
+						if(checkIfSummonerCurrent(msg_split[1])){ //if summoner is current, read from memory
+							synchronized(Server.summoner_storage){ 		// synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
+								outString = com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getRankedProfileData();
+								masteryData = com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMasteryProfileData();
+							} 
+							
+							out.writeUTF(Integer.toString(masteryData.size()+1));
+							out.writeUTF(outString);
+							//out.flush();
+							for(String s : masteryData){
+								out.writeUTF(s);
+								print(s);
+							} out.flush();
+							
+						} else{ //update rankedprofiledata
+							outString = rapi.getProfileSummary();
+							masteryData = rapi.getMasterySummary();
+							synchronized(Server.summoner_storage){ 		// synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
+								com.rain.app.server.Server.summoner_storage.get(msg_split[0]).setRankedProfileData(outString);
+								com.rain.app.server.Server.summoner_storage.get(msg_split[0]).setMasteryProfileData(masteryData);
+							}
+							
+							out.writeUTF(Integer.toString(masteryData.size()+1));
+							out.writeUTF(outString);
+							//out.flush();
+							for(String s : masteryData){
+								out.writeUTF(s);
+								print(s);
+							} out.flush();
+						}
+						System.out.println("ClientHandler: " + outString);
+					} else{ //summoner doesnt exist yet in summoner_storage
+						outString = rapi.getProfileSummary();
+						masteryData = rapi.getMasterySummary();
 						
+						out.writeUTF(Integer.toString(masteryData.size()+1));
+						out.writeUTF(outString);
+						for(String s : masteryData){
+							out.writeUTF(s);
+							print(s);
+						} out.flush();
+						System.out.println("ClientHandler: " + outString);
 					}
 				}
 		} catch(RateLimitException ex){					//client exceeds riot limit rate
@@ -194,6 +232,10 @@ public class ClientHandler extends Thread {
 			} System.err.println("ClientHandler: " +Thread.currentThread().getName() + ", Data Exchange Finished and thread closing." ); 
 			System.out.println();
 		}
+	}
+	
+	private static void print(String msg){
+		System.out.println("ClientHandler: " + msg);
 	}
 	
 	protected static void broadcast(String msg){

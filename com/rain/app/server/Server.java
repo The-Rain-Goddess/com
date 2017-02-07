@@ -23,9 +23,9 @@ public class Server {
 	public static void main(String[] args) throws IOException{
 		System.out.println("Server: Server Started");
 		new Server(48869);
-		
 	}
-	
+
+//constructor	
 	public Server(int port) throws IOException{
 		ServerSocket ss = null;
 		try{ 
@@ -41,7 +41,7 @@ public class Server {
 				
 				ClientHandler c = new ClientHandler(serviceSocket);
 				c.start();
-			}
+			}  
 			
 		} catch(Exception e){
 			e.printStackTrace();
@@ -70,12 +70,8 @@ public class Server {
 			} pw.close();
 		} catch(IOException e){
 			e.printStackTrace();
-		} 
-		finally{
+		} finally{
 			
-		}
-		
-		return true;
+		} return true;
 	}
-
 }
