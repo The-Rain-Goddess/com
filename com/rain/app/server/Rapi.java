@@ -25,7 +25,7 @@ import net.rithms.riot.dto.Summoner.Summoner;
 public class Rapi {
 	protected String summName;
 	protected RiotApi api;
-	protected RiotApi api_backup;
+	protected static RiotApi api_backup;
 	protected long id;
 	protected final static String phaseKey  = "fb22315c-06cd-4f26-91ed-f0912a72a78d"; //api-key
 	protected final static String phaseKey2 = "RGAPI-1E616A6D-EC4A-46F1-A9BE-E1C620EABB05"; //api-key2
@@ -93,7 +93,7 @@ public class Rapi {
 		List<MatchDetail> details = new ArrayList<>(10);
 		System.err.println("Rapi: Getting New Matches for Update: ");
 		try{
-			Thread.sleep(1000L);
+			Thread.sleep(500L);
 			ml = api_backup.getMatchList(id);
 			List<MatchReference> matchRef = ml.getMatches();
 			match_references = matchRef; int count = 0; int champId; String champName;
@@ -102,7 +102,7 @@ public class Rapi {
 			while(matchId != lastId){
 				MatchDetail temp_match;
 				champId = (int) match_references.get(count).getChampion();
-				Thread.sleep(1000L);
+				Thread.sleep(500L);
 				if(count%2==0){
 					temp_match = api_backup.getMatch(matchId);
 					champName = api.getDataChampion(champId).getName();
@@ -210,7 +210,7 @@ public class Rapi {
 		String returnString = "";
 		int bog = 0;
 		try{
-			Thread.sleep(1200L);
+			Thread.sleep(1000L);
 			
 			RankedStats rankedStats = api.getRankedStats(id); //+1call
 			List<ChampionStats> temp_champ_stats = rankedStats.getChampions();
@@ -288,9 +288,29 @@ public class Rapi {
 		//match_details = null;
 	}
 	
+	public static String getChampName(int champId){
+		try {
+			return api_backup.getDataChampion(champId).getName();
+		} catch(RateLimitException e){
+			try{
+				if(e.getRetryAfter()==0){
+					Thread.sleep(100L);
+					getChampName(champId);
+				} else{
+					Thread.sleep((e.getRetryAfter() * 1000L) + 500L);
+					getChampName(champId);
+				}
+			} catch(InterruptedException ex){
+				e.printStackTrace();
+			}
+		} catch (RiotApiException e) {
+			e.printStackTrace();
+		} return "N/A";
+	} 
+	
 	private String aggregateDataFromHistory(ParticipantStats ps){
 		String returnString = 
-				"assists:" + ps.getAssists() + "/" + 
+						"assists:" + ps.getAssists() + "/" + 
 						//"champion:" + api.getDataChampion(champId).getName() + "/" +
 						"champLevel:" + ps.getChampLevel() + "/" + 
 						"cs:" + (ps.getMinionsKilled() + ps.getNeutralMinionsKilledEnemyJungle() + ps.getNeutralMinionsKilledTeamJungle()) + "/" +
@@ -299,7 +319,7 @@ public class Rapi {
 						"dmgTaken:" + ps.getTotalDamageTaken() + "/" + 
 						"doubleKills:" + ps.getDoubleKills() + "/" + 
 						"firstBloodAssist:" + ps.isFirstBloodAssist() + "/" + 
-						"firtBloodKill:" + ps.isFirstBloodKill() + "/" + 
+						"firstBloodKill:" + ps.isFirstBloodKill() + "/" + 
 						"goldEarned:" + ps.getGoldEarned() + "/" +
 						"item0:" + ps.getItem0() + "/" + 
 						"item1:" + ps.getItem1() + "/" + 
@@ -357,8 +377,9 @@ public class Rapi {
 	public String getHistory(int start, int stop){
 		//TODO: find the reason why finding older matches cause rapi to start count from 0 to end
 		int i = start;
+		String otherPlayers = null;
 		try{
-			Thread.sleep(500L);
+			//Thread.sleep(500L);
 			passString = ""; 
 			tempString = "";
 			ml = api.getMatchList(id); 					//+1call
@@ -389,7 +410,7 @@ public class Rapi {
 					if(part.get(j).getTeamId()==1){
 						
 					}
-					if(part2.get(j).getPlayer().getSummonerId() == (int)id){
+					if(part2.get(j).getPlayer().getSummonerId() == (int)id){   				//any edits here need to be applied to Summoner.java
 						ParticipantStats ps = part.get(j).getStats();
 						//Thread.sleep(600L);
 						String temp_name = api.getDataChampion(champId).getName();
@@ -400,8 +421,15 @@ public class Rapi {
 										"champion:" + temp_name + "/" +						//57
 										"sspell1:" + part.get(j).getSpell1Id() +  "/" +		//58
 										"sspell2:" + part.get(j).getSpell2Id() + "/" +		//59
-										"matchLength:" + temp3.getMatchDuration() + "/";	//60
-										;
+										"matchLength:" + temp3.getMatchDuration() + "/" +	//60
+										"matchId:" + temp3.getMatchId() + "/" +				//61
+										"matchMode:" + temp3.getMatchMode() + "/" +			//62
+										"matchType:" + temp3.getMatchType() + "/" + 		//63
+										"matchStartTime:" + temp3.getMatchCreation() + "/"+ //64
+										"queueType:" + temp3.getQueueType() + "/" +			//65
+										"teamId:" +  part.get(j).getTeamId() + "/";			//66
+						
+										
 						for(int k = 0; k<10; k++){ //this loop is to get total team dmg and total enemy team dmg
 							if(part.get(k).getTeamId()==part.get(j).getTeamId())
 								teamDmg+= (part.get(k).getStats().getTotalDamageDealtToChampions());
@@ -410,8 +438,32 @@ public class Rapi {
 						} tempString = tempString +  
 										"totalTeamDmg:" + teamDmg + "/" + 
 										"totalEnemyDmg:" + enemyTeamDmg + "/";
-						System.out.println("Rapi:" + tempString);	
+						System.out.println("Rapi: " + tempString);	
 						passString = passString + tempString;
+						
+					} else{
+						String otherPlayersString = "";
+						ParticipantStats ps = part.get(j).getStats();
+						//Thread.sleep(500L);
+						String temp_name = api.getDataChampion(champId).getName();
+						temp_name.replace("'", "").toLowerCase();
+						otherPlayersString = 	
+										aggregateDataFromHistory(ps) + 
+										"champion:" + temp_name + "/" +						//57
+										"sspell1:" + part.get(j).getSpell1Id() +  "/" +		//58
+										"sspell2:" + part.get(j).getSpell2Id() + "/" +		//59
+										"matchLength:" + temp3.getMatchDuration() + "/" +	//60
+										"matchId:" + temp3.getMatchId() + "/" +				//61
+										"matchMode:" + temp3.getMatchMode() + "/" +			//62
+										"matchType:" + temp3.getMatchType() + "/" + 		//63
+										"matchStartTime:" + temp3.getMatchCreation() + "/"+ //64
+										"queueType:" + temp3.getQueueType() + "/"+			//65
+										"teamId:" +  part.get(j).getTeamId() + "/" + 		//66
+										
+										"playerName: " + part2.get(j).getPlayer().getSummonerName() + "/"; 
+										
+						System.out.println("Rapi: P" + j + ": " + otherPlayersString);	
+						otherPlayers = otherPlayers + "PLAYERS" + otherPlayersString;
 					}
 				}
 			}
@@ -423,7 +475,7 @@ public class Rapi {
 					Thread.sleep(100L);
 					getHistory(i, stop);
 				} else{
-					Thread.sleep((e.getRetryAfter() * 1000L) + 100L);
+					Thread.sleep((e.getRetryAfter() * 1000L) + 500L);
 					getHistory(i, stop);
 				}
 				
@@ -440,6 +492,6 @@ public class Rapi {
 		} finally{
 			System.err.println("Rapi: Finished Loop: ");
 			//System.out.println("passString: " + passString);
-		} return passString;
+		} return passString + otherPlayers;
 	}
 }

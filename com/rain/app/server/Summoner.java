@@ -11,9 +11,7 @@ import net.rithms.riot.dto.MatchList.MatchReference;
 
 public class Summoner {
 	/* TODO: 
-	 * 	match history list
-	 * 	ranked match history list
-	 * 	...	
+	 * 	
 	 */
 	private List<MatchReference> ranked_match_reference;
 	private List<MatchDetail> ranked_match_details;
@@ -28,7 +26,8 @@ public class Summoner {
 	private int summoner_id;
 	private String summoner_name;
 	public Summoner(){}
-	
+
+//constructors	
 	public Summoner(String name, int id
 			, List<MatchReference> reference
 			, List<MatchReference>rankedReference
@@ -53,6 +52,7 @@ public class Summoner {
 		Champion = champ;
 	}
 	
+//Overrides
 	@Override
 	public String toString(){
 		String returnString = "";
@@ -70,12 +70,12 @@ public class Summoner {
 		return returnString;
 	}
 	
-//logic and math methods below
-	
+//non-private accessors/mutators	
 	public String getMatchesFromMemory(int start, int stop){
 		int i=0;
 		String passString = "";
 		String tempString;
+		String otherPlayers = null;
 		try{
 			tempString = ""; // string for match detail aggregation
 			//passString = ""; // string to return
@@ -89,10 +89,16 @@ public class Summoner {
 					if(pIdentity.get(j).getPlayer().getSummonerId() == summoner_id){
 						ParticipantStats ps = pPlayers.get(j).getStats();
 						tempString = aggregateDataFromMatchDetail(ps) + 
-								"champion:" + Champion.get(i) + "/" + 							//57
-								"sspell1:" + pPlayers.get(j).getSpell1Id() +  "/" +				//58
-								"sspell2:" + pPlayers.get(j).getSpell2Id() + "/" +				//59
-								"matchLength:" + match_details.get(i).getMatchDuration() + "/";	//60
+								"champion:" + Champion.get(i) + "/" + 								//57
+								"sspell1:" + pPlayers.get(j).getSpell1Id() +  "/" +					//58
+								"sspell2:" + pPlayers.get(j).getSpell2Id() + "/" +					//59
+								"matchLength:" + match_details.get(i).getMatchDuration() + "/" +	//60
+								"matchId:" + match_details.get(i).getMatchId() + "/" +				//61
+								"matchMode:" + match_details.get(i).getMatchMode() + "/" +			//62
+								"matchType:" + match_details.get(i).getMatchType() + "/" + 			//63
+								"matchStartTime:" + match_details.get(i).getMatchCreation() + "/" +	//64
+								"queueType:" + match_details.get(i).getQueueType() + "/" +			//65
+								"teamId:" +  pPlayers.get(j).getTeamId() + "/" ; 					//66
 								
 						for(int k = 0; k<10; k++){ //this loop is to get total team dmg and total enemy team dmg
 							if(pPlayers.get(k).getTeamId()==pPlayers.get(j).getTeamId())
@@ -103,10 +109,30 @@ public class Summoner {
 							"totalTeamDmg:" + teamDmg + "/" + 
 							"totalEnemyDmg:" + enemyTeamDmg + "/";
 						passString = passString + tempString;
+					
+					} else{ //Other Players
+						String otherPlayersString = null;
+						ParticipantStats ps = pPlayers.get(j).getStats();
+						otherPlayersString = aggregateDataFromMatchDetail(ps) + 
+								"champion:" + Rapi.getChampName(pPlayers.get(j).getChampionId()) + "/" + 	//57
+								"sspell1:" + pPlayers.get(j).getSpell1Id() +  "/" +							//58
+								"sspell2:" + pPlayers.get(j).getSpell2Id() + "/" +							//59
+								"matchLength:" + match_details.get(i).getMatchDuration() + "/" +			//60
+								"matchId:" + match_details.get(i).getMatchId() + "/" +						//61
+								"matchMode:" + match_details.get(i).getMatchMode() + "/" +					//62
+								"matchType:" + match_details.get(i).getMatchType() + "/" + 					//63
+								"matchStartTime:" + match_details.get(i).getMatchCreation() + "/" +			//64
+								"queueType:" + match_details.get(i).getQueueType() + "/" +					//65
+								"teamId:" +  pPlayers.get(j).getTeamId() + "/" + 							//66
+								
+								"playerName: " + pIdentity.get(j).getPlayer().getSummonerName() + "/"; 
+								
+						otherPlayers = otherPlayers + "PLAYERS" + otherPlayersString;
+						
 					}
 				}
-			} return passString;
-		} catch(IndexOutOfBoundsException e){ //TODO: FIX THIS	
+			} 
+		} catch(IndexOutOfBoundsException e){	
 			e.printStackTrace();
 			try {
 				System.out.println("Summoner: error at: " + i + ", stop at: " + stop);
@@ -116,14 +142,13 @@ public class Summoner {
 				//restarts the function
 				getMatchesFromMemory(i, stop);
 			} catch (RiotApiException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
-		} return "";
+		} return passString + otherPlayers;
 	}
 	
-//add data to matchdetails and matchreference
+	//add data to matchdetails and matchreference
 	//updating data
 	public boolean addMatchesToMemory(int start, List<MatchDetail> list, List<MatchReference> listReference, List<String> champList){
 		for(int i = list.size()-1; i > -1; i--){

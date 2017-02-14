@@ -6,7 +6,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -62,7 +64,10 @@ public class ClientHandler extends Thread {
 		int match_data_start = 0;
 		int match_retrieve_num = 0;
 		try{
-			System.out.println("ClientHandler: " + Thread.currentThread().getName() + " is started as ClientHandler.");
+			SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		    Date now = new Date();					
+		    String strDate = sdfDate.format(now);	
+			System.out.println("[" + strDate + "] " + "ClientHandler: " + Thread.currentThread().getName() + " is started as ClientHandler.");
 	//variables to be used in run()
 			synchronized(Server.handlers){
 				Server.handlers.addElement(this);
@@ -83,12 +88,17 @@ public class ClientHandler extends Thread {
 					if(checkIfSummonerCurrent(msg_split[0])){ //TODO: fix problem with getting data that is older, not newer than whats in memory
 						System.err.println("ClientHandler: Memory-read segment");
 						//outputs to client
-						out.writeUTF(match_retrieve_num + "");
+						out.writeUTF((match_retrieve_num * 10) + ""); //tells the client how many strings to expect
 						out.flush();
 						for(int i = match_data_start; i < match_data_stop; i++){
-							com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1);
-							out.writeUTF(com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1));
-							out.flush();
+							String output = com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1);
+							String splitOut[] = output.split("PLAYERS");
+							for(int j = 0; j<splitOut.length; j++){
+								out.writeUTF(splitOut[j]);
+								print(splitOut[j]);
+								out.flush();
+							}
+							
 						}
 					} else if(com.rain.app.server.Server.summoner_storage.containsKey(msg_split[0])){
 						System.err.println("ClientHandler: Update Segment");
@@ -99,22 +109,31 @@ public class ClientHandler extends Thread {
 							.addMatchesToMemory(0, list, rapi.getMatchReferences(), rapi.getChampionNames()); //summoner_storage.get(msg_split[0]).getMostRecentMatchId()
 						}
 						//outputs to client
-						out.writeUTF(match_retrieve_num + "");
+						out.writeUTF((match_retrieve_num * 10) + ""); //tells client how many strings to expect
 						out.flush();
 						for(int i = match_data_start; i < match_data_stop; i++){
-							out.writeUTF(com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1));
-							out.flush();
-						}	
+							String output = com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getMatchesFromMemory(i, i+1);
+							String splitOut[] = output.split("PLAYERS");
+							for(int j = 0; j<splitOut.length; j++){
+								out.writeUTF(splitOut[j]);
+								print(splitOut[j]);
+								out.flush();
+							}
+						}
 					} else{
 						System.err.println("ClientHandler: New-Summoner Segment");
-						out.writeUTF(match_retrieve_num + "");
+						out.writeUTF((match_retrieve_num * 10) + ""); //tells the client how many strings to expect
 						out.flush();
-						for(int i = match_data_start; i< match_data_stop; i++){
-							String match_data_to_output = rapi.getHistory(i, i+1);
-							out.writeUTF(match_data_to_output); 	//this part returns the match history from a to b
-							out.flush();					 		//to the client
+						for(int i = match_data_start; i < match_data_stop; i++){
+							String output = rapi.getHistory(i, i+1);
+							String splitOut[] = output.split("PLAYERS");
+							for(int j = 0; j<splitOut.length; j++){
+								out.writeUTF(splitOut[j]);
+								print(splitOut[j]);
+								out.flush();
+							}
+							
 						}
-						
 						mSummoner = new com.rain.app.server.Summoner(msg_split[0], rapi.getId(), rapi.getMatchReferences(), rapi.getMatchDetails(), rapi.getChampionNames() );
 						synchronized(Server.summoner_storage){ 		// synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
 							com.rain.app.server.Server.summoner_storage.put(msg_split[0], mSummoner);
