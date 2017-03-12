@@ -64,37 +64,39 @@ public class InfoPanel extends JPanel {
 	
 //non-private mutators
 	public void update(){
-		if(state==0){ //normal first screen
-			sweep(". ");
-			showPop();
-			
-			showPlanetaryIncome();
-			
-			showMilitary();
-			
-			showIndustry();
-			
-			showGovernment();
-			
-			if(asset instanceof Planet)
-				showPlanetStats();
-		} else if(state==1){ //military state screen
-			showReturn();
-			showMilitary();
-			hideSpace();
-		} else if(state==2){ //economy state screen
-			showReturn();
-			this.showPop();
-			this.showPlanetaryIncome();
-			hideSpace();
-		} else if(state==3){ //industry state screen
-			showReturn();
-			this.showIndustry();
-			hideSpace();
-		} else if(state==4){ //government state screen
-			showReturn();
-			this.showGovernment();
-			hideSpace();
+		if(asset.isCelestialBody()){
+			if(state==0){ //normal first screen
+				sweep(". ");
+				showPop();
+				
+				showPlanetaryIncome();
+				
+				showMilitary();
+				
+				showIndustry();
+				
+				showGovernment();
+				
+				if(asset instanceof Planet)
+					showPlanetStats();
+			} else if(state==1){ //military state screen
+				showReturn();
+				showMilitary();
+				hideSpace();
+			} else if(state==2){ //economy state screen
+				showReturn();
+				this.showPop();
+				this.showPlanetaryIncome();
+				hideSpace();
+			} else if(state==3){ //industry state screen
+				showReturn();
+				this.showIndustry();
+				hideSpace();
+			} else if(state==4){ //government state screen
+				showReturn();
+				this.showGovernment();
+				hideSpace();
+			}
 		}
 	}
 	
@@ -160,7 +162,7 @@ public class InfoPanel extends JPanel {
 	}
 	
 	private void showGovernment(){
-		String str = "Government: ";
+		String str = "Goverment: ";
 		c = new GridBagConstraints();
 		if(this.stop(str)){
 			JLabel gov = new JLabel(str);
@@ -537,7 +539,7 @@ public class InfoPanel extends JPanel {
 			c.gridx=0;
 			c.gridy=2;
 			c.fill = GridBagConstraints.BOTH;
-			c.ipadx = 10; c.ipady=10;
+			c.ipadx = 15; c.ipady=10;
 			this.add(new JLabel(new ImageIcon(bodyImage)),c);
 		} catch(IOException e){
 			e.printStackTrace();

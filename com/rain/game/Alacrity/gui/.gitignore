@@ -2,10 +2,17 @@
 /InfoPanel$1.class
 /InfoPanel.class
 /MainGameFrame$1.class
+<<<<<<< HEAD
 /MainGameFrame$2.class
 /MainGameFrame$3.class
 /MainGameFrame$4.class
 /MainGameFrame.class
+=======
+/MainGameFrame$3.class
+/MainGameFrame$4.class
+/MainGameFrame.class
+/MainGameFrame$2.class
+>>>>>>> refs/heads/dragcave
 /package-info.class
 /InfoPanel$2.class
 /InfoPanel$3.class
