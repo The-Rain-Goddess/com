@@ -178,10 +178,12 @@ public class Rapi {
 						reString = reString + ":" + temp_entry.getDivision() + ":" + temp_entry.getLeaguePoints() + "LP";
 					}
 				} reString = reString + "/";
-			}
+			} Thread.sleep(1500L);
 		} catch (RiotApiException e) {
 			e.printStackTrace();
 			System.err.println("Rapi: " + e.getMessage());
+		} catch(InterruptedException e){
+			e.printStackTrace();
 		} return reString.substring(0, reString.length()-1);
 	}
 	
