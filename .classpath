@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-		<accessrules>
-			<accessrule kind="accessible" pattern="javafx/**"/>
-		</accessrules>
-	</classpathentry>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/json-20160810.jar"/>
-<<<<<<< HEAD
 	<classpathentry kind="lib" path="Q:/Workspace/git32/jsoup-1.10.1.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/log4j-1.2.17.jar"/>
@@ -20,17 +14,6 @@
 	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-ooxml-schemas-3.14-20160307.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-scratchpad-3.14-20160307.jar"/>
 	<classpathentry kind="lib" path="Q:/Workspace/git32/riot-api-java2.jar"/>
-=======
-	<classpathentry kind="lib" path="Q:/Workspace/git32/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-examples-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-excelant-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-ooxml-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-ooxml-schemas-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/poi-scratchpad-3.14-20160307.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/riot-api-java2.jar"/>
-	<classpathentry kind="lib" path="Q:/Workspace/git32/jsoup-1.10.1.jar"/>
->>>>>>> refs/heads/dragcave
-	<classpathentry kind="output" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
