@@ -225,7 +225,7 @@ public class ClientHandler extends Thread {
 						String line = in.readUTF();
 						feedback.add(line);
 					}
-					Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
+					Path feedbackFilePath = Paths.get("feedback/" + getDate().replace(":", "-").replace(" ", "-")+".txt");
 					Files.write(feedbackFilePath, feedback, Charset.forName("UTF-8"));
 					System.out.println(feedbackFilePath.toAbsolutePath().toString());
 					System.out.println("Feedback has bee successfully written to file.");
