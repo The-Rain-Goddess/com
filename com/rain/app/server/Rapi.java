@@ -160,7 +160,7 @@ public class Rapi {
 	List<String> getChampionNames(){ return champion_names; }
 	
 	List<MatchDetail> getRankedMatchListDetails(){ return ranked_match_details; }
-
+	
 //for profile
 	String getProfileSummary(){
 		String reString = "";
@@ -179,6 +179,10 @@ public class Rapi {
 					}
 				} reString = reString + "/";
 			} Thread.sleep(1500L);
+		} catch(RateLimitException e){
+			e.printStackTrace();
+			rateLimitHandling(e);
+			getProfileSummary();
 		} catch (RiotApiException e) {
 			e.printStackTrace();
 			System.err.println("Rapi: " + e.getMessage());
@@ -191,8 +195,9 @@ public class Rapi {
 		String out = null;
 		List<String> toClient = new ArrayList<>();
 		try{
-			
-			List<ChampionMastery> champMasteries = api.getTopChampionMasteries(PlatformId.NA, id, 5);
+			List<ChampionMastery> champMasteries = api.getTopChampionMasteries(PlatformId.NA, id);
+			while(champMasteries.size()>5)
+				champMasteries.remove(champMasteries.size()-1);
 			for(ChampionMastery cm : champMasteries){
 				out = api_backup.getDataChampion((int)cm.getChampionId()).getName() + ":" +
 					  Long.toString(cm.getChampionLevel()) + ":" +
@@ -201,16 +206,27 @@ public class Rapi {
 			}
 		} catch(RateLimitException e){
 			e.printStackTrace();
+			rateLimitHandling(e);
+			getMasterySummary();
 		} catch(RiotApiException e){
 			e.printStackTrace();
+		} return toClient;
+	}
+
+	private void rateLimitHandling(RateLimitException e){
+		System.err.println("Rapi: Exception: " + e.getMessage() + ", Error Type: " + e.getRateLimitType() + ", Rapi: Retrying in: " + e.getRetryAfter());
+		try {
+			long timeout = (e.getRetryAfter()==0) ? 100L : e.getRetryAfter() * 1000L + 500L;
+			Thread.sleep(timeout);
+		} catch(InterruptedException ex){
+			ex.printStackTrace();
 		}
-		return toClient;
 	}
 	
 //for the analysis
 	String getRankedStats(){
 		String returnString = "";
-		int bog = 0;
+		int championId = 0;
 		try{
 			Thread.sleep(1000L);
 			
@@ -219,23 +235,21 @@ public class Rapi {
 			AggregatedStats temp_agg;
 			for(int i = 0; i < temp_champ_stats.size(); i++){
 				temp_agg = temp_champ_stats.get(i).getStats();
-				bog = temp_champ_stats.get(i).getId();
-				if(bog==0) //why the total stats looks like its used with annie
-					bog = 1;
+				championId = (temp_champ_stats.get(i).getId()==0) ? 1 : temp_champ_stats.get(i).getId();
 				returnString = returnString + "/cmp:" 
-											+ "/champ:" + api_backup.getDataChampion(bog).getName() + "/" +
-											aggregateFromStats(temp_agg);
-				//System.out.println("Rapi: " + returnString + "/cmp:" + "/champ:" + api_backup.getDataChampion(bog).getName() + "/" + aggregateFromStats(temp_agg));
-			} //System.out.println(returnString);
-			return returnString;
+											+ "/champ:" + api_backup.getDataChampion(championId).getName() + "/"
+											+ aggregateFromStats(temp_agg);	
+			}
 		} catch(RateLimitException e){
+			rateLimitHandling(e);
+			getRankedStats();
 			e.printStackTrace();
 		} catch(RiotApiException e){
-			System.err.println("Rapi: Chanmpid: " + bog);
+			System.err.println("Rapi: Chanmpid: " + championId);
 			e.printStackTrace();
 		} catch(InterruptedException e){
 			e.printStackTrace();
-		} //System.out.println("Rapi: " + returnString); 
+		} 
 		return returnString;	
 	}
 	
@@ -377,7 +391,6 @@ public class Rapi {
 	
 //methods below to be called first to populate data struct for methods above
 	public String getHistory(int start, int stop){
-		//TODO: find the reason why finding older matches cause rapi to start count from 0 to end
 		int i = start;
 		String otherPlayers = null;
 		try{
@@ -393,12 +406,7 @@ public class Rapi {
 				long matchId = match_references.get(i).getMatchId();
 				Thread.sleep(500L); //slows down the request rate
 				MatchDetail temp3;
-				if(i%2==1){
-					temp3 = api_backup.getMatch(matchId);    
-				} else{
-					temp3 = api.getMatch(matchId);   
-				}
-				
+				temp3 = (i%2==1) ? api_backup.getMatch(matchId) : api.getMatch(matchId);
 				
 				int champId = (int) mr.get(i).getChampion();
 				match_details.add(temp3); //removes the need to call api again later for this data
@@ -414,7 +422,6 @@ public class Rapi {
 					}
 					if(part2.get(j).getPlayer().getSummonerId() == (int)id){   				//any edits here need to be applied to Summoner.java
 						ParticipantStats ps = part.get(j).getStats();
-						//Thread.sleep(600L);
 						String temp_name = api.getDataChampion(champId).getName();
 						temp_name.replace("'", "").toLowerCase();
 						champion_names.add(temp_name);
@@ -431,7 +438,6 @@ public class Rapi {
 										"queueType:" + temp3.getQueueType() + "/" +			//65
 										"teamId:" +  part.get(j).getTeamId() + "/";			//66
 						
-										
 						for(int k = 0; k<10; k++){ //this loop is to get total team dmg and total enemy team dmg
 							if(part.get(k).getTeamId()==part.get(j).getTeamId())
 								teamDmg+= (part.get(k).getStats().getTotalDamageDealtToChampions());
@@ -471,21 +477,8 @@ public class Rapi {
 			}
 		} catch(RateLimitException e){ //will attempt to retry the method after the retry after time expires
 			e.printStackTrace();
-			System.err.println("Rapi: Exception: " + e.getMessage() + ", Error Type: " + e.getRateLimitType() + ", Rapi: Retrying in: " + e.getRetryAfter());
-			try {
-				if(e.getRetryAfter()==0){
-					Thread.sleep(100L);
-					getHistory(i, stop);
-				} else{
-					Thread.sleep((e.getRetryAfter() * 1000L) + 500L);
-					getHistory(i, stop);
-				}
-				
-				
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			rateLimitHandling(e);
+			getHistory(i,stop);	
 		} catch(RiotApiException e){
 			e.printStackTrace();
 			System.err.println("Rapi: Big Error:");

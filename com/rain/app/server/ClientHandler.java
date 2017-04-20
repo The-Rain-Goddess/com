@@ -86,19 +86,18 @@ public class ClientHandler extends Thread {
 													//		0			1			2		3		4
 			String msg = in.readUTF(); //msg syntax is: "<summName>::<command>::<number>::<start>::<stop>"
 			msg_split = msg.split("::"); //splits msg into input and command
-			//broadcast(msg);
 			match_data_start = Integer.parseInt(msg_split[3]);
 			match_data_stop = Integer.parseInt(msg_split[4]);
 			match_retrieve_num = Integer.parseInt(msg_split[2]);
 			
-			rapi = new Rapi(msg_split[0]); //does most of the main data req work
-			
+			rapi = new Rapi(msg_split[0]); //Object that retrieves necessary data.
 	//main loop
 				broadcast(msg);
 				if(msg_split[1].equals("get_match_history")){
-					if(checkIfSummonerCurrent(msg_split[0])){ //TODO: fix problem with getting data that is older, not newer than whats in memory
+					if(checkIfSummonerCurrent(msg_split[0])){
 						System.err.println("ClientHandler: Memory-read Segment");
 						//outputs to client
+						
 						out.writeUTF((match_retrieve_num * 10) + ""); //tells the client how many strings to expect
 						out.flush();
 						for(int i = match_data_start; i < match_data_stop; i++){
@@ -110,7 +109,6 @@ public class ClientHandler extends Thread {
 									print(splitOut[j]);
 								out.flush();
 							}
-							
 						}
 					} else if(com.rain.app.server.Server.summoner_storage.containsKey(msg_split[0])){
 						System.err.println("ClientHandler: Update Segment");
@@ -133,6 +131,10 @@ public class ClientHandler extends Thread {
 								out.flush();
 							}
 						}
+						synchronized(Server.summoner_storage){
+							Server.summoner_storage.get(msg_split[0])
+							.updateRankedAnalysis(rapi.getRankedStats());
+						}
 					} else{
 						System.err.println("ClientHandler: New-Summoner Segment");
 						out.writeUTF((match_retrieve_num * 10) + ""); //tells the client how many strings to expect
@@ -144,18 +146,19 @@ public class ClientHandler extends Thread {
 								out.writeUTF(splitOut[j]);
 								print(splitOut[j]);
 								out.flush();
-							}
-							
+							}		
 						}
 						mSummoner = new com.rain.app.server.Summoner(msg_split[0], rapi.getId(), rapi.getMatchReferences(), rapi.getMatchDetails(), rapi.getChampionNames() );
 						synchronized(Server.summoner_storage){ 		// synchronized to preven concurrent access of 'summoner_storage' across all ClientHandlers
 							com.rain.app.server.Server.summoner_storage.put(msg_split[0], mSummoner);
+							Server.summoner_storage.get(msg_split[0])
+							.updateRankedAnalysis(rapi.getRankedStats());
 						}
 					}
 				} else if(msg_split[1].equals("get_analysis")){
 					System.err.println("ClientHandler: Analysis Segment");
 					if(checkIfSummonerCurrent(msg_split[0])){ //checks to see if the client data is already in memory
-						String output = rapi.getRankedStats();
+						String output = com.rain.app.server.Server.summoner_storage.get(msg_split[0]).getRankedAnalysis();
 						List<String> outList = Arrays.asList(output.split("/cmp:"));
 						out.writeUTF(outList.size()+"");
 						out.flush();
@@ -225,11 +228,12 @@ public class ClientHandler extends Thread {
 						String line = in.readUTF();
 						feedback.add(line);
 					}
-					Path feedbackFilePath = Paths.get("feedback/" + getDate().replace(":", "-").replace(" ", "-")+".txt");
+					Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
 					Files.write(feedbackFilePath, feedback, Charset.forName("UTF-8"));
 					System.out.println(feedbackFilePath.toAbsolutePath().toString());
 					System.out.println("Feedback has bee successfully written to file.");
 				}
+				
 		} catch(RateLimitException ex){					//client exceeds riot limit rate
 			try{
 				synchronized(Server.summoner_storage){

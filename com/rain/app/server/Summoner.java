@@ -22,6 +22,8 @@ public class Summoner {
 	
 	private List<String> mastery_profile_data;
 	private String ranked_profile_data;
+
+	private String rankedAnalysis;
 	
 	private int summoner_id;
 	private String summoner_name;
@@ -196,6 +198,12 @@ public class Summoner {
 	
 	public void setMasteryProfileData(List<String> list){
 		mastery_profile_data = list;
+	}
+	
+	public String getRankedAnalysis(){ return rankedAnalysis; }
+	
+	public void updateRankedAnalysis(String updatedData){ 
+		rankedAnalysis = updatedData;
 	}
 	
 	public String aggregateDataFromMatchDetail(ParticipantStats ps){
