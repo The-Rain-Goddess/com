@@ -64,12 +64,12 @@ public class YoYoDayneSatellite {
 
 	public static void main(String[] args) {
 		try{
-			Path inFile = Paths.get("Satellite Data.dat");
+			Path inFile = Paths.get("Satellite Data .dat");
 			List<String> input = Files.readAllLines(inFile, Charset.defaultCharset());
 			List<SatData> data = populateData(input);
 			sort(data);
 			outputToFile(data);
-			
+						
 		} catch(IOException e){
 			e.printStackTrace();
 		}
