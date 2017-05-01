@@ -3,14 +3,17 @@ package com.rain.app.service.riot.api;
 import java.util.Locale;
 import java.util.Objects;
 
+import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampion;
+import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampions;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummoner;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummonerByChampion;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteryScoresBySummoner;
 import com.rain.app.service.riot.api.request.AsyncRequest;
 import com.rain.app.service.riot.api.request.RequestListener;
 import com.rain.app.service.riot.constant.Platform;
 import com.rain.app.service.riot.constant.Region;
 
-import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.constant.PickType;
-import net.rithms.riot.constant.QueueType;
 import net.rithms.riot.constant.Season;
 import net.rithms.riot.constant.SpectatorType;
 import net.rithms.riot.constant.TournamentMap;

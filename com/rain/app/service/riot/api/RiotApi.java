@@ -7,10 +7,14 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampion;
+import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampions;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummoner;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummonerByChampion;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteryScoresBySummoner;
 import com.rain.app.service.riot.constant.Platform;
 
 import net.rithms.riot.constant.PickType;
-import net.rithms.riot.constant.QueueType;
 import net.rithms.riot.constant.Season;
 import net.rithms.riot.constant.SpectatorType;
 import net.rithms.riot.constant.TournamentMap;
@@ -22,9 +26,7 @@ import net.rithms.riot.constant.staticdata.MasteryListData;
 import net.rithms.riot.constant.staticdata.RuneData;
 import net.rithms.riot.constant.staticdata.RuneListData;
 import net.rithms.riot.constant.staticdata.SpellData;
-import net.rithms.riot.dto.ChampionMastery.ChampionMastery;
 import net.rithms.riot.dto.FeaturedGames.FeaturedGames;
-import net.rithms.riot.dto.League.League;
 import net.rithms.riot.dto.MatchList.MatchList;
 import net.rithms.riot.dto.Static.Item;
 import net.rithms.riot.dto.Static.ItemList;
@@ -40,6 +42,8 @@ import net.rithms.riot.dto.Summoner.MasteryPages;
 import net.rithms.riot.dto.Summoner.RunePages;
 import net.rithms.riot.dto.Tournament.TournamentCode;
 import net.rithms.util.Convert;
+
+
 
 /**
  * @author Ryan May 5/1/2017
