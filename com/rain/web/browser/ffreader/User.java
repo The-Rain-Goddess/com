@@ -1,7 +1,9 @@
 package com.rain.web.browser.ffreader;
 
 public class User {
+	@SuppressWarnings("unused")
 	private String username;
+	@SuppressWarnings("unused")
 	private String password;
 	
 	public User() {
