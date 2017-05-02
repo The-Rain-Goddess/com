@@ -10,7 +10,7 @@ import com.rain.app.service.riot.constant.Region;
 public class GetPlayerStatsSummary extends StaticDataApiMethod {
 
 	@Deprecated
-	public GetPlayerStatsSummary(ApiConfig config, Region region, Season season, long summonerId) {
+	public GetPlayerStatsSummary(ApiConfig config, Region region,Season season, long summonerId) {
 		super(config);
 		setRegion(region);
 		setReturnType(PlayerStatsSummaryList.class);

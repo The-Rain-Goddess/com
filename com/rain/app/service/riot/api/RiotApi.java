@@ -4,7 +4,6 @@
 package com.rain.app.service.riot.api;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -21,6 +20,7 @@ import com.rain.app.service.riot.api.endpoints.constants.constant.ChampData;
 import com.rain.app.service.riot.api.endpoints.constants.constant.ChampListData;
 import com.rain.app.service.riot.api.endpoints.constants.constant.ItemData;
 import com.rain.app.service.riot.api.endpoints.constants.constant.ItemListData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.Locale;
 import com.rain.app.service.riot.api.endpoints.constants.constant.MasteryData;
 import com.rain.app.service.riot.api.endpoints.constants.constant.MasteryListData;
 import com.rain.app.service.riot.api.endpoints.constants.constant.RuneData;
@@ -76,6 +76,9 @@ import com.rain.app.service.riot.api.endpoints.spectator.dto.CurrentGameInfo;
 import com.rain.app.service.riot.api.endpoints.spectator.dto.FeaturedGames;
 import com.rain.app.service.riot.api.endpoints.spectator.methods.GetActiveGameBySummoner;
 import com.rain.app.service.riot.api.endpoints.spectator.methods.GetFeaturedGames;
+import com.rain.app.service.riot.api.endpoints.stats.constant.Season;
+import com.rain.app.service.riot.api.endpoints.stats.dto.PlayerStatsSummaryList;
+import com.rain.app.service.riot.api.endpoints.stats.dto.RankedStats;
 import com.rain.app.service.riot.api.endpoints.stats.methods.GetPlayerStatsSummary;
 import com.rain.app.service.riot.api.endpoints.stats.methods.GetRankedStats;
 import com.rain.app.service.riot.api.endpoints.status.dto.ShardStatus;
@@ -98,10 +101,6 @@ import com.rain.app.service.riot.api.endpoints.tournament.methods.UpdateTourname
 import com.rain.app.service.riot.constant.Platform;
 import com.rain.app.service.riot.constant.Region;
 
-import net.rithms.riot.constant.Season;
-import net.rithms.riot.dto.Stats.PlayerStatsSummaryList;
-import net.rithms.riot.dto.Stats.RankedStats;
-import net.rithms.util.Convert;
 
 /**
  * @author Ryan May 5/1/2017
@@ -1186,7 +1185,7 @@ public class RiotApi implements Cloneable {
 	public Map<String, List<League>> getLeagueBySummoners(Region region, String... summonerIds) throws RiotApiException {
 		Objects.requireNonNull(region);
 		Objects.requireNonNull(summonerIds);
-		ApiMethod method = new GetLeagueBySummoners(getConfig(), region, Convert.joinString(",", summonerIds));
+		ApiMethod method = new GetLeagueBySummoners(getConfig(), region, Utility.joinString(",", summonerIds));
 		return endpointManager.callMethodAndReturnDto(method);
 	}
 
@@ -1204,7 +1203,7 @@ public class RiotApi implements Cloneable {
 	 * @see League
 	 */
 	public Map<String, List<League>> getLeagueBySummoners(Region region, long... summonerIds) throws RiotApiException {
-		return getLeagueBySummoners(region, Convert.longToString(summonerIds));
+		return getLeagueBySummoners(region, Utility.longToString(summonerIds));
 	}
 
 	/**
@@ -1263,7 +1262,7 @@ public class RiotApi implements Cloneable {
 	public Map<String, List<League>> getLeagueEntryBySummoners(Region region, String... summonerIds) throws RiotApiException {
 		Objects.requireNonNull(region);
 		Objects.requireNonNull(summonerIds);
-		ApiMethod method = new GetLeagueEntryBySummoners(getConfig(), region, Convert.joinString(",", summonerIds));
+		ApiMethod method = new GetLeagueEntryBySummoners(getConfig(), region, Utility.joinString(",", summonerIds));
 		return endpointManager.callMethodAndReturnDto(method);
 	}
 
@@ -1281,7 +1280,7 @@ public class RiotApi implements Cloneable {
 	 * @see League
 	 */
 	public Map<String, List<League>> getLeagueEntryBySummoners(Region region, long... summonerIds) throws RiotApiException {
-		return getLeagueEntryBySummoners(region, Convert.longToString(summonerIds));
+		return getLeagueEntryBySummoners(region, Utility.longToString(summonerIds));
 	}
 
 	/**
