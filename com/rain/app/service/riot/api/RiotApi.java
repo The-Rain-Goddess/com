@@ -3,47 +3,105 @@
  */
 package com.rain.app.service.riot.api;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Logger;
 
+import com.rain.app.service.riot.api.endpoints.champion.dto.Champion;
+import com.rain.app.service.riot.api.endpoints.champion.dto.ChampionList;
 import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampion;
 import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampions;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.dto.ChampionMastery;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummoner;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummonerByChampion;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteryScoresBySummoner;
+import com.rain.app.service.riot.api.endpoints.constants.constant.ChampData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.ChampListData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.ItemData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.ItemListData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.MasteryData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.MasteryListData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.RuneData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.RuneListData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.SpellData;
+import com.rain.app.service.riot.api.endpoints.constants.constant.SpellListData;
+import com.rain.app.service.riot.api.endpoints.constants.dto.Item;
+import com.rain.app.service.riot.api.endpoints.constants.dto.ItemList;
+import com.rain.app.service.riot.api.endpoints.constants.dto.LanguageStrings;
+import com.rain.app.service.riot.api.endpoints.constants.dto.MapData;
+import com.rain.app.service.riot.api.endpoints.constants.dto.MasteryList;
+import com.rain.app.service.riot.api.endpoints.constants.dto.ProfileIconData;
+import com.rain.app.service.riot.api.endpoints.constants.dto.Realm;
+import com.rain.app.service.riot.api.endpoints.constants.dto.Rune;
+import com.rain.app.service.riot.api.endpoints.constants.dto.RuneList;
+import com.rain.app.service.riot.api.endpoints.constants.dto.SummonerSpell;
+import com.rain.app.service.riot.api.endpoints.constants.dto.SummonerSpellList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataChampion;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataChampionList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataItem;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataItemList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataLanguageStrings;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataLanguages;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataMaps;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataMastery;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataMasteryList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataProfileIcons;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataRealm;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataRune;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataRuneList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataSummonerSpell;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataSummonerSpellList;
+import com.rain.app.service.riot.api.endpoints.constants.methods.GetDataVersions;
+import com.rain.app.service.riot.api.endpoints.league.constant.QueueType;
+import com.rain.app.service.riot.api.endpoints.league.dto.League;
+import com.rain.app.service.riot.api.endpoints.league.methods.GetChallengerLeague;
+import com.rain.app.service.riot.api.endpoints.league.methods.GetLeagueBySummoners;
+import com.rain.app.service.riot.api.endpoints.league.methods.GetLeagueEntryBySummoners;
+import com.rain.app.service.riot.api.endpoints.league.methods.GetMasterLeague;
+import com.rain.app.service.riot.api.endpoints.masteries.dto.Mastery;
+import com.rain.app.service.riot.api.endpoints.masteries.dto.MasteryPages;
+import com.rain.app.service.riot.api.endpoints.masteries.methods.GetMasteriesBySummoner;
+import com.rain.app.service.riot.api.endpoints.match.dto.Match;
+import com.rain.app.service.riot.api.endpoints.match.dto.MatchList;
+import com.rain.app.service.riot.api.endpoints.match.methods.GetMatch;
+import com.rain.app.service.riot.api.endpoints.match.methods.GetMatchByMatchIdAndTournamentCode;
+import com.rain.app.service.riot.api.endpoints.match.methods.GetMatchIdsByTournamentCode;
+import com.rain.app.service.riot.api.endpoints.match.methods.GetMatchListByAccountId;
+import com.rain.app.service.riot.api.endpoints.match.methods.GetRecentMatchListByAccountId;
+import com.rain.app.service.riot.api.endpoints.runes.dto.RunePages;
+import com.rain.app.service.riot.api.endpoints.runes.methods.GetRunesBySummoner;
+import com.rain.app.service.riot.api.endpoints.spectator.dto.CurrentGameInfo;
+import com.rain.app.service.riot.api.endpoints.spectator.dto.FeaturedGames;
+import com.rain.app.service.riot.api.endpoints.spectator.methods.GetActiveGameBySummoner;
+import com.rain.app.service.riot.api.endpoints.spectator.methods.GetFeaturedGames;
+import com.rain.app.service.riot.api.endpoints.stats.methods.GetPlayerStatsSummary;
+import com.rain.app.service.riot.api.endpoints.stats.methods.GetRankedStats;
+import com.rain.app.service.riot.api.endpoints.status.dto.ShardStatus;
+import com.rain.app.service.riot.api.endpoints.status.methods.GetShardData;
+import com.rain.app.service.riot.api.endpoints.summoner.dto.Summoner;
+import com.rain.app.service.riot.api.endpoints.summoner.methods.GetSummoner;
+import com.rain.app.service.riot.api.endpoints.summoner.methods.GetSummonerByAccount;
+import com.rain.app.service.riot.api.endpoints.summoner.methods.GetSummonerByName;
+import com.rain.app.service.riot.api.endpoints.tournament.constant.PickType;
+import com.rain.app.service.riot.api.endpoints.tournament.constant.SpectatorType;
+import com.rain.app.service.riot.api.endpoints.tournament.constant.TournamentMap;
+import com.rain.app.service.riot.api.endpoints.tournament.dto.LobbyEventWrapper;
+import com.rain.app.service.riot.api.endpoints.tournament.dto.TournamentCode;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.CreateTournament;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.CreateTournamentCodes;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.CreateTournamentProvider;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.GetLobbyEventsByCode;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.GetTournamentCode;
+import com.rain.app.service.riot.api.endpoints.tournament.methods.UpdateTournamentCode;
 import com.rain.app.service.riot.constant.Platform;
+import com.rain.app.service.riot.constant.Region;
 
-import net.rithms.riot.constant.PickType;
 import net.rithms.riot.constant.Season;
-import net.rithms.riot.constant.SpectatorType;
-import net.rithms.riot.constant.TournamentMap;
-import net.rithms.riot.constant.staticdata.ChampData;
-import net.rithms.riot.constant.staticdata.ItemData;
-import net.rithms.riot.constant.staticdata.ItemListData;
-import net.rithms.riot.constant.staticdata.MasteryData;
-import net.rithms.riot.constant.staticdata.MasteryListData;
-import net.rithms.riot.constant.staticdata.RuneData;
-import net.rithms.riot.constant.staticdata.RuneListData;
-import net.rithms.riot.constant.staticdata.SpellData;
-import net.rithms.riot.dto.FeaturedGames.FeaturedGames;
-import net.rithms.riot.dto.MatchList.MatchList;
-import net.rithms.riot.dto.Static.Item;
-import net.rithms.riot.dto.Static.ItemList;
-import net.rithms.riot.dto.Static.LanguageStrings;
-import net.rithms.riot.dto.Static.MasteryList;
-import net.rithms.riot.dto.Static.RuneList;
-import net.rithms.riot.dto.Static.SummonerSpell;
-import net.rithms.riot.dto.Static.SummonerSpellList;
 import net.rithms.riot.dto.Stats.PlayerStatsSummaryList;
 import net.rithms.riot.dto.Stats.RankedStats;
-import net.rithms.riot.dto.Status.ShardStatus;
-import net.rithms.riot.dto.Summoner.MasteryPages;
-import net.rithms.riot.dto.Summoner.RunePages;
-import net.rithms.riot.dto.Tournament.TournamentCode;
 import net.rithms.util.Convert;
-
-
 
 /**
  * @author Ryan May 5/1/2017
@@ -440,7 +498,7 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see net.rithms.riot.api.endpoints.static_data.dto.Champion
 	 */
-	public net.rithms.riot.api.endpoints.static_data.dto.Champion getDataChampion(Platform platform, int id, Locale locale, String version,
+	public com.rain.app.service.riot.api.endpoints.constants.dto.Champion getDataChampion(Platform platform, int id, Locale locale, String version,
 			ChampData... champData) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetDataChampion(getConfig(), platform, id, locale, version, champData);
@@ -460,7 +518,7 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see net.rithms.riot.api.endpoints.static_data.dto.Champion
 	 */
-	public net.rithms.riot.api.endpoints.static_data.dto.Champion getDataChampion(Platform platform, int id) throws RiotApiException {
+	public com.rain.app.service.riot.api.endpoints.constants.dto.Champion getDataChampion(Platform platform, int id) throws RiotApiException {
 		return getDataChampion(platform, id, null, null, (ChampData) null);
 	}
 
@@ -489,7 +547,7 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see net.rithms.riot.api.endpoints.static_data.dto.ChampionList
 	 */
-	public net.rithms.riot.api.endpoints.static_data.dto.ChampionList getDataChampionList(Platform platform, Locale locale, String version, boolean dataById,
+	public com.rain.app.service.riot.api.endpoints.constants.dto.ChampionList getDataChampionList(Platform platform, Locale locale, String version, boolean dataById,
 			ChampListData... champListData) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetDataChampionList(getConfig(), platform, locale, version, dataById, champListData);
@@ -507,7 +565,7 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see net.rithms.riot.api.endpoints.static_data.dto.ChampionList
 	 */
-	public net.rithms.riot.api.endpoints.static_data.dto.ChampionList getDataChampionList(Platform platform) throws RiotApiException {
+	public com.rain.app.service.riot.api.endpoints.constants.dto.ChampionList getDataChampionList(Platform platform) throws RiotApiException {
 		return getDataChampionList(platform, null, null, false, (ChampListData) null);
 	}
 

@@ -1,0 +1,25 @@
+package com.rain.app.service.riot.api.endpoints.constants.constant;
+
+public enum MasteryData {
+	ALL("all"),
+	IMAGE("image"),
+	MASTERY_TREE("masteryTree"),
+	PREREQ("prereq"),
+	RANKS("ranks"),
+	SANITIZED_DESCRIPTION("sanitizedDescription");
+
+	private String name;
+
+	MasteryData(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return getName();
+	}
+}
