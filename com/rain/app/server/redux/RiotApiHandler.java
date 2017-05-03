@@ -1,6 +1,7 @@
 package com.rain.app.server.redux;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
@@ -8,6 +9,8 @@ import java.util.logging.Logger;
 
 import com.rain.app.service.riot.api.ApiConfig;
 import com.rain.app.service.riot.api.RiotApi;
+import com.rain.app.service.riot.api.endpoints.match.dto.Match;
+import com.rain.app.service.riot.api.endpoints.match.dto.MatchReference;
 import com.rain.app.service.riot.api.endpoints.match.dto.MatchReferenceList;
 import com.rain.app.service.riot.api.endpoints.summoner.dto.Summoner;
 import com.rain.app.service.riot.constant.Platform;
@@ -60,8 +63,19 @@ public class RiotApiHandler {
 	}
 	
 	private boolean isSummonerCurrent() throws InterruptedException, ExecutionException, NoSuchMethodException, SecurityException{
-		Future<MatchReferenceList> mostRecentMatchId = Server.getDataRetrievalPool().submit(new FutureTask<MatchReferenceList>(api, api.getClass().getMethod("getRecentMatchListByAccountId", Platform.class, long.class), platform, summonerId)); 
-		return (Server.getSummonerDataStorage().get(summonerName).getMostRecentMatchId() == mostRecentMatchId.get().getMatches().get(0).getMatchId());
+		return (mostRecentMatchInMemoryId() == getMostRecentMatchReferenceList().getMatches().get(0).getGameId());
+	}
+	
+	private long mostRecentMatchInMemoryId(){
+		return Server.getSummonerDataStorage().get(summonerName).getMostRecentMatchId();
+	}
+	
+	private MatchReferenceList getMostRecentMatchReferenceList() throws InterruptedException, ExecutionException, NoSuchMethodException, SecurityException{
+		return (MatchReferenceList) evaluateFromFuture(api.getClass().getMethod("getRecentMatchListByAccountId", Platform.class, long.class), platform, summonerId);
+	}
+	
+	private MatchReferenceList getMatchReferenceList() throws InterruptedException, ExecutionException, NoSuchMethodException, SecurityException{
+		return (MatchReferenceList) evaluateFromFuture(api.getClass().getMethod("getMatchListByAccountId", Platform.class, long.class), platform, summonerId);
 	}
 
 	private SummonerData getSummonerDataFromStorage(String keyName){
@@ -69,14 +83,54 @@ public class RiotApiHandler {
 		return Server.getSummonerDataStorage().get(keyName);
 	}
 	
-	private SummonerData updateSummoner(){
-		log("updating old summoner data...");
-		return null;
+	private int getNumberOfNewMatches(List<MatchReference> matchReferences){
+		int count = 0;
+		long mostRecentMatchInMemory = mostRecentMatchInMemoryId();
+		long matchToAddId = matchReferences.get(count).getGameId();
+		while(matchToAddId != mostRecentMatchInMemory){
+			matchToAddId = matchReferences.get(count).getGameId();
+			count++;
+		} return count;
+	}
+	
+	private Match getMatch(long matchId) throws NoSuchMethodException, SecurityException{
+		return (Match) evaluateFromFuture(api.getClass().getMethod("getMatch", Platform.class, long.class), platform, matchId);
+	}
+	
+	private void updateMatchReferences(MatchReferenceList mrl){
+		Server.getSummonerDataStorage().get(summonerName).setMatchReferenceList(mrl);
+	}
+	
+	private void updateMatches(MatchReferenceList mrl) throws NoSuchMethodException, SecurityException{
+		List<MatchReference> matchReferences = mrl.getMatches();
+		int numberOfNewMatchesToAdd = getNumberOfNewMatches(matchReferences);
+		for(int i = numberOfNewMatchesToAdd; i > 0 ; i--){
+			log("Retrieving match: " + matchReferences.get(i).getGameId());
+			Server.getSummonerDataStorage().get(summonerName).addMatch(getMatch(matchReferences.get(i).getGameId()), true);
+		}
+	}
+	
+	private SummonerData updateSummoner(){ 
+		log("updating old summoner data..." + " for " + summonerName);
+		try {
+			MatchReferenceList updatedMatchReferenceList = getMatchReferenceList();
+			updateMatchReferences(updatedMatchReferenceList);
+			updateMatches(updatedMatchReferenceList);
+		} catch (NoSuchMethodException | SecurityException | InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		} return Server.getSummonerDataStorage().get(summonerName);
 	}
 	
 	private SummonerData createSummoner(){
-		log("creating new summoner data...");
-		return null;
+		log("creating new summoner data..." + " for " + summonerName);
+		SummonerData newSummoner = null;
+		try {
+			newSummoner = new SummonerData(summonerName, summoner);
+			MatchReferenceList newMatchReferences = getMatchReferenceList();
+			newSummoner.setMatchReferenceList(newMatchReferences);
+		} catch (NoSuchMethodException | SecurityException | InterruptedException | ExecutionException e) {
+			e.printStackTrace();
+		} return newSummoner;
 	}
 	
 	private void log(String msg){
@@ -85,7 +139,7 @@ public class RiotApiHandler {
 
 //non-public accessors/mutators	
 	public SummonerData getSummonerData(){
-		return this.summonerData;
+		return Server.getSummonerDataStorage().get(summonerName);
 	}
 	
 }

@@ -75,6 +75,7 @@ public class ClientHandler extends Thread {
 	
 	
 	private List<String> getMatchHistory(){
+		log(Level.WARNING, "attempting to get match history...");
 		return riotApiHandler.getSummonerData().getMatchHistory();
 	}
 	
@@ -103,7 +104,7 @@ public class ClientHandler extends Thread {
 	}
 
 	private void respondToClient(List<String> response) throws IOException{
-		
+		log(Level.WARNING, "responding to client with null...");
 	}
 	
 	private String getDate(){
@@ -116,6 +117,10 @@ public class ClientHandler extends Thread {
 	
 	private static void log(String msg){
 		LOGGER.log(Level.INFO, msg);
+	}
+	
+	private static void log(Level level, String msg){
+		LOGGER.log(level, msg);
 	}
 	
 	protected static void broadcast(String msg){

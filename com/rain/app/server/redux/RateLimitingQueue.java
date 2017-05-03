@@ -23,7 +23,7 @@ public class RateLimitingQueue extends LinkedBlockingQueue<Runnable>{
         this.lastDequeueTime = System.currentTimeMillis();
         this.dequeueCount = numberOfThreads;
         
-        //System.out.println("Queue: ");
+        System.err.println("Queue Started: ");
     }
     
     @Override
@@ -76,7 +76,7 @@ public class RateLimitingQueue extends LinkedBlockingQueue<Runnable>{
     }
     
     public String timeTill(){
-    	return String.format("%,.0fS/%,.0fS", (((double)System.currentTimeMillis() - (double)timeStamp)/1000), (dequeueTime/1000.0));
+    	return String.format("%,.0f/%,.0f Sec", (((double)System.currentTimeMillis() - (double)timeStamp)/1000), (dequeueTime/1000.0));
     }
     
     public boolean isOverRateLimit(){

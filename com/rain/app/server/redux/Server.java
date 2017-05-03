@@ -14,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.rain.app.server.redux.logger.MyLogger;
+
 public class Server {
 //Package Varriables	
 	private static final Map<String, SummonerData> summonerDataStorage = Collections.synchronizedSortedMap(new TreeMap<String, SummonerData>());
@@ -23,8 +25,10 @@ public class Server {
 	
 //MAIN	
 	public static void main(String[] args) throws IOException{
+		MyLogger.setup();
 		final int PORT_NUMBER = 48869;
 		new Server(PORT_NUMBER);
+		
 	}
 
 //constructor	
@@ -63,6 +67,10 @@ public class Server {
 	
 	private static void log(String msg){
 		LOGGER.log(Level.INFO, msg);
+	}
+	
+	private static void log(Level level, String msg){
+		LOGGER.log(level, msg);
 	}
 	
 	private boolean saveDataToText(){

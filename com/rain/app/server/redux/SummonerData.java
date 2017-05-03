@@ -26,7 +26,7 @@ public class SummonerData {
 	}
 
 //non-private accessors/mutators
-	public SummonerData setMatchList(MatchReferenceList matches){
+	public SummonerData setMatchReferenceList(MatchReferenceList matches){
 		matchReferenceList = matches;
 		return this;
 	}
@@ -40,6 +40,7 @@ public class SummonerData {
 	}
 	
 //accessors
+	//TODO: implement getMatchHistory, getAnalysis, getProfile
 	public List<String> getMatchHistory(){ return null; }
 	
 	public List<String> getAnalysis(){ return null; }
