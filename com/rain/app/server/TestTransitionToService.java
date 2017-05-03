@@ -17,7 +17,7 @@ public class TestTransitionToService {
 	}
 	
 	public static void main(String[] args) throws RiotApiException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-		RiotApi riotApi = new RiotApi(new ApiConfig().setKey("fb22315c-06cd-4f26-91ed-f0912a72a78d"));
+		RiotApi riotApi = new RiotApi(new ApiConfig().setKey(""));
 		System.out.println(riotApi.getSummonerByName(Platform.NA, "theraingoddess").getSummonerLevel());
 	}	
 	

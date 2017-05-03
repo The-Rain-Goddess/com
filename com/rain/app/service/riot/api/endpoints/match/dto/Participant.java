@@ -5,9 +5,6 @@ import java.util.List;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.Match.ParticipantStats;
-import net.rithms.riot.dto.Match.ParticipantTimeline;
-
 public class Participant extends Dto implements Serializable {
 
 	private static final long serialVersionUID = -507075680096851928L;

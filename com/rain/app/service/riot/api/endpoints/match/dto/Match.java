@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.Match.ParticipantIdentity;
 
 public class Match extends Dto implements Serializable {
 
