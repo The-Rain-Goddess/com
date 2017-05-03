@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.MatchList.MatchReference;
-
 public class MatchReferenceList extends Dto implements Serializable {
 
 	private static final long serialVersionUID = 939383850419752274L;
