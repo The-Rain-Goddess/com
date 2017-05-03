@@ -23,7 +23,7 @@ public class RateLimitingQueue extends LinkedBlockingQueue<Runnable>{
         this.lastDequeueTime = System.currentTimeMillis();
         this.dequeueCount = numberOfThreads;
         
-        System.out.println("Queue: ");
+        //System.out.println("Queue: ");
     }
     
     @Override
