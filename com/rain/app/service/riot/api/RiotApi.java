@@ -64,7 +64,7 @@ import com.rain.app.service.riot.api.endpoints.masteries.dto.Mastery;
 import com.rain.app.service.riot.api.endpoints.masteries.dto.MasteryPages;
 import com.rain.app.service.riot.api.endpoints.masteries.methods.GetMasteriesBySummoner;
 import com.rain.app.service.riot.api.endpoints.match.dto.Match;
-import com.rain.app.service.riot.api.endpoints.match.dto.MatchList;
+import com.rain.app.service.riot.api.endpoints.match.dto.MatchReferenceList;
 import com.rain.app.service.riot.api.endpoints.match.methods.GetMatch;
 import com.rain.app.service.riot.api.endpoints.match.methods.GetMatchByMatchIdAndTournamentCode;
 import com.rain.app.service.riot.api.endpoints.match.methods.GetMatchIdsByTournamentCode;
@@ -1438,9 +1438,9 @@ public class RiotApi implements Cloneable {
 	 * @throws RiotApiException
 	 *             If the API returns an error or unparsable result
 	 * @version 3
-	 * @see MatchList
+	 * @see MatchReferenceList
 	 */
-	public MatchList getMatchListByAccountId(Platform platform, long accountId, String champion, String queue, String season, long beginTime, long endTime,
+	public MatchReferenceList getMatchListByAccountId(Platform platform, long accountId, String champion, String queue, String season, long beginTime, long endTime,
 			int beginIndex, int endIndex) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetMatchListByAccountId(getConfig(), platform, accountId, champion, queue, season, beginTime, endTime, beginIndex, endIndex);
@@ -1464,9 +1464,9 @@ public class RiotApi implements Cloneable {
 	 * @throws RiotApiException
 	 *             If the API returns an error or unparsable result
 	 * @version 3
-	 * @see MatchList
+	 * @see MatchReferenceList
 	 */
-	public MatchList getMatchListByAccountId(Platform platform, long accountId, String champion, String queue, String season) throws RiotApiException {
+	public MatchReferenceList getMatchListByAccountId(Platform platform, long accountId, String champion, String queue, String season) throws RiotApiException {
 		return getMatchListByAccountId(platform, accountId, champion, queue, season, -1, -1, -1, -1);
 	}
 
@@ -1481,9 +1481,9 @@ public class RiotApi implements Cloneable {
 	 * @throws RiotApiException
 	 *             If the API returns an error or unparsable result
 	 * @version 3
-	 * @see MatchList
+	 * @see MatchReferenceList
 	 */
-	public MatchList getMatchListByAccountId(Platform platform, long accountId) throws RiotApiException {
+	public MatchReferenceList getMatchListByAccountId(Platform platform, long accountId) throws RiotApiException {
 		return getMatchListByAccountId(platform, accountId, null, null, null);
 	}
 
@@ -1582,9 +1582,9 @@ public class RiotApi implements Cloneable {
 	 * @throws RiotApiException
 	 *             If the API returns an error or unparsable result
 	 * @version 3
-	 * @see MatchList
+	 * @see MatchReferenceList
 	 */
-	public MatchList getRecentMatchListByAccountId(Platform platform, long accountId) throws RiotApiException {
+	public MatchReferenceList getRecentMatchListByAccountId(Platform platform, long accountId) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetRecentMatchListByAccountId(getConfig(), platform, accountId);
 		return endpointManager.callMethodAndReturnDto(method);
