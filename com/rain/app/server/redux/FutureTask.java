@@ -1,5 +1,6 @@
 package com.rain.app.server.redux;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.concurrent.Callable;
 
@@ -18,8 +19,8 @@ public class FutureTask<V> implements Callable<V> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public V call() throws Exception {
-		return (V) futureRequest.invoke(reference, args);
+	public V call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+			return (V) futureRequest.invoke(reference, args);
 	}
 
 }

@@ -430,13 +430,14 @@ public class Rapi {
 										"champion:" + temp_name + "/" +						//57
 										"sspell1:" + part.get(j).getSpell1Id() +  "/" +		//58
 										"sspell2:" + part.get(j).getSpell2Id() + "/" +		//59
+										"teamId:" +  part.get(j).getTeamId() + "/" +		//66
 										"matchLength:" + temp3.getMatchDuration() + "/" +	//60
 										"matchId:" + temp3.getMatchId() + "/" +				//61
 										"matchMode:" + temp3.getMatchMode() + "/" +			//62
 										"matchType:" + temp3.getMatchType() + "/" + 		//63
 										"matchStartTime:" + temp3.getMatchCreation() + "/"+ //64
-										"queueType:" + temp3.getQueueType() + "/" +			//65
-										"teamId:" +  part.get(j).getTeamId() + "/";			//66
+										"queueType:" + temp3.getQueueType() + "/" ;			//65
+										
 						
 						for(int k = 0; k<10; k++){ //this loop is to get total team dmg and total enemy team dmg
 							if(part.get(k).getTeamId()==part.get(j).getTeamId())

@@ -19,7 +19,7 @@ import com.rain.app.server.redux.logger.MyLogger;
 public class Server {
 //Package Varriables	
 	private static final Map<String, SummonerData> summonerDataStorage = Collections.synchronizedSortedMap(new TreeMap<String, SummonerData>());
-	private static final ExecutorService dataRetrievalPool = new ThreadPoolExecutor(3, 100, 10000L, TimeUnit.MILLISECONDS, new RateLimitingQueue(5000, 9, 10000L, 3));
+	private static final ExecutorService dataRetrievalPool = new ThreadPoolExecutor(1, 100, 10000L, TimeUnit.MILLISECONDS, new RateLimitingQueue(5000, 8, 10000L, 1));
 	private boolean running = true;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
@@ -33,7 +33,7 @@ public class Server {
 
 //constructor	
 	public Server(final int PORT_NUMBER) throws IOException{
-		log("Server Started");
+		log("Server: Server Started");
 		ServerSocket ss = null;
 		ExecutorService executor = null;
 		try{
@@ -53,7 +53,7 @@ public class Server {
 		} catch(InterruptedException e){
 			e.printStackTrace();
 		} finally{
-			log("Server shutting down");
+			log("Server: Server shutting down");
 			saveDataToText();
 			
 			executor.shutdownNow();
@@ -69,6 +69,7 @@ public class Server {
 		LOGGER.log(Level.INFO, msg);
 	}
 	
+	@SuppressWarnings("unused")
 	private static void log(Level level, String msg){
 		LOGGER.log(level, msg);
 	}

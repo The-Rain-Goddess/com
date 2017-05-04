@@ -1,76 +1,38 @@
-May 03, 2017 1:02:13 PM com.rain.app.server.redux.Server log
-INFO: Server Started
-May 03, 2017 1:02:13 PM com.rain.app.server.redux.Server log
+May 04, 2017 1:40:34 PM com.rain.app.server.redux.Server log
+INFO: Server: Server Started
+May 04, 2017 1:40:34 PM com.rain.app.server.redux.Server log
 INFO: Server: main is started.
-May 03, 2017 1:02:28 PM com.rain.app.server.redux.Server log
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.Server log
 INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:02:28 PM com.rain.app.server.redux.ClientHandler log
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.ClientHandler log
 INFO: ClientHandler: Client accepted
-May 03, 2017 1:02:28 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:28] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:02:28 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Rain Goddess::get_match_history::8::0::8
-May 03, 2017 1:02:28 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Rain Goddess
-May 03, 2017 1:02:29 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:29] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.Server log
-INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.ClientHandler log
-INFO: ClientHandler: Client accepted
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:42] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Ice Goddess::get_match_history::8::0::8
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Ice Goddess
-May 03, 2017 1:02:42 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:42] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
-May 03, 2017 1:02:45 PM com.rain.app.server.redux.Server log
-INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:02:45 PM com.rain.app.server.redux.ClientHandler log
-INFO: ClientHandler: Client accepted
-May 03, 2017 1:02:45 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:45] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:02:45 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Ice Goddess::get_match_history::8::0::8
-May 03, 2017 1:02:45 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Ice Goddess
-May 03, 2017 1:02:46 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:46] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
-May 03, 2017 1:02:49 PM com.rain.app.server.redux.Server log
-INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:02:49 PM com.rain.app.server.redux.ClientHandler log
-INFO: ClientHandler: Client accepted
-May 03, 2017 1:02:49 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:49] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:02:49 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Ice Goddess::get_match_history::8::0::8
-May 03, 2017 1:02:49 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Ice Goddess
-May 03, 2017 1:02:50 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:50] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
-May 03, 2017 1:02:56 PM com.rain.app.server.redux.Server log
-INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:02:56 PM com.rain.app.server.redux.ClientHandler log
-INFO: ClientHandler: Client accepted
-May 03, 2017 1:02:56 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:56] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:02:56 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Ice Goddess::get_match_history::8::0::8
-May 03, 2017 1:02:56 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Ice Goddess
-May 03, 2017 1:02:57 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:02:57] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
-May 03, 2017 1:03:23 PM com.rain.app.server.redux.Server log
-INFO: Server: Accepted from /127.0.0.1
-May 03, 2017 1:03:23 PM com.rain.app.server.redux.ClientHandler log
-INFO: ClientHandler: Client accepted
-May 03, 2017 1:03:23 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:03:23] ClientHandler: pool-2-thread-1 is started as ClientHandler.
-May 03, 2017 1:03:23 PM com.rain.app.server.redux.ClientHandler log
-INFO: The Rain Goddess::get_match_history::8::0::8
-May 03, 2017 1:03:23 PM com.rain.app.server.redux.RiotApiHandler log
-INFO: creating new summoner data... for The Rain Goddess
-May 03, 2017 1:03:25 PM com.rain.app.server.redux.ClientHandler log
-INFO: [2017-05-03 13:03:25] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.ClientHandler log
+INFO: [2017-05-04 13:40:40] ClientHandler: pool-2-thread-1 is started as ClientHandler.
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.ClientHandler log
+INFO: ClientHandler: The Rain Goddess::get_match_history::8::0::8
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.RiotApiHandler log
+INFO: RiotApiHandler: constructor called.
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.RiotApiHandler log
+INFO: RiotApiHandler: creating new summoner data... for The Rain Goddess
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.SummonerData log
+INFO: SummonerData: Constructor called.
+May 04, 2017 1:40:40 PM com.rain.app.server.redux.SummonerData log
+INFO: SummonerData: The Rain Goddess was created.
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.RiotApiHandler log
+INFO: RiotApiHandler: SummonerData->The Rain Goddess was added to storage.
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.RiotApiHandler log
+INFO: RiotApiHandler: RAH created for summoner The Rain Goddess
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.ClientHandler log
+INFO: ClientHandler: Processing client request...
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.ClientHandler log
+INFO: ClientHandler: attempting to get match history...
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.SummonerData log
+INFO: SummonerData: retrieving match hisotry for The Rain Goddess
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.SummonerData log
+INFO: SummonerData: retrieving match data [0 , 8)
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.ClientHandler log
+INFO: responding to client with null...
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.ClientHandler log
+INFO: ClientHandler: Time elapsed -> 11.85 sec.
+May 04, 2017 1:40:51 PM com.rain.app.server.redux.ClientHandler log
+INFO: [2017-05-04 13:40:51] ClientHandler: pool-2-thread-1, Data Exchange Finished and thread closing.

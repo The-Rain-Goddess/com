@@ -29,7 +29,7 @@ public class ClientHandler extends Thread {
 	protected SummonerData mSummoner;
 	private List<String> requestFromClient;
 	private RiotApiHandler riotApiHandler;
-	
+	private long timeStamp;
 	private String request;
 	
 	private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -40,6 +40,7 @@ public class ClientHandler extends Thread {
 		this.s = 	s;
 		this.in = 	new DataInputStream( 	new BufferedInputStream(	s.getInputStream()));
 		this.out = new DataOutputStream(	new BufferedOutputStream(	s.getOutputStream()));
+		this.timeStamp = System.currentTimeMillis();
 	}
 	
 	@Override
@@ -47,21 +48,30 @@ public class ClientHandler extends Thread {
 		try{
 			log(getDate() + " ClientHandler: " + Thread.currentThread().getName() + " is started as ClientHandler.");
 			String msg = in.readUTF(); 
-			log(msg);
+			log("ClientHandler: " + msg);
 			requestFromClient = Arrays.asList(msg.split("::"));
+			request = requestFromClient.get(1);
 			riotApiHandler = new RiotApiHandler(requestFromClient.get(0), Platform.NA);
 			List<String> responseForClient = processRequest();
 			respondToClient(responseForClient);
 			in.close(); out.close(); s.close();
+			log("ClientHandler: Time elapsed -> " + getTime());
+			log(getDate() + " ClientHandler: " + Thread.currentThread().getName() + ", Data Exchange Finished and thread closing." ); 
 		} catch(IOException e){
 			e.printStackTrace();
 		} finally{
-			log(getDate() + " ClientHandler: " + Thread.currentThread().getName() + ", Data Exchange Finished and thread closing." ); 
+		
 		}
 	}
 	
-	private List<String> processRequest() throws IOException{
+//private accessors/mutators	
+	private String getTime(){
+		return String.format("%,.2f sec.", (((double)System.currentTimeMillis() - (double) timeStamp)/1000.0));
+	}
+	
+	private List<String> processRequest(){
 		List<String> responseToClient = new ArrayList<>();
+		log("ClientHandler: Processing client request...");
 		if(request.equals("get_match_history")){
 			responseToClient = getMatchHistory();
 		} else if(request.equals("get_analysis")){
@@ -70,41 +80,45 @@ public class ClientHandler extends Thread {
 			responseToClient = getProfile();
 		} else if(request.equals("send_feedback")){
 			responseToClient = sendFeedback();
-		} return responseToClient;	
+		} //log("ClientHandler: response->" + responseToClient); 
+		return responseToClient;	
 	}
 	
 	
 	private List<String> getMatchHistory(){
-		log(Level.WARNING, "attempting to get match history...");
-		return riotApiHandler.getSummonerData().getMatchHistory();
+		log("ClientHandler: attempting to get match history...");
+		return riotApiHandler.getSummonerData(requestFromClient.get(0)).getMatchHistory(requestFromClient);
 	}
 	
 	private List<String> getAnalysis(){
-		return riotApiHandler.getSummonerData().getAnalysis();
+		return riotApiHandler.getSummonerData(requestFromClient.get(0)).getAnalysis(requestFromClient);
 	}
 
 	private List<String> getProfile(){
-		return riotApiHandler.getSummonerData().getProfile();
+		return riotApiHandler.getSummonerData(requestFromClient.get(0)).getProfile(requestFromClient);
 	}
 	
-	private List<String> sendFeedback() throws IOException{
-		String limit = in.readUTF();
-		
-		int numberOfLines = Integer.parseInt(limit);
-		List<String> feedback = new ArrayList<>(20);
-		for(int i = 0; i<numberOfLines; i++){
-			String line = in.readUTF();
-			feedback.add(line);
-		}
-		Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
-		Files.write(feedbackFilePath, feedback, Charset.forName("UTF-8"));
-		System.out.println(feedbackFilePath.toAbsolutePath().toString());
-		System.out.println("Feedback has bee successfully written to file.");
-		return null;
+	private List<String> sendFeedback(){
+		try{
+			String limit = in.readUTF();
+			int numberOfLines = Integer.parseInt(limit);
+			List<String> feedback = new ArrayList<>(20);
+			for(int i = 0; i<numberOfLines; i++){
+				String line = in.readUTF();
+				feedback.add(line);
+			}
+			Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
+			Files.write(feedbackFilePath, feedback, Charset.forName("UTF-8"));
+			System.out.println(feedbackFilePath.toAbsolutePath().toString());
+			System.out.println("Feedback has bee successfully written to file.");
+			return null;
+		} catch(IOException e){
+			e.printStackTrace();
+		} return null;
 	}
 
-	private void respondToClient(List<String> response) throws IOException{
-		log(Level.WARNING, "responding to client with null...");
+	private void respondToClient(List<String> response) {
+		log("responding to client with null...");
 	}
 	
 	private String getDate(){
@@ -123,7 +137,8 @@ public class ClientHandler extends Thread {
 		LOGGER.log(level, msg);
 	}
 	
-	protected static void broadcast(String msg){
+	@SuppressWarnings("unused")
+	private static void broadcast(String msg){
 		System.out.println("ClientHandler: " + Thread.currentThread().getName() + ", MSG: " + msg);
 	}
 }
