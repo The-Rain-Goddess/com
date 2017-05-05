@@ -1,26 +1,35 @@
 package com.rain.app.service.riot.api.endpoints.match.methods;
 
+import java.util.Set;
+
 import com.rain.app.service.riot.api.ApiConfig;
 import com.rain.app.service.riot.api.UrlParameter;
 import com.rain.app.service.riot.api.endpoints.match.MatchApiMethod;
 import com.rain.app.service.riot.api.endpoints.match.dto.MatchReferenceList;
 import com.rain.app.service.riot.constant.Platform;
 
-public class GetMatchListByAccountId extends MatchApiMethod {
+public class GetMatchReferenceListByAccountId extends MatchApiMethod {
 
-	public GetMatchListByAccountId(ApiConfig config, Platform platform, long accountId, String champion, String queue, String season, long beginTime, long endTime,int beginIndex, int endIndex) {
+	public GetMatchReferenceListByAccountId(ApiConfig config, Platform platform, long accountId, Set<Integer> champion, Set<Integer> queue, Set<Integer> season,
+			long beginTime, long endTime, int beginIndex, int endIndex) {
 		super(config);
 		setPlatform(platform);
 		setReturnType(MatchReferenceList.class);
 		setUrlBase(platform.getHost() + "/lol/match/v3/matchlists/by-account/" + accountId);
 		if (champion != null) {
-			add(new UrlParameter("champion", champion));
+			for (int param : champion) {
+				add(new UrlParameter("champion", param));
+			}
 		}
 		if (queue != null) {
-			add(new UrlParameter("queue", queue));
+			for (int param : queue) {
+				add(new UrlParameter("queue", param));
+			}
 		}
 		if (season != null) {
-			add(new UrlParameter("season", season));
+			for (int param : season) {
+				add(new UrlParameter("season", param));
+			}
 		}
 		if (beginTime != -1) {
 			add(new UrlParameter("beginTime", beginTime));

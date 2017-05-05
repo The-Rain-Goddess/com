@@ -5,8 +5,6 @@ import java.util.Map;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.Static.MasteryTree;
-
 public class MasteryList extends Dto implements Serializable {
 
 	private static final long serialVersionUID = -2255568964283725298L;

@@ -5,10 +5,6 @@ import java.util.List;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.Static.ChampionSpell;
-import net.rithms.riot.dto.Static.Passive;
-import net.rithms.riot.dto.Static.Recommended;
-
 public class Champion extends Dto implements Serializable {
 
 	private static final long serialVersionUID = 8120597968700936522L;
