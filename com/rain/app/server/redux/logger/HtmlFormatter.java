@@ -10,31 +10,31 @@ import java.util.logging.LogRecord;
 class HtmlFormatter extends Formatter {
     // this method is called for every log records
     @Override
-	public String format(LogRecord rec) {
-            StringBuffer buf = new StringBuffer(1000);
-            buf.append("<tr>\n");
+	public String format(LogRecord record) {
+            StringBuffer buffer = new StringBuffer(1000);
+            buffer.append("<tr>\n");
 
             // colorize any levels >= WARNING in red
-            if (rec.getLevel().intValue() >= Level.WARNING.intValue()) {
-                    buf.append("\t<td style=\"color:red\">");
-                    buf.append("<b>");
-                    buf.append(rec.getLevel());
-                    buf.append("</b>");
+            if (record.getLevel().intValue() >= Level.WARNING.intValue()) {
+                    buffer.append("\t<td style=\"color:red\">");
+                    buffer.append("<b>");
+                    buffer.append(record.getLevel());
+                    buffer.append("</b>");
             } else {
-                    buf.append("\t<td>");
-                    buf.append(rec.getLevel());
+                    buffer.append("\t<td>");
+                    buffer.append(record.getLevel());
             }
 
-            buf.append("</td>\n");
-            buf.append("\t<td>");
-            buf.append(calcDate(rec.getMillis()));
-            buf.append("</td>\n");
-            buf.append("\t<td>");
-            buf.append(formatMessage(rec));
-            buf.append("</td>\n");
-            buf.append("</tr>\n");
+            buffer.append("</td>\n");
+            buffer.append("\t<td>");
+            buffer.append(calcDate(record.getMillis()));
+            buffer.append("</td>\n");
+            buffer.append("\t<td>");
+            buffer.append(formatMessage(record));
+            buffer.append("</td>\n");
+            buffer.append("</tr>\n");
 
-            return buf.toString();
+            return buffer.toString();
     }
 
     private String calcDate(long millisecs) {
@@ -48,19 +48,20 @@ class HtmlFormatter extends Formatter {
     @Override
 	public String getHead(Handler h) {
         return "<!DOCTYPE html>\n<head>\n<style>\n"
-            + "table { width: 100% }\n"
+            + "table { width: 800px; table-layout:fixed; }\n"
             + "th { font:bold 10pt Tahoma; }\n"
-            + "td { font:normal 10pt Tahoma; }\n"
+            + "td { font:normal 10pt Tahoma; overflow: auto; white-space:pre; border: 1px solid black;}\n"
             + "h1 {font:normal 11pt Tahoma;}\n"
             + "</style>\n"
             + "</head>\n"
             + "<body>\n"
             + "<h1>" + (new Date()) + "</h1>\n"
             + "<table border=\"0\" cellpadding=\"5\" cellspacing=\"3\">\n"
+          
             + "<tr align=\"left\">\n"
             + "\t<th style=\"width:10%\">Loglevel</th>\n"
-            + "\t<th style=\"width:15%\">Time</th>\n"
-            + "\t<th style=\"width:75%\">Log Message</th>\n"
+            + "\t<th style=\"width:20%\">Time</th>\n"
+            + "\t<th style=\"width:70%\">Log Message</th>\n"
             + "</tr>\n";
       }
 
