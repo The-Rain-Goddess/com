@@ -9,9 +9,9 @@ import com.rain.app.service.riot.api.endpoints.league.LeagueApiMethod;
 import com.rain.app.service.riot.api.endpoints.league.dto.League;
 import com.rain.app.service.riot.constant.Region;
 
-public class GetLeagueBySummoners extends LeagueApiMethod {
+public class GetLeagueBySummonerId extends LeagueApiMethod {
 
-	public GetLeagueBySummoners(ApiConfig config, Region region, String summonerIds) {
+	public GetLeagueBySummonerId(ApiConfig config, Region region, String summonerIds) {
 		super(config);
 		setRegion(region);
 		setReturnType(new TypeToken<Map<String, List<League>>>() {

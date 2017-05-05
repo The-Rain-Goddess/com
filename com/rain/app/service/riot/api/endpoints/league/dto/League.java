@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.rain.app.service.riot.api.Dto;
 
-import net.rithms.riot.dto.League.LeagueEntry;
-
 public class League extends Dto implements Serializable {
 
 	private static final long serialVersionUID = 1878237445691308532L;

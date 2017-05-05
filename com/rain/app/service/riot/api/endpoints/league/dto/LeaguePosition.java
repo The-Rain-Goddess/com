@@ -4,24 +4,31 @@ import java.io.Serializable;
 
 import com.rain.app.service.riot.api.Dto;
 
-public class LeagueEntry extends Dto implements Serializable {
+public class LeaguePosition extends Dto implements Serializable {
 
-	private static final long serialVersionUID = 3987113536371700279L;
+	private static final long serialVersionUID = 1753178439019663600L;
 
 	private boolean freshBlood;
 	private boolean hotStreak;
 	private boolean inactive;
+	private String leagueName;
 	private int leaguePoints;
 	private int losses;
 	private MiniSeries miniSeries;
 	private String playerOrTeamId;
 	private String playerOrTeamName;
+	private String queueType;
 	private String rank;
+	private String tier;
 	private boolean veteran;
 	private int wins;
 
 	public int getLeaguePoints() {
 		return leaguePoints;
+	}
+
+	public String getLeagueName() {
+		return leagueName;
 	}
 
 	public int getLosses() {
@@ -40,8 +47,16 @@ public class LeagueEntry extends Dto implements Serializable {
 		return playerOrTeamName;
 	}
 
+	public String getQueueType() {
+		return queueType;
+	}
+
 	public String getRank() {
 		return rank;
+	}
+
+	public String getTier() {
+		return tier;
 	}
 
 	public int getWins() {
@@ -66,6 +81,6 @@ public class LeagueEntry extends Dto implements Serializable {
 
 	@Override
 	public String toString() {
-		return getPlayerOrTeamName();
+		return getQueueType();
 	}
 }
