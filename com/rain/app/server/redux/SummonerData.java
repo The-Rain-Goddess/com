@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,12 +25,10 @@ import com.rain.app.service.riot.api.endpoints.summoner.dto.Summoner;
 public class SummonerData {
 	private List<Match> matchList;
 	private MatchReferenceList matchReferenceList;
-	private List<String> champion;
 	private List<String> masteryProfileData;
 	private ChampionMasteryList championMasteryList;
 	private Map<String, List<LeagueList>> leagueMap;
-	private String rankedProfileData;
-	private String rankedAnalysis;
+	private Map<Integer, AggregatedChampionData> rankedChampionDataMap;
 	private long summonerId;
 	private String summonerName;
 	private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -44,11 +43,6 @@ public class SummonerData {
 	}
 
 //private a/m
-	@SuppressWarnings("unused")
-	private static void log(Level level, String msg){
-		LOGGER.log(level, msg);
-	}
-	
 	private static void log(Level level, String msg, Exception e){
 		LOGGER.log(level, msg, e);
 	}
@@ -218,7 +212,31 @@ public class SummonerData {
 		return championMasterySummary;
 	}
 	
+	private Map<Integer, AggregatedChampionData> updateRankedChampionDataMap(){
+		Map<Integer, AggregatedChampionData> updatedChampionDataMap = new TreeMap<>();
+		for(int i = 0; i < matchList.size(); i++){
+			for(int j = 0; j < 10; j++){
+				if(matchList.get(i).getParticipantIdentities().get(j).getPlayer().getSummonerId() == summonerId){
+					Participant player = matchList.get(i).getParticipants().get(j);
+					if(updatedChampionDataMap.containsKey(player.getChampionId())){
+						updatedChampionDataMap.get(player.getChampionId()).addNewMatchStats(player.getStats());
+					} else {
+						updatedChampionDataMap.put(player.getChampionId(), new AggregatedChampionData(player.getStats()));
+					}
+				}
+			}
+		} rankedChampionDataMap = updatedChampionDataMap;
+		return rankedChampionDataMap;
+	}
+	
 //non-private accessors/mutators
+	public SummonerData updateAnalysis(){
+		log("SummonerData: Updating analysis data for " + summonerName);
+		rankedChampionDataMap = updateRankedChampionDataMap();
+		log("SummonerData: Succesfully updated analysis data.");
+		return this;
+	}
+	
 	public SummonerData setMatchReferenceList(MatchReferenceList matches){
 		matchReferenceList = matches;
 		return this;
@@ -237,9 +255,9 @@ public class SummonerData {
 		return this;
 	}
 	
-	public Map<String, List<LeagueList>> setLeagueMap(Map<String, List<LeagueList>> league){
+	public SummonerData setLeagueMap(Map<String, List<LeagueList>> league){
 		this.leagueMap = league;
-		return league;
+		return this;
 	}
 	
 	public ChampionMasteryList setChampionMasteryList(ChampionMasteryList mastery){
@@ -248,42 +266,41 @@ public class SummonerData {
 	}
 	
 //accessors
-	//TODO: implement getAnalysis, getProfile
+	//TODO: implement getAnalysis
 	public List<String> getMatchHistory(List<String> request){
-		log("SummonerData: retrieving match history for " + summonerName);
-		int numberOfMatches = Integer.parseInt(request.get(2));
-		int startRequest = Integer.parseInt(request.get(3));
-		int stopRequest = Integer.parseInt(request.get(4));
-		List<String> response = new ArrayList<>(numberOfMatches*10);
-		log("SummonerData: retrieving match data [" + startRequest + " , " + stopRequest + ")");
-		int i = startRequest;
+		log("SummonerData: Retrieving match history for " + summonerName);
+		int numberOfMatches = Integer.parseInt(request.get(2)), startRequest = Integer.parseInt(request.get(3)), stopRequest = Integer.parseInt(request.get(4)), i = startRequest;
+		log("SummonerData: Retrieving match data [" + startRequest + " , " + stopRequest + ")");
+		List<String> response = new ArrayList<>(numberOfMatches * 10);
 		try{
 			for(i = startRequest; i < stopRequest; i++){
 				String aggregatedMatchDetailsString = aggregateMatchData(matchList.get(i), i);
 				log("SummonerData: Match requested -> \n" + matchList.get(i).getGameId() + "\n\n" + Arrays.asList(aggregatedMatchDetailsString.replaceAll("PLAYERS", "PLAYERS\n").split("PLAYERS")));
 				response.addAll(Arrays.asList(aggregatedMatchDetailsString.split("PLAYERS")));
-			}
+			} return response;
 		} catch(IndexOutOfBoundsException e){
 			e.printStackTrace();
-			log(Level.WARNING, "Match " + i + " not found.", e);
+			log(Level.WARNING, "SummonerData: Match " + i + " not found.", e);
 			return null;
-		} return response;
+		}
 	}
 	
 	public List<String> getProfile(List<String> request){ 
-		log("SummonerData: retrieving profile data for " + summonerName);
+		log("SummonerData: Retrieving profile data for " + summonerName);
 		List<String> profile = new ArrayList<>();
 		profile.add(getProfileSummary());
 		getChampionMasterySummary(5).forEach(profile::add);
-		log("SummonerData: Profile -> \n" + ServerUtilities.printList(profile));
+		log("SummonerData: Profile -> \n" + ServerUtilities.listToString(profile));
 		return profile;
 	} 
 	
-	public List<String> getAnalysis(List<String> request){ return null; }
+	public List<String> getAnalysis(List<String> request){
+		log("SummonerData: Retrieving analysis data for " + summonerName);
+		log("SummonerData: Profile -> \n" + ServerUtilities.mapToString(rankedChampionDataMap));
+		return ServerUtilities.mapToList(rankedChampionDataMap);
+	}
 	
 	public List<String> getMasteryProfileData(){ return masteryProfileData; }
-	
-	public String getRankedProfileData(){ return rankedProfileData; }
 	
 	public String getSummonerName(){ return summonerName; }
 	

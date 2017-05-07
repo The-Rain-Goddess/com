@@ -56,7 +56,6 @@ public class ClientHandler extends Thread {
 			List<String> responseForClient = processRequest();
 			respondToClient(responseForClient);
 			in.close(); out.close(); s.close();
-			
 		} catch(IOException e){
 			e.printStackTrace();
 		} finally{
@@ -81,10 +80,8 @@ public class ClientHandler extends Thread {
 			responseToClient = getProfile();
 		} else if(request.equals("send_feedback")){
 			responseToClient = sendFeedback();
-		} //log("ClientHandler: response->" + responseToClient); 
-		return responseToClient;	
+		} return responseToClient;	
 	}
-	
 	
 	private List<String> getMatchHistory(){
 		log("ClientHandler: Attempting to get match history...");
@@ -109,12 +106,9 @@ public class ClientHandler extends Thread {
 			for(int i = 0; i<numberOfLines; i++){
 				String line = in.readUTF();
 				feedback.add(line);
-			}
-			Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
+			} Path feedbackFilePath = Paths.get("feedback\\" + getDate().replace(":", "-").replace(" ", "-")+".txt");
 			Files.write(feedbackFilePath, feedback, Charset.forName("UTF-8"));
-			System.out.println(feedbackFilePath.toAbsolutePath().toString());
-			System.out.println("ClientHandler: Feedback has bee successfully written to file.");
-			return null;
+			log("ClientHandler: Feedback has bee successfully written to file.");
 		} catch(IOException e){
 			e.printStackTrace();
 		} return null;
@@ -122,7 +116,7 @@ public class ClientHandler extends Thread {
 
 	private void respondToClient(List<String> response) throws IOException {
 		log("ClientHandler: Responding to client with response...");
-		log("ClientHandler: \n" + ServerUtilities.printList(response));
+		//log("ClientHandler: \n" + ServerUtilities.printList(response));
 		out.writeUTF(response.size()+"");
 		out.flush();
 		for(int i = 0; i < response.size(); i++){

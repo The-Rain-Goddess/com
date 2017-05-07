@@ -197,4 +197,5 @@ public class RiotApiHandler {
 		return Server.getSummonerDataStorage().get(key);
 	}
 	
+	public SummonerData getLocalSummonerData(){ return summonerData; }
 }
