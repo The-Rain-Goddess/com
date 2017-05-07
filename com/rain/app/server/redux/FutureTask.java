@@ -20,6 +20,7 @@ public class FutureTask<V> implements Callable<V> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public V call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		System.out.println("FutureTask: Invoked: " + futureRequest.toGenericString());
 		return (V) futureRequest.invoke(reference, args);
 	}
 }
