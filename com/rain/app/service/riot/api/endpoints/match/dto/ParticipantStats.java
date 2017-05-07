@@ -1,6 +1,8 @@
 package com.rain.app.service.riot.api.endpoints.match.dto;
 
 import java.io.Serializable;
+import java.util.Map;
+import java.util.TreeMap;
 
 import com.rain.app.service.riot.api.Dto;
 
@@ -84,6 +86,144 @@ public class ParticipantStats extends Dto implements Serializable {
 	private int wardsPlaced;
 	private boolean wasAfk;
 	private boolean win;
+	private int wins;
+	private int losses;
+	private int afkGames;
+	private int earlySurrenderGames;
+			//	item#	  numberOfTimesBought
+	private Map<Integer, Integer> item0Map = new TreeMap<>();
+	private Map<Integer, Integer> item1Map = new TreeMap<>();
+	private Map<Integer, Integer> item2Map = new TreeMap<>();
+	private Map<Integer, Integer> item3Map = new TreeMap<>();
+	private Map<Integer, Integer> item4Map = new TreeMap<>();
+	private Map<Integer, Integer> item5Map = new TreeMap<>();
+	private Map<Integer, Integer> item6Map = new TreeMap<>();
+
+	private int earlySurrenderAccomplices;
+	private int firstBloodAssists;
+	private int firstBloodKills;
+	private int firstInhibitorAssists;
+	private int firstInhibitorKills;
+	private int firstTowerAssists;
+	private int firstTowerKills;
+	private int gamesEndedInEarlySurrender;
+	private int gamesEndedInSurrender;
+	private int causedEarlySurrenders;
+	private int leavers;
+	
+	public void addStats(ParticipantStats ps){
+		this.altarsCaptured += ps.altarsCaptured;
+		this.altarsNeutralized += ps.altarsNeutralized;
+		this.assists += ps.assists;
+		this.setCausedEarlySurrenders((this.causedEarlySurrender) ? 1 : 0);
+		this.champLevel += ps.champLevel;
+		this.combatPlayerScore += ps.combatPlayerScore;
+		this.damageDealtToObjectives = ps.damageDealtToObjectives;
+		this.deaths = ps.deaths;
+		this.doubleKills = ps.doubleKills;
+		this.setEarlySurrenderAccomplices(this.getEarlySurrenderAccomplices() + ((ps.earlySurrenderAccomplice) ? 1 : 0));
+		this.setFirstBloodAssists(this.getFirstBloodAssists() + ((ps.firstBloodAssist) ? 1 : 0));
+		this.setFirstBloodKills(this.getFirstBloodKills() + ((ps.firstBloodKill) ? 1 : 0));
+		this.setFirstInhibitorAssists(this.getFirstInhibitorAssists() + ((ps.firstInhibitorAssist) ? 1 : 0));
+		this.setFirstInhibitorKills(this.getFirstInhibitorKills() + ((ps.firstInhibitorKill) ? 1 : 0));
+		this.setFirstTowerAssists(this.getFirstTowerAssists() + ((ps.firstTowerAssist) ? 1 : 0));
+		this.setFirstTowerKills(this.getFirstTowerKills() + ((ps.firstTowerKill) ? 1 : 0));
+		this.setGamesEndedInEarlySurrender(this.getGamesEndedInEarlySurrender() + ((ps.gameEndedInEarlySurrender) ? 1 : 0));
+		this.setGamesEndedInSurrender(this.getGamesEndedInSurrender() + ((ps.gameEndedInSurrender) ? 1 : 0));
+		
+		this.goldEarned += ps.goldEarned;
+		this.goldSpent += ps.goldSpent;
+		this.inhibitorKills += ps.inhibitorKills;
+		
+		if(this.item0Map.containsKey(ps.item0))
+			this.item0Map.put(ps.item0, this.item0Map.get(ps.item0)+1);
+		else
+			this.item0Map.put(ps.item0, 1);
+		
+		if(this.item1Map.containsKey(ps.item1))
+			this.item1Map.put(ps.item1, this.item1Map.get(ps.item1)+1);
+		else
+			this.item1Map.put(ps.item1, 1);
+		
+		if(this.item2Map.containsKey(ps.item2))
+			this.item2Map.put(ps.item2, this.item2Map.get(ps.item2)+1);
+		else
+			this.item2Map.put(ps.item2, 1);
+		
+		if(this.item3Map.containsKey(ps.item3))
+			this.item3Map.put(ps.item3, this.item3Map.get(ps.item3)+1);
+		else
+			this.item3Map.put(ps.item3, 1);
+
+		if(this.item4Map.containsKey(ps.item4))
+			this.item4Map.put(ps.item4, this.item4Map.get(ps.item4)+1);
+		else
+			this.item4Map.put(ps.item4, 1);
+
+		if(this.item5Map.containsKey(ps.item5))
+			this.item5Map.put(ps.item5, this.item5Map.get(ps.item5)+1);
+		else
+			this.item5Map.put(ps.item5, 1);
+		
+		if(this.item6Map.containsKey(ps.item6))
+			this.item6Map.put(ps.item6, this.item6Map.get(ps.item6)+1);
+		else
+			this.item6Map.put(ps.item6, 1);
+		
+		this.killingSprees += ps.killingSprees;
+		this.kills += ps.kills;
+		this.setLeavers(this.getLeavers() + ((ps.leaver) ? 1 : 0));
+		this.largestCriticalStrike = (this.largestCriticalStrike > ps.largestCriticalStrike) ? this.largestCriticalStrike : ps.largestCriticalStrike;
+		this.largestKillingSpree = (this.largestKillingSpree > ps.largestKillingSpree) ? this.largestKillingSpree : ps.largestKillingSpree;
+		this.largestMultiKill = (this.largestMultiKill > ps.largestMultiKill) ? this.largestMultiKill : ps.largestMultiKill;
+		this.longestTimeSpentLiving = (this.longestTimeSpentLiving > ps.longestTimeSpentLiving) ? this.longestTimeSpentLiving : ps.longestTimeSpentLiving;
+		this.magicalDamageTaken += ps.magicalDamageTaken;
+		this.magicDamageDealt += ps.magicDamageDealt;
+		this.magicDamageDealtToChampions += ps.magicDamageDealtToChampions;
+		this.neutralMinionsKilled += ps.neutralMinionsKilled;
+		this.neutralMinionsKilledEnemyJungle += ps.neutralMinionsKilledEnemyJungle;
+		this.neutralMinionsKilledTeamJungle += ps.neutralMinionsKilledTeamJungle;
+		this.nodeCapture += ps.nodeCapture;
+		this.nodeCaptureAssist += ps.nodeCaptureAssist;
+		this.nodeNeutralize += ps.nodeNeutralize;
+		this.nodeNeutralizeAssist += ps.nodeNeutralizeAssist;
+		this.objectivePlayerScore += ps.objectivePlayerScore;
+		//this.participantId;
+		this.pentaKills += ps.pentaKills;
+		this.physicalDamageDealt += ps.physicalDamageDealt;
+		this.physicalDamageDealtToChampions += ps.physicalDamageDealtToChampions;
+		this.physicalDamageTaken += ps.physicalDamageTaken;
+		this.quadraKills += ps.quadraKills;
+		this.sightWardsBoughtInGame += ps.sightWardsBoughtInGame;
+		this.setEarlySurrenderGames(this.getEarlySurrenderGames() + ((ps.teamEarlySurrendered) ? 1 : 0));
+		this.teamObjective += ps.teamObjective;
+		this.timeCCingOthers += ps.timeCCingOthers;
+		this.totalDamageDealt += ps.totalDamageDealt;
+		this.totalDamageDealtToChampions += ps.totalDamageDealtToChampions;
+		this.totalDamageTaken += ps.totalDamageTaken;
+		this.totalHeal += ps.totalHeal;
+		this.totalMinionsKilled += ps.totalMinionsKilled;
+		this.totalPlayerScore += ps.totalPlayerScore;
+		this.totalScoreRank += ps.totalScoreRank;
+		this.totalUnitsHealed += ps.totalUnitsHealed;
+		this.tripleKills += ps.tripleKills;
+		this.trueDamageDealt += ps.trueDamageDealt;
+		this.trueDamageDealtToChampions += ps.trueDamageDealtToChampions;
+		this.trueDamageTaken += ps.trueDamageTaken;
+		this.turretKills += ps.turretKills;
+		this.unrealKills += ps.unrealKills;
+		this.visionScore += ps.visionScore;
+		this.visionWardsBoughtInGame += ps.visionWardsBoughtInGame;
+		this.wardsKilled += ps.wardsKilled;
+		this.wardsPlaced += ps.wardsPlaced;
+		this.setAfkGames(this.getAfkGames() + ((ps.wasAfk) ? 1 : 0));
+		this.wins += (ps.win) ? 1 : 0;
+		this.losses += (ps.win) ? 0 : 1;
+	}
+	
+	public int getWins(){ return wins; }
+	
+	public int getLosses(){ return losses; } 
 
 	public int getAltarsCaptured() {
 		return altarsCaptured;
@@ -387,5 +527,187 @@ public class ParticipantStats extends Dto implements Serializable {
 
 	public boolean isWin() {
 		return win;
+	}
+
+	/**
+	 * @return the afkGames
+	 */
+	public int getAfkGames() {
+		return afkGames;
+	}
+
+	/**
+	 * @param afkGames the afkGames to set
+	 */
+	public void setAfkGames(int afkGames) {
+		this.afkGames = afkGames;
+	}
+
+	/**
+	 * @return the earlySurrenderGames
+	 */
+	public int getEarlySurrenderGames() {
+		return earlySurrenderGames;
+	}
+
+	/**
+	 * @param earlySurrenderGames the earlySurrenderGames to set
+	 */
+	public void setEarlySurrenderGames(int earlySurrenderGames) {
+		this.earlySurrenderGames = earlySurrenderGames;
+	}
+
+	/**
+	 * @return the earlySurrenderAccomplices
+	 */
+	public int getEarlySurrenderAccomplices() {
+		return earlySurrenderAccomplices;
+	}
+
+	/**
+	 * @param earlySurrenderAccomplices the earlySurrenderAccomplices to set
+	 */
+	public void setEarlySurrenderAccomplices(int earlySurrenderAccomplices) {
+		this.earlySurrenderAccomplices = earlySurrenderAccomplices;
+	}
+
+	/**
+	 * @return the firstBloodAssists
+	 */
+	public int getFirstBloodAssists() {
+		return firstBloodAssists;
+	}
+
+	/**
+	 * @param firstBloodAssists the firstBloodAssists to set
+	 */
+	public void setFirstBloodAssists(int firstBloodAssists) {
+		this.firstBloodAssists = firstBloodAssists;
+	}
+
+	/**
+	 * @return the firstBloodKills
+	 */
+	public int getFirstBloodKills() {
+		return firstBloodKills;
+	}
+
+	/**
+	 * @param firstBloodKills the firstBloodKills to set
+	 */
+	public void setFirstBloodKills(int firstBloodKills) {
+		this.firstBloodKills = firstBloodKills;
+	}
+
+	/**
+	 * @return the firstInhibitorAssists
+	 */
+	public int getFirstInhibitorAssists() {
+		return firstInhibitorAssists;
+	}
+
+	/**
+	 * @param firstInhibitorAssists the firstInhibitorAssists to set
+	 */
+	public void setFirstInhibitorAssists(int firstInhibitorAssists) {
+		this.firstInhibitorAssists = firstInhibitorAssists;
+	}
+
+	/**
+	 * @return the firstInhibitorKills
+	 */
+	public int getFirstInhibitorKills() {
+		return firstInhibitorKills;
+	}
+
+	/**
+	 * @param firstInhibitorKills the firstInhibitorKills to set
+	 */
+	public void setFirstInhibitorKills(int firstInhibitorKills) {
+		this.firstInhibitorKills = firstInhibitorKills;
+	}
+
+	/**
+	 * @return the firstTowerAssists
+	 */
+	public int getFirstTowerAssists() {
+		return firstTowerAssists;
+	}
+
+	/**
+	 * @param firstTowerAssists the firstTowerAssists to set
+	 */
+	public void setFirstTowerAssists(int firstTowerAssists) {
+		this.firstTowerAssists = firstTowerAssists;
+	}
+
+	/**
+	 * @return the firstTowerKills
+	 */
+	public int getFirstTowerKills() {
+		return firstTowerKills;
+	}
+
+	/**
+	 * @param firstTowerKills the firstTowerKills to set
+	 */
+	public void setFirstTowerKills(int firstTowerKills) {
+		this.firstTowerKills = firstTowerKills;
+	}
+
+	/**
+	 * @return the gamesEndedInEarlySurrender
+	 */
+	public int getGamesEndedInEarlySurrender() {
+		return gamesEndedInEarlySurrender;
+	}
+
+	/**
+	 * @param gamesEndedInEarlySurrender the gamesEndedInEarlySurrender to set
+	 */
+	public void setGamesEndedInEarlySurrender(int gamesEndedInEarlySurrender) {
+		this.gamesEndedInEarlySurrender = gamesEndedInEarlySurrender;
+	}
+
+	/**
+	 * @return the gamesEndedInSurrender
+	 */
+	public int getGamesEndedInSurrender() {
+		return gamesEndedInSurrender;
+	}
+
+	/**
+	 * @param gamesEndedInSurrender the gamesEndedInSurrender to set
+	 */
+	public void setGamesEndedInSurrender(int gamesEndedInSurrender) {
+		this.gamesEndedInSurrender = gamesEndedInSurrender;
+	}
+
+	/**
+	 * @return the causedEarlySurrenders
+	 */
+	public int getCausedEarlySurrenders() {
+		return causedEarlySurrenders;
+	}
+
+	/**
+	 * @param causedEarlySurrenders the causedEarlySurrenders to set
+	 */
+	public void setCausedEarlySurrenders(int causedEarlySurrenders) {
+		this.causedEarlySurrenders = causedEarlySurrenders;
+	}
+
+	/**
+	 * @return the leavers
+	 */
+	public int getLeavers() {
+		return leavers;
+	}
+
+	/**
+	 * @param leavers the leavers to set
+	 */
+	public void setLeavers(int leavers) {
+		this.leavers = leavers;
 	}
 }
