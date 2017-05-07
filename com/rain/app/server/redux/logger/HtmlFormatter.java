@@ -20,6 +20,11 @@ class HtmlFormatter extends Formatter {
                     buffer.append("<b>");
                     buffer.append(record.getLevel());
                     buffer.append("</b>");
+            } else if(record.getLevel().intValue() == Level.FINE.intValue()){
+	            	buffer.append("\t<td style=\"color:pink\">");
+	                buffer.append("<b>");
+	                buffer.append(record.getLevel());
+	                buffer.append("</b>");
             } else {
                     buffer.append("\t<td>");
                     buffer.append(record.getLevel());
@@ -48,7 +53,7 @@ class HtmlFormatter extends Formatter {
     @Override
 	public String getHead(Handler h) {
         return "<!DOCTYPE html>\n<head>\n<style>\n"
-            + "table { width: 800px; table-layout:fixed; }\n"
+            + "table { width: 1000px; table-layout:fixed; }\n"
             + "th { font:bold 10pt Tahoma; }\n"
             + "td { font:normal 10pt Tahoma; overflow: auto; white-space:pre; border: 1px solid black;}\n"
             + "h1 {font:normal 11pt Tahoma;}\n"
