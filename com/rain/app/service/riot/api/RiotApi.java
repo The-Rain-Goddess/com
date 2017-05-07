@@ -4,7 +4,6 @@
 package com.rain.app.service.riot.api;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -14,6 +13,7 @@ import com.rain.app.service.riot.api.endpoints.champion.dto.ChampionList;
 import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampion;
 import com.rain.app.service.riot.api.endpoints.champion.methods.GetChampions;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.dto.ChampionMastery;
+import com.rain.app.service.riot.api.endpoints.champion_mastery.dto.ChampionMasteryList;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummoner;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteriesBySummonerByChampion;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.methods.GetChampionMasteryScoresBySummoner;
@@ -378,10 +378,10 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see ChampionMastery
 	 */
-	public List<ChampionMastery> getChampionMasteriesBySummoner(Platform platform, long summonerId) throws RiotApiException {
+	public ChampionMasteryList getChampionMasteriesBySummoner(Platform platform, long summonerId) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetChampionMasteriesBySummoner(getConfig(), platform, summonerId);
-		return endpointManager.callMethodAndReturnDto(method);
+		return new ChampionMasteryList(endpointManager.callMethodAndReturnDto(method));
 	}
 
 	/**
@@ -1145,7 +1145,7 @@ public class RiotApi implements Cloneable {
 	 * @version 3
 	 * @see LeagueList
 	 */
-	public Map<String, List<LeagueList>> getLeagueBySummonerId(Platform platform, long summonerId) throws RiotApiException {
+	public List<LeagueList> getLeagueBySummonerId(Platform platform, long summonerId) throws RiotApiException {
 		Objects.requireNonNull(platform);
 		ApiMethod method = new GetLeagueBySummonerId(getConfig(), platform, summonerId);
 		return endpointManager.callMethodAndReturnDto(method);
