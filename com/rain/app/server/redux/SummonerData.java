@@ -28,10 +28,11 @@ public class SummonerData {
 	private List<String> masteryProfileData;
 	private ChampionMasteryList championMasteryList;
 	private Map<String, List<LeagueList>> leagueMap;
-	private Map<Integer, AggregatedChampionData> rankedChampionDataMap;
+	private Map<Integer, List<AggregatedChampionData>> rankedChampionDataMap;
 	private long summonerId;
 	private String summonerName;
 	private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final int WIN_DATA_INDEX = 1, LOSS_DATA_INDEX = 2, ALL_DATA_INDEX = 0;
 
 //constructors	
 	public SummonerData(String name, Summoner summoner){
@@ -212,16 +213,28 @@ public class SummonerData {
 		return championMasterySummary;
 	}
 	
-	private Map<Integer, AggregatedChampionData> updateRankedChampionDataMap(){
-		Map<Integer, AggregatedChampionData> updatedChampionDataMap = new TreeMap<>();
+	private Map<Integer, List<AggregatedChampionData>> updateRankedChampionDataMap(){
+		Map<Integer, List<AggregatedChampionData>> updatedChampionDataMap = new TreeMap<>();
 		for(int i = 0; i < matchList.size(); i++){
 			for(int j = 0; j < 10; j++){
 				if(matchList.get(i).getParticipantIdentities().get(j).getPlayer().getSummonerId() == summonerId){
 					Participant player = matchList.get(i).getParticipants().get(j);
 					if(updatedChampionDataMap.containsKey(player.getChampionId())){
-						updatedChampionDataMap.get(player.getChampionId()).addNewMatchStats(player.getStats());
+						updatedChampionDataMap.get(player.getChampionId()).get(ALL_DATA_INDEX).addNewMatchStats(player.getStats());
+						if(player.getStats().isWin())
+							updatedChampionDataMap.get(player.getChampionId()).get(WIN_DATA_INDEX).addNewMatchStats(player.getStats());
+						else
+							updatedChampionDataMap.get(player.getChampionId()).get(LOSS_DATA_INDEX).addNewMatchStats(player.getStats());
 					} else {
-						updatedChampionDataMap.put(player.getChampionId(), new AggregatedChampionData(player.getStats()));
+						List<AggregatedChampionData> newData = new ArrayList<>();
+						newData.add(new AggregatedChampionData(player.getStats())); //all data
+						if(player.getStats().isWin()){ // win/loss data
+							newData.add(new AggregatedChampionData(player.getStats()));
+							newData.add(new AggregatedChampionData()); //could throw an error later if adding to uninstanciated fields
+						} else{
+							newData.add(new AggregatedChampionData());
+							newData.add(new AggregatedChampionData(player.getStats()));
+						} updatedChampionDataMap.put(player.getChampionId(), newData);
 					}
 				}
 			}
@@ -231,7 +244,7 @@ public class SummonerData {
 	
 //non-private accessors/mutators
 	public SummonerData updateAnalysis(){
-		log("SummonerData: Updating analysis data for " + summonerName);
+		log("SummonerData: Updating analysis data for " + summonerName + "...");
 		rankedChampionDataMap = updateRankedChampionDataMap();
 		log("SummonerData: Succesfully updated analysis data.");
 		return this;
@@ -286,7 +299,7 @@ public class SummonerData {
 	}
 	
 	public List<String> getProfile(List<String> request){ 
-		log("SummonerData: Retrieving profile data for " + summonerName);
+		log("SummonerData: Retrieving profile data for " + summonerName + "...");
 		List<String> profile = new ArrayList<>();
 		profile.add(getProfileSummary());
 		getChampionMasterySummary(5).forEach(profile::add);
@@ -296,7 +309,7 @@ public class SummonerData {
 	
 	public List<String> getAnalysis(List<String> request){
 		log("SummonerData: Retrieving analysis data for " + summonerName);
-		log("SummonerData: Profile -> \n" + ServerUtilities.mapToString(rankedChampionDataMap));
+		log("SummonerData: Analysis -> \n" + ServerUtilities.mapOfListsToString(rankedChampionDataMap));
 		return ServerUtilities.mapToList(rankedChampionDataMap);
 	}
 	
@@ -309,6 +322,10 @@ public class SummonerData {
 	public MatchReferenceList getMatchReferenceList(){ return matchReferenceList; }
 	
 	public long getMostRecentMatchId(){ return matchList.get(0).getGameId(); }
+	
+	public Map<String, List<LeagueList>> getLeagueMap(){ return this.leagueMap; }
+	
+	public Map<Integer, List<AggregatedChampionData>> getRankedAnalysis(){ return this.rankedChampionDataMap; }
 	
 	
 }

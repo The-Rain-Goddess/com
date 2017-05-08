@@ -115,6 +115,7 @@ public class ClientHandler extends Thread {
 	}
 
 	private void respondToClient(List<String> response) throws IOException {
+		log("ClientHandler: Succesfully retrieved data for response.");
 		log("ClientHandler: Responding to client with response...");
 		//log("ClientHandler: \n" + ServerUtilities.printList(response));
 		out.writeUTF(response.size()+"");
@@ -122,7 +123,7 @@ public class ClientHandler extends Thread {
 		for(int i = 0; i < response.size(); i++){
 			out.writeUTF(response.get(i));
 			out.flush();
-		}
+		} log("ClientHandler: Response succesfully transmitted.");
 	}
 	
 	private String getDate(){

@@ -36,7 +36,7 @@ public class RiotApiHandler {
 //constructor	
 	public RiotApiHandler(String summonerName, Platform platform){
 		try{
-			log(Level.INFO, "RiotApiHandler: constructor called.");
+			log(Level.INFO, "RiotApiHandler: Constructor called.");
 			this.summonerName = summonerName;
 			this.platform = platform;
 			this.api = new RiotApi(new ApiConfig().setKey(apiKey));
@@ -44,7 +44,7 @@ public class RiotApiHandler {
 			this.summonerId = this.summoner.getId();
 			this.summonerAccountId = this.summoner.getAccountId();
 			this.summonerData = (isSummonerExistent()) ? (isSummonerCurrent()) ? getSummonerDataFromStorage(summonerName) : updateSummoner() : createSummoner();
-			log(Level.INFO, "RiotApiHandler: RAH created for summoner " + summonerName);
+			log(Level.INFO, "RiotApiHandler: Constructor call finished for summoner " + summonerName);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
@@ -119,8 +119,9 @@ public class RiotApiHandler {
 		List<MatchReference> matchReferences = mrl.getMatches();
 		int numberOfNewMatchesToAdd = getNumberOfNewMatches(matchReferences);
 		for(int i = numberOfNewMatchesToAdd; i > 0 ; i--){
-			log("RiotApiHandler: Retrieving match: " + matchReferences.get(i).getGameId());
+			log("RiotApiHandler: Retrieving match: " + matchReferences.get(i).getGameId() + "...");
 			Server.getSummonerDataStorage().get(summonerName).addMatch(getMatch(matchReferences.get(i).getGameId()), true);
+			log("RiotApiHandler: Successfully retrieved match: " + matchReferences.get(i).getGameId() + ".");
 		}
 	}
 	
@@ -129,21 +130,28 @@ public class RiotApiHandler {
 		Server.getSummonerDataStorage().get(summonerName).setChampionMasteryList(getChampionMastery());
 	}
 	
-	//TODO: check this conversion
+	private void updateRankedData(){
+		log("RiotApiHandler: Updating ranked data...");
+		Server.getSummonerDataStorage().get(summonerName).updateAnalysis();
+		log("RiotApiHandler: Successfully updated ranked data.");
+	}
+	
 	@SuppressWarnings("unchecked")
 	private Map<String, List<LeagueList>> getLeagueMap() throws NoSuchMethodException, SecurityException{
-		log("RiotApiHandler: attempting to retrieve League Map.");
+		log("RiotApiHandler: Attempting to retrieve league map...");
 		Map<String, List<LeagueList>> map = new TreeMap<String, List<LeagueList>>();
 		map.put(summonerName, (List<LeagueList>)evaluateFromFuture(api.getClass().getMethod("getLeagueBySummonerId", Platform.class, long.class), platform, summonerId));
+		//log("RiotApiHandler: Successfully retrieved league map.");
 		return map; 
 	}
 	
 	private ChampionMasteryList getChampionMastery() throws NoSuchMethodException, SecurityException{
-		log("RiotApiHandler: attempting to retrieve Champion Mastery.");
+		log("RiotApiHandler: Attempting to retrieve Champion Mastery...");
 		return (ChampionMasteryList) evaluateFromFuture(api.getClass().getMethod("getChampionMasteriesBySummoner", Platform.class, long.class), platform, summonerId);
 	}
 	
 	private List<Match> getMatchList(MatchReferenceList newMatchReferences) throws NoSuchMethodException, SecurityException{
+		log("RiotApiHandler: Attempting to retrieve MatchReferenceList...");
 		List<Match> matchList = Arrays.asList(	this.getMatch(newMatchReferences.getMatches().get(0).getGameId()),
 				this.getMatch(newMatchReferences.getMatches().get(1).getGameId()),
 				this.getMatch(newMatchReferences.getMatches().get(2).getGameId()),
@@ -152,37 +160,39 @@ public class RiotApiHandler {
 				this.getMatch(newMatchReferences.getMatches().get(5).getGameId()),
 				this.getMatch(newMatchReferences.getMatches().get(6).getGameId()),
 				this.getMatch(newMatchReferences.getMatches().get(7).getGameId()));
+		log("RiotApiHandler: Successfully retrieved MatchReferenceList.");
 		return matchList;
 	}
 	
 	private SummonerData updateSummoner(){ 
-		log("RiotApiHandler: updating old summoner data..." + " for " + summonerName);
+		log("RiotApiHandler: Updating old summoner data..." + " for " + summonerName);
 		try {
 			MatchReferenceList updatedMatchReferenceList = getMatchReferenceList();
 			updateMatchReferences(updatedMatchReferenceList);
 			updateMatches(updatedMatchReferenceList);
 			updateProfileData();
+			updateRankedData();
 		} catch (NoSuchMethodException | SecurityException | InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
-		log("RiotApiHandler: request for update handled.");
+		log("RiotApiHandler: Successfully updated old summoner data.");
 		return Server.getSummonerDataStorage().get(summonerName);
 	}
 	
 	private SummonerData createSummoner(){
-		log("RiotApiHandler: creating new summoner data..." + " for " + summonerName);
+		log("RiotApiHandler: Creating new SummonerData for " + summonerName + "...");
 		SummonerData newSummoner = null;
 		try {
 			MatchReferenceList newMatchReferences = getMatchReferenceList();
 			newSummoner = new SummonerData(summonerName, summoner);
 			newSummoner.setMatchReferenceList(newMatchReferences);
 			getMatchList(newMatchReferences).forEach(newSummoner::addMatch);
-			log("RiotApiHandler: mastery list: " + newSummoner.setChampionMasteryList(getChampionMastery()).toString());
-			log("RiotApiHandler: league map: " + newSummoner.setLeagueMap(getLeagueMap()).toString());
-			log("RiotApiHandler: profile data retrieved.");
-			
+			log("RiotApiHandler: Mastery list: \n" + ServerUtilities.listToString(newSummoner.setChampionMasteryList(getChampionMastery()).getChampionMasteries()));
+			log("RiotApiHandler: League map: \n" + ServerUtilities.mapToString(newSummoner.setLeagueMap(getLeagueMap()).getLeagueMap()));
+			log("RiotApiHandler: Attempting to retrieve updated analysis data...");
+			log("RiotApiHandler: Ranked Analysis: \n" + ServerUtilities.mapOfListsToString(newSummoner.updateAnalysis().getRankedAnalysis()));
 			Server.getSummonerDataStorage().put(summonerName, newSummoner);
-			log(Level.INFO, "RiotApiHandler: SummonerData ->" + summonerName + " was added to storage.");
+			log("RiotApiHandler: SummonerData->" + summonerName + " was successfully added to storage.");
 		} catch (NoSuchMethodException | SecurityException | InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		} return newSummoner;
