@@ -21,7 +21,7 @@ class HtmlFormatter extends Formatter {
                     buffer.append(record.getLevel());
                     buffer.append("</b>");
             } else if(record.getLevel().intValue() == Level.FINE.intValue()){
-	            	buffer.append("\t<td style=\"color:pink\">");
+	            	buffer.append("\t<td style=\"color:#00E000\">");
 	                buffer.append("<b>");
 	                buffer.append(record.getLevel());
 	                buffer.append("</b>");
