@@ -46,7 +46,7 @@ public class Server {
 		ServerSocket ss = null;
 		ExecutorService executor = null;
 		try{
-			log("Server: " + Thread.currentThread().getName() + " is started.");
+			log("Server: [" + Thread.currentThread().getName() + "] is started.");
 			executor = Executors.newCachedThreadPool();
 			
 			ss = new ServerSocket(PORT_NUMBER);
