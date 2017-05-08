@@ -710,4 +710,32 @@ public class ParticipantStats extends Dto implements Serializable {
 	public void setLeavers(int leavers) {
 		this.leavers = leavers;
 	}
+
+	public Map<Integer, Integer> getItem0Map() {
+		return item0Map;
+	}
+
+	public Map<Integer, Integer> getItem1Map() {
+		return item1Map;
+	}
+
+	public Map<Integer, Integer> getItem2Map() {
+		return item2Map;
+	}
+
+	public Map<Integer, Integer> getItem3Map() {
+		return item3Map;
+	}
+
+	public Map<Integer, Integer> getItem4Map() {
+		return item4Map;
+	}
+
+	public Map<Integer, Integer> getItem5Map() {
+		return item5Map;
+	}
+
+	public Map<Integer, Integer> getItem6Map() {
+		return item6Map;
+	}
 }
