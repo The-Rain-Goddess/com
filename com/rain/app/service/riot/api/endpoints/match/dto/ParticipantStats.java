@@ -86,8 +86,9 @@ public class ParticipantStats extends Dto implements Serializable {
 	private int wardsPlaced;
 	private boolean wasAfk;
 	private boolean win;
-	private int wins;
-	private int losses;
+	private int wins = 0;
+	private int losses = 0;
+	private int totalSessionsPlayed = 1;
 	private int afkGames;
 	private int earlySurrenderGames;
 			//	item#	  numberOfTimesBought
@@ -99,19 +100,30 @@ public class ParticipantStats extends Dto implements Serializable {
 	private Map<Integer, Integer> item5Map = new TreeMap<>();
 	private Map<Integer, Integer> item6Map = new TreeMap<>();
 
-	private int earlySurrenderAccomplices;
-	private int firstBloodAssists;
-	private int firstBloodKills;
-	private int firstInhibitorAssists;
-	private int firstInhibitorKills;
-	private int firstTowerAssists;
-	private int firstTowerKills;
+	private int earlySurrenderAccomplices = 0;
+	private int firstBloodAssists = 0;
+	private int firstBloodKills = 0;
+	private int firstInhibitorAssists = 0;
+	private int firstInhibitorKills = 0;
+	private int firstTowerAssists = 0;
+	private int firstTowerKills = 0;
 	private int gamesEndedInEarlySurrender;
-	private int gamesEndedInSurrender;
-	private int causedEarlySurrenders;
-	private int leavers;
+	private int gamesEndedInSurrender = 0;
+	private int causedEarlySurrenders = 0;
+	private int leavers = 0;
+	private int maxKills = 0;
+	private int maxAssists = 0;
+	private int maxDeaths = 0;
+	private int maxTeamObj = 0;
+	private int maxTimeAlive = 0;
 	
+//non-private a/m	
 	public void addStats(ParticipantStats ps){
+		this.maxTeamObj = (this.maxTeamObj > ps.getTeamObjective()) ? this.maxTeamObj : ps.getTeamObjective();
+		this.maxTimeAlive = (this.maxTimeAlive > ps.getLongestTimeSpentLiving()) ? this.maxTimeAlive : ps.getLongestTimeSpentLiving();
+		this.maxKills = (this.maxKills > ps.getKills()) ? this.maxKills : ps.getKills();
+		this.maxDeaths = (this.maxDeaths > ps.getDeaths()) ? this.maxDeaths : ps.getDeaths();
+		this.maxAssists = (this.maxAssists > ps.getAssists()) ? this.maxAssists : ps.getAssists();
 		this.altarsCaptured += ps.altarsCaptured;
 		this.altarsNeutralized += ps.altarsNeutralized;
 		this.assists += ps.assists;
@@ -217,13 +229,62 @@ public class ParticipantStats extends Dto implements Serializable {
 		this.wardsKilled += ps.wardsKilled;
 		this.wardsPlaced += ps.wardsPlaced;
 		this.setAfkGames(this.getAfkGames() + ((ps.wasAfk) ? 1 : 0));
-		this.wins += (ps.win) ? 1 : 0;
-		this.losses += (ps.win) ? 0 : 1;
+		this.wins = (ps.isWin()) ? (this.wins+1) : (this.wins+0);
+		this.losses = (ps.isWin()) ? (this.losses+0) : (this.losses+1);
+		this.totalSessionsPlayed = this.totalSessionsPlayed + 1;
 	}
 	
-	public int getWins(){ return wins; }
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+	public void setLosses(int losses) {
+		this.losses = losses;
+	}
+
+	public int getMaxAssists(){ return this.maxAssists; }
 	
-	public int getLosses(){ return losses; } 
+	public int getMaxKills() { return this.maxKills; }
+	
+	public int getMaxDeaths() { return this.maxDeaths; }
+	
+	public int getTotalSessionsPlayed(){
+		return totalSessionsPlayed;
+	}
+	
+	public int getMaxTeamObj() {
+		return maxTeamObj;
+	}
+
+	public int getMaxTimeAlive() {
+		return maxTimeAlive;
+	}
+	
+	public double getAverageAssists(){
+		return (double) this.assists / (double) (getTotalSessionsPlayed());
+	}
+	
+	public double getAverageKills(){
+		return (double) this.kills / (double) (getTotalSessionsPlayed());
+	}
+	
+	public double getAverageDeaths(){
+		return (double) this.deaths / (double) (getTotalSessionsPlayed());
+	}
+	
+	public double getAverageCombatPlayerScore(){
+		return (double) this.combatPlayerScore / (double) getTotalSessionsPlayed();
+	}
+	
+	public double getAverageTeamObjective(){
+		return (double) this.teamObjective / (double) getTotalSessionsPlayed();
+	}
+	
+	
+	
+	public int getWins(){ return this.wins; }
+	
+	public int getLosses(){ return this.losses; } 
 
 	public int getAltarsCaptured() {
 		return altarsCaptured;

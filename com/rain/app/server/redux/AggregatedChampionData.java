@@ -5,17 +5,31 @@ import com.rain.app.service.riot.api.endpoints.match.dto.ParticipantStats;
 public class AggregatedChampionData extends Object{
 	
 	private ParticipantStats unaggregatedStats;
+	private long championId;
 
-	public AggregatedChampionData(ParticipantStats ps) {
+	public AggregatedChampionData(ParticipantStats ps, long championId) {
 		this.unaggregatedStats = ps;
+		this.championId = championId;
+		if(this.unaggregatedStats.isWin())
+			this.unaggregatedStats.setWins(1);
+		else
+			this.unaggregatedStats.setLosses(1);
 	}
 	
-	public AggregatedChampionData(){
+	public AggregatedChampionData(long championId, boolean isWin){
 		this.unaggregatedStats = new ParticipantStats();
+		this.championId = championId;
+		if(isWin){
+			this.unaggregatedStats.setWins(1);
+			this.unaggregatedStats.setLosses(0);
+		} else{
+			this.unaggregatedStats.setWins(0);
+			this.unaggregatedStats.setLosses(1);
+		}
 	}
 	
 	public void addNewMatchStats(ParticipantStats ps){
-		ps.addStats(ps);
+		this.unaggregatedStats.addStats(ps);
 	}
 	
 	@Override
@@ -25,8 +39,12 @@ public class AggregatedChampionData extends Object{
 	
 	private String aggregatePlayerStats(ParticipantStats ps){
 		String returnString = 
-						"assists:" + ps.getAssists() + "/" + 
 						
+						"totalSessionsPlayed:" + ps.getTotalSessionsPlayed() + "/" +
+						"totalSessionsLost:" + ps.getLosses() + "/" +
+						"totalSessionsWon:" + ps.getWins() + "/" +
+						"assists:" + ps.getAssists() + "/" + 
+						"champ:" + Server.getChampionNameFromId(championId) + "/" + 
 						"champLevel:" + ps.getChampLevel() + "/" + 
 						"cs:" + (ps.getTotalMinionsKilled() + ps.getNeutralMinionsKilledEnemyJungle() + ps.getNeutralMinionsKilledTeamJungle()) + "/" +
 						"deaths:" + ps.getDeaths() + "/" + 		  
@@ -83,7 +101,48 @@ public class AggregatedChampionData extends Object{
 						"visionWardsBoughtInGame:" + ps.getVisionWardsBoughtInGame() + "/" + 
 						"wardsKilled:" + ps.getWardsKilled() + "/" + 
 						"wardsPlaced:" + ps.getWardsPlaced() +"/" + 
-						"winner:" + ps.isWin() + "/";
+						"winner:" + ps.isWin() + "/" +
+						
+						"avgAssists:" + ps.getAverageAssists() + "/" +
+						"avgKills:" + ps.getAverageKills() + "/" +
+						"avgPlayerScore:" + ps.getAverageCombatPlayerScore() + "/" +
+						"avgDeaths:" + ps.getAverageDeaths() + "/" +
+						"avgTeamObj:" + ps.getAverageTeamObjective() + "/" +
+						//"botGamesPlayed:" + ps.getBotGamesPlayed() + "/" +
+						"killingSprees:" + ps.getKillingSprees()  + "/" +
+						"maxAssists:" + ps.getMaxAssists() + "/" +
+						"maxKills:" + ps.getMaxKills() + "/" +
+						"largestCrit:" + ps.getLargestCriticalStrike() + "/" +
+						"largestKillingSpree:" + ps.getLargestKillingSpree() + "/" +
+						"maxDeaths:" + ps.getMaxDeaths() + "/" +
+						"maxTeamObj:" + ps.getMaxTeamObj() + "/" +
+						//"maxTime:" + ps.getMaxTimePlayed() + "/" +
+						"maxTimeLive:" + ps.getMaxTimeAlive() + "/" +
+						"mostChampKillSession:" + ps.getMaxKills() + "/" +
+						//"mostSpellsCast:"+  ps.getMostSpellsCast() + "/" +
+						//"normalGames:" + ps.getNormalGamesPlayed() + "/" +
+						//"rankedPremade:" + ps.getRankedPremadeGamesPlayed() + "/" +
+						//"rankedSolo:" + ps.getRankedSoloGamesPlayed() + "/" +
+						"totalAssists:" +ps.getAssists() + "/" +
+						"totalKills:" +ps.getKills() + "/" +
+						"totalDeaths:" + ps.getDeaths() + "/" + 
+						"totalDmgDealt:" + ps.getTotalDamageDealt() + "/" +
+						"totalDmgTaken:" + ps.getTotalDamageTaken() + "/" +
+						"doubleKills:"  +ps.getDoubleKills() + "/" +
+						"totalFirstBlood:" +ps.getFirstBloodKills() + "/" +
+						"totalGoldEarned:" + ps.getGoldEarned() + "/" +
+						"totalGoldSpent:" + ps.getGoldSpent() + "/" +
+						"totalHeal:" + ps.getTotalHeal() + "/" +
+						"totalMagicDmgDealt:" + ps.getMagicDamageDealt() + "/" +
+						"totalMagicDmgDealtToChamps:" + ps.getMagicDamageDealtToChampions() + "/" +
+						"totalMinionKills:" +ps.getTotalMinionsKilled() + "/" +
+						"totalNeutralKills:"+ps.getNeutralMinionsKilled() + "/" +
+						"totalPentaKills:"  +ps.getPentaKills() + "/" +
+						"totalPhysicalDmgDealtToChamps:" +ps.getPhysicalDamageDealtToChampions() + "/" +
+						"totalPhysicalDmgDealtToChamps:" +ps.getPhysicalDamageDealtToChampions() + "/" +
+						"totalQuadraKills:" +ps.getQuadraKills() + "/" +
+						"totalTripleKills:" +ps.getTripleKills() + "/" +
+						"totalTurretKills:" +ps.getTurretKills();
 		return returnString;
 	}
 }
