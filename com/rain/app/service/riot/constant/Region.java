@@ -11,7 +11,7 @@ public enum Region {
 	JP("jp.api.pvp.net", "jp"),
 	KR("kr.api.pvp.net", "kr"),
 	LAS("las.api.pvp.net", "las"),
-	LAN("lan.api.pvp.net", "lan"),
+	LAN("lan.api.pvp.net", "lan"), 
 	NA("na1.api.riotgames.com", "na"),
 	OCE("oce.api.pvp.net", "oce"),
 	PBE("pbe.api.pvp.net", "pbe"),
