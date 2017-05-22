@@ -59,10 +59,10 @@ public class SummonerData {
 			Participant player = match.getParticipants().get(i);
 			Player pIdentity = match.getParticipantIdentities().get(i).getPlayer();
 			String stats = 	getMatchDetails(player.getStats(), matchReferenceList.getMatches().get(matchIndex)) +
-							//"champion:" + Server.getChampionNameFromId(player.getChampionId()) + "/" + 
+							"champion:" + Server.getChampionNameFromId(player.getChampionId()) + "/" + 
 							getSummonerSpellIds(player) + 
 							getMatchPeripherals(match) + 
-							"summonerId: " + pIdentity.getSummonerId();;
+							"summonerId: " + pIdentity.getSummonerId() + "/";;
 			if(pIdentity.getSummonerId()==summonerId)
 				stats = stats + getTeamStats(match.getParticipants(), player.getTeamId());
 			unorderedPlayerList.add(stats);
@@ -221,19 +221,22 @@ public class SummonerData {
 					Participant player = matchList.get(i).getParticipants().get(j);
 					if(updatedChampionDataMap.containsKey(player.getChampionId())){
 						updatedChampionDataMap.get(player.getChampionId()).get(ALL_DATA_INDEX).addNewMatchStats(player.getStats());
-						if(player.getStats().isWin())
+						if(player.getStats().isWin()){
 							updatedChampionDataMap.get(player.getChampionId()).get(WIN_DATA_INDEX).addNewMatchStats(player.getStats());
-						else
+							//updatedChampionDataMap.get(player.getChampionId()).get(LOSS_DATA_INDEX).incrementMatchNumber()
+						} else{
 							updatedChampionDataMap.get(player.getChampionId()).get(LOSS_DATA_INDEX).addNewMatchStats(player.getStats());
+							//updatedChampionDataMap.get(player.getChampionId()).get(WIN_DATA_INDEX).incrementMatchNumber()
+						}
 					} else {
 						List<AggregatedChampionData> newData = new ArrayList<>();
-						newData.add(new AggregatedChampionData(player.getStats())); //all data
+						newData.add(new AggregatedChampionData(player.getStats(), player.getChampionId())); //all data
 						if(player.getStats().isWin()){ // win/loss data
-							newData.add(new AggregatedChampionData(player.getStats()));
-							newData.add(new AggregatedChampionData()); //could throw an error later if adding to uninstanciated fields
+							newData.add(new AggregatedChampionData(player.getStats(), player.getChampionId()));
+							newData.add(new AggregatedChampionData(player.getChampionId(), true)); //could throw an error later if adding to uninstanciated fields
 						} else{
-							newData.add(new AggregatedChampionData());
-							newData.add(new AggregatedChampionData(player.getStats()));
+							newData.add(new AggregatedChampionData(player.getChampionId(), false));
+							newData.add(new AggregatedChampionData(player.getStats(), player.getChampionId()));
 						} updatedChampionDataMap.put(player.getChampionId(), newData);
 					}
 				}
@@ -256,7 +259,7 @@ public class SummonerData {
 	}
 	
 	public SummonerData addMatch(Match match, boolean addNewMatch){
-		if(addNewMatch)
+		if(addNewMatch) //if false, adding old match
 			matchList.add(0, match);
 		else
 			matchList.add(match);
