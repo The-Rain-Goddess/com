@@ -34,7 +34,7 @@ public class Server {
 //MAIN	
 	public static void main(String[] args) throws IOException{
 		MyLogger.setup();
-		final int PORT_NUMBER = 48869;
+		final int PORT_NUMBER = 48868;
 		new Server(PORT_NUMBER);
 	}
 
