@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 import com.rain.app.service.riot.api.ApiConfig;
 import com.rain.app.service.riot.api.RiotApi;
+import com.rain.app.service.riot.api.RiotApiException;
 import com.rain.app.service.riot.api.endpoints.champion_mastery.dto.ChampionMasteryList;
 import com.rain.app.service.riot.api.endpoints.league.dto.LeagueList;
 import com.rain.app.service.riot.api.endpoints.match.dto.Match;
@@ -63,7 +64,14 @@ public class RiotApiHandler {
 			return future.get();
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
-			return null;
+			if(e.getCause().getClass().equals(RiotApiException.class)){
+				try{
+					Thread.sleep(1000L);
+					return evaluateFromFuture(method, args);
+				} catch(InterruptedException e1){
+					e1.printStackTrace();
+				}
+			} return null;
 		}
 	}
 	
